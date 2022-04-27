@@ -1,8 +1,8 @@
 namespace WinFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class tl_Home : Form
     {
-        public Form1()
+        public tl_Home()
         {
             InitializeComponent();
         }
