@@ -36,8 +36,10 @@ namespace WinFormsApp1
                 tb_senha.Focus();
                 return;
             }
-            
-                string sql = $"SELECT * FROM tb_usuario WHERE T_USERNAME = '{username}' AND T_SENHA = '{senha}'";
+
+            string sql = $"SELECT * FROM tb_usuario WHERE T_USERNAME = '{username}' AND T_SENHA = '{senha}'";
+            //string sql = "SELECT * FROM tb_dados";
+
             dt = Banco.consulta(sql);
             if (dt.Rows.Count == 1)
             {
@@ -46,7 +48,8 @@ namespace WinFormsApp1
                 Globais.logado = true;
                 this.Close();
             }
-            else {
+            else
+            {
                 MessageBox.Show("Usuario ou senha invalidos");
             }
         }

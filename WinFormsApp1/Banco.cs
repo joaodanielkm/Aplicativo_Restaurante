@@ -14,7 +14,7 @@ namespace WinFormsApp1
 
         private static SQLiteConnection ConexaoBanco()
         {
-            conexao = new SQLiteConnection("Data Source=C:\\Repositorios\\dbeys\\Banco_restaurante\\bd_restaurante.bd");
+            conexao = new SQLiteConnection("Data Source=C:\\Repositorios\\dbeys\\Banco_restaurante\\bd_restaurante.db");
             conexao.Open();
             return conexao;
         }

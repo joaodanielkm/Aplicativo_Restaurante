@@ -50,7 +50,9 @@ namespace WinFormsApp1
 
             ll_usuario.Text = "---";
             Globais.logado = false;
-            
+
+            Login login = new Login(this);
+            login.ShowDialog();
 
             
         }
