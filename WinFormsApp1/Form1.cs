@@ -5,6 +5,8 @@ namespace WinFormsApp1
         public tl_home()
         {
             InitializeComponent();
+            Login login = new Login(this);
+            login.ShowDialog();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -41,6 +43,16 @@ namespace WinFormsApp1
         {
             F_SQLite f_SQLite = new F_SQLite();
             f_SQLite.ShowDialog();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            ll_usuario.Text = "---";
+            Globais.logado = false;
+            
+
+            
         }
     }
 }

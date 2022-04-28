@@ -34,9 +34,10 @@
             this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outrosMesesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sQLiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sQLiteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.l_peso = new System.Windows.Forms.Label();
             this.dt_data_atual = new System.Windows.Forms.DateTimePicker();
-            this.ll_usuario = new System.Windows.Forms.LinkLabel();
             this.l_diversos = new System.Windows.Forms.Label();
             this.tb_peso = new System.Windows.Forms.TextBox();
             this.tb_diversos_descricao = new System.Windows.Forms.TextBox();
@@ -48,8 +49,7 @@
             this.ll_versao = new System.Windows.Forms.LinkLabel();
             this.tb_outros_valor = new System.Windows.Forms.TextBox();
             this.l_rs = new System.Windows.Forms.Label();
-            this.sQLiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sQLiteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ll_usuario = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +100,22 @@
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // sQLiteToolStripMenuItem
+            // 
+            this.sQLiteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sQLiteToolStripMenuItem1});
+            this.sQLiteToolStripMenuItem.Name = "sQLiteToolStripMenuItem";
+            this.sQLiteToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.sQLiteToolStripMenuItem.Text = "SQLite";
+            // 
+            // sQLiteToolStripMenuItem1
+            // 
+            this.sQLiteToolStripMenuItem1.Name = "sQLiteToolStripMenuItem1";
+            this.sQLiteToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
+            this.sQLiteToolStripMenuItem1.Text = "SQLite";
+            this.sQLiteToolStripMenuItem1.Click += new System.EventHandler(this.sQLiteToolStripMenuItem1_Click);
             // 
             // l_peso
             // 
@@ -117,16 +133,6 @@
             this.dt_data_atual.Name = "dt_data_atual";
             this.dt_data_atual.Size = new System.Drawing.Size(260, 23);
             this.dt_data_atual.TabIndex = 2;
-            // 
-            // ll_usuario
-            // 
-            this.ll_usuario.AutoSize = true;
-            this.ll_usuario.Location = new System.Drawing.Point(243, 21);
-            this.ll_usuario.Name = "ll_usuario";
-            this.ll_usuario.Size = new System.Drawing.Size(47, 15);
-            this.ll_usuario.TabIndex = 3;
-            this.ll_usuario.TabStop = true;
-            this.ll_usuario.Text = "Usuario";
             // 
             // l_diversos
             // 
@@ -192,7 +198,7 @@
             // ll_sobre
             // 
             this.ll_sobre.AutoSize = true;
-            this.ll_sobre.Location = new System.Drawing.Point(134, 347);
+            this.ll_sobre.Location = new System.Drawing.Point(130, 342);
             this.ll_sobre.Name = "ll_sobre";
             this.ll_sobre.Size = new System.Drawing.Size(37, 15);
             this.ll_sobre.TabIndex = 13;
@@ -202,7 +208,7 @@
             // ll_versao
             // 
             this.ll_versao.AutoSize = true;
-            this.ll_versao.Location = new System.Drawing.Point(126, 392);
+            this.ll_versao.Location = new System.Drawing.Point(122, 387);
             this.ll_versao.Name = "ll_versao";
             this.ll_versao.Size = new System.Drawing.Size(50, 15);
             this.ll_versao.TabIndex = 14;
@@ -225,26 +231,21 @@
             this.l_rs.TabIndex = 16;
             this.l_rs.Text = "R$";
             // 
-            // sQLiteToolStripMenuItem
+            // ll_usuario
             // 
-            this.sQLiteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sQLiteToolStripMenuItem1});
-            this.sQLiteToolStripMenuItem.Name = "sQLiteToolStripMenuItem";
-            this.sQLiteToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.sQLiteToolStripMenuItem.Text = "SQLite";
-            // 
-            // sQLiteToolStripMenuItem1
-            // 
-            this.sQLiteToolStripMenuItem1.Name = "sQLiteToolStripMenuItem1";
-            this.sQLiteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.sQLiteToolStripMenuItem1.Text = "SQLite";
-            this.sQLiteToolStripMenuItem1.Click += new System.EventHandler(this.sQLiteToolStripMenuItem1_Click);
+            this.ll_usuario.AutoSize = true;
+            this.ll_usuario.Location = new System.Drawing.Point(273, 21);
+            this.ll_usuario.Name = "ll_usuario";
+            this.ll_usuario.Size = new System.Drawing.Size(17, 15);
+            this.ll_usuario.TabIndex = 17;
+            this.ll_usuario.Text = "--";
             // 
             // tl_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 411);
+            this.Controls.Add(this.ll_usuario);
             this.Controls.Add(this.l_rs);
             this.Controls.Add(this.tb_outros_valor);
             this.Controls.Add(this.ll_versao);
@@ -256,7 +257,6 @@
             this.Controls.Add(this.tb_diversos_descricao);
             this.Controls.Add(this.tb_peso);
             this.Controls.Add(this.l_diversos);
-            this.Controls.Add(this.ll_usuario);
             this.Controls.Add(this.dt_data_atual);
             this.Controls.Add(this.l_peso);
             this.Controls.Add(this.menuStrip1);
@@ -281,7 +281,6 @@
         private ToolStripMenuItem logoutToolStripMenuItem;
         private Label l_peso;
         private DateTimePicker dt_data_atual;
-        private LinkLabel ll_usuario;
         private Label l_diversos;
         private TextBox tb_peso;
         private TextBox tb_diversos_descricao;
@@ -297,5 +296,6 @@
         private Label l_rs;
         private ToolStripMenuItem sQLiteToolStripMenuItem;
         private ToolStripMenuItem sQLiteToolStripMenuItem1;
+        public Label ll_usuario;
     }
 }

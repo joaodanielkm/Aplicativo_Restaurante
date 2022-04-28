@@ -11,6 +11,9 @@ namespace WinFormsApp1
         private Int32 id;
         private string nome;
         private string senha;
+        private string username;
+        private Int32 nivel;
+        private string status;
         
     }
 }
