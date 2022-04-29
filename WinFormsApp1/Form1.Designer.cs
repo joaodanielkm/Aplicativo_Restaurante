@@ -50,6 +50,9 @@
             this.tb_outros_valor = new System.Windows.Forms.TextBox();
             this.l_rs = new System.Windows.Forms.Label();
             this.ll_usuario = new System.Windows.Forms.Label();
+            this.l_vlr_kg = new System.Windows.Forms.Label();
+            this.l_vlrkg = new System.Windows.Forms.Label();
+            this.l_vlrdinamico = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,26 +82,26 @@
             // alterarSenhaToolStripMenuItem
             // 
             this.alterarSenhaToolStripMenuItem.Name = "alterarSenhaToolStripMenuItem";
-            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.alterarSenhaToolStripMenuItem.Text = "Alterar Senha";
             // 
             // históricoToolStripMenuItem
             // 
             this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
-            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.históricoToolStripMenuItem.Text = "Histórico";
             this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
             // outrosMesesToolStripMenuItem
             // 
             this.outrosMesesToolStripMenuItem.Name = "outrosMesesToolStripMenuItem";
-            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.outrosMesesToolStripMenuItem.Text = "Outros Meses";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -234,17 +237,51 @@
             // ll_usuario
             // 
             this.ll_usuario.AutoSize = true;
-            this.ll_usuario.Location = new System.Drawing.Point(273, 21);
+            this.ll_usuario.Location = new System.Drawing.Point(234, 24);
             this.ll_usuario.Name = "ll_usuario";
             this.ll_usuario.Size = new System.Drawing.Size(17, 15);
             this.ll_usuario.TabIndex = 17;
             this.ll_usuario.Text = "--";
+            // 
+            // l_vlr_kg
+            // 
+            this.l_vlr_kg.AutoSize = true;
+            this.l_vlr_kg.Location = new System.Drawing.Point(68, 81);
+            this.l_vlr_kg.Name = "l_vlr_kg";
+            this.l_vlr_kg.Size = new System.Drawing.Size(50, 15);
+            this.l_vlr_kg.TabIndex = 18;
+            this.l_vlr_kg.Text = "Valor Kg";
+            // 
+            // l_vlrkg
+            // 
+            this.l_vlrkg.AutoSize = true;
+            this.l_vlrkg.Location = new System.Drawing.Point(135, 81);
+            this.l_vlrkg.Name = "l_vlrkg";
+            this.l_vlrkg.Size = new System.Drawing.Size(22, 15);
+            this.l_vlrkg.TabIndex = 19;
+            this.l_vlrkg.Text = "---";
+            this.l_vlrkg.TextChanged += new System.EventHandler(this.l_vlrkg_Click);
+            this.l_vlrkg.Click += new System.EventHandler(this.l_vlrkg_Click);
+            this.l_vlrkg.Enter += new System.EventHandler(this.l_vlrkg_Click);
+            // 
+            // l_vlrdinamico
+            // 
+            this.l_vlrdinamico.AutoSize = true;
+            this.l_vlrdinamico.Location = new System.Drawing.Point(130, 149);
+            this.l_vlrdinamico.Name = "l_vlrdinamico";
+            this.l_vlrdinamico.Size = new System.Drawing.Size(22, 15);
+            this.l_vlrdinamico.TabIndex = 20;
+            this.l_vlrdinamico.Text = "---";
+            this.l_vlrdinamico.Click += new System.EventHandler(this.l_vlrdinamico_Click);
             // 
             // tl_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 411);
+            this.Controls.Add(this.l_vlrdinamico);
+            this.Controls.Add(this.l_vlrkg);
+            this.Controls.Add(this.l_vlr_kg);
             this.Controls.Add(this.ll_usuario);
             this.Controls.Add(this.l_rs);
             this.Controls.Add(this.tb_outros_valor);
@@ -297,5 +334,8 @@
         private ToolStripMenuItem sQLiteToolStripMenuItem;
         private ToolStripMenuItem sQLiteToolStripMenuItem1;
         public Label ll_usuario;
+        private Label l_vlr_kg;
+        private Label l_vlrkg;
+        private Label l_vlrdinamico;
     }
 }
