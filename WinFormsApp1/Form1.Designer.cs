@@ -35,8 +35,6 @@
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarSenhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sQLiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sQLiteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.l_peso = new System.Windows.Forms.Label();
             this.dt_data_atual = new System.Windows.Forms.DateTimePicker();
             this.l_diversos = new System.Windows.Forms.Label();
@@ -61,8 +59,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.sQLiteToolStripMenuItem});
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(290, 24);
@@ -85,50 +82,35 @@
             // históricoToolStripMenuItem
             // 
             this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
-            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.históricoToolStripMenuItem.Text = "Histórico";
             this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
             // outrosMesesToolStripMenuItem
             // 
             this.outrosMesesToolStripMenuItem.Name = "outrosMesesToolStripMenuItem";
-            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.outrosMesesToolStripMenuItem.Text = "Outros Meses";
             // 
             // configuraçõesToolStripMenuItem
             // 
             this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
-            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
             this.configuraçõesToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesToolStripMenuItem_Click);
             // 
             // alterarSenhaToolStripMenuItem
             // 
             this.alterarSenhaToolStripMenuItem.Name = "alterarSenhaToolStripMenuItem";
-            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alterarSenhaToolStripMenuItem.Text = "Alterar Senha";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
-            // sQLiteToolStripMenuItem
-            // 
-            this.sQLiteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sQLiteToolStripMenuItem1});
-            this.sQLiteToolStripMenuItem.Name = "sQLiteToolStripMenuItem";
-            this.sQLiteToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.sQLiteToolStripMenuItem.Text = "SQLite";
-            // 
-            // sQLiteToolStripMenuItem1
-            // 
-            this.sQLiteToolStripMenuItem1.Name = "sQLiteToolStripMenuItem1";
-            this.sQLiteToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
-            this.sQLiteToolStripMenuItem1.Text = "SQLite";
-            this.sQLiteToolStripMenuItem1.Click += new System.EventHandler(this.sQLiteToolStripMenuItem1_Click);
             // 
             // l_peso
             // 
@@ -142,9 +124,10 @@
             // 
             // dt_data_atual
             // 
-            this.dt_data_atual.Location = new System.Drawing.Point(18, 42);
+            this.dt_data_atual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_data_atual.Location = new System.Drawing.Point(109, 48);
             this.dt_data_atual.Name = "dt_data_atual";
-            this.dt_data_atual.Size = new System.Drawing.Size(260, 23);
+            this.dt_data_atual.Size = new System.Drawing.Size(78, 23);
             this.dt_data_atual.TabIndex = 2;
             // 
             // l_diversos
@@ -356,8 +339,6 @@
         private ToolStripMenuItem outrosMesesToolStripMenuItem;
         private TextBox tb_outros_valor;
         private Label l_rs;
-        private ToolStripMenuItem sQLiteToolStripMenuItem;
-        private ToolStripMenuItem sQLiteToolStripMenuItem1;
         public Label ll_usuario;
         private Label l_valor_peso;
         private ToolStripMenuItem configuraçõesToolStripMenuItem;
