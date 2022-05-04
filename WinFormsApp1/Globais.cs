@@ -8,7 +8,7 @@ namespace WinFormsApp1
 {
     internal class Globais
     {
-           public static string Versao = "1.0";
+           public static string versao = "1.0";
            public static Boolean logado = false;
            public static int nivel = 0;
     }

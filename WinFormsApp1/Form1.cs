@@ -6,13 +6,22 @@ namespace WinFormsApp1
     public partial class tl_home : Form
     {
 
+
+
         //F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
+        
         public tl_home()
         {
             InitializeComponent();
+            
             Login login = new Login(this);
             login.ShowDialog();
+            if (Globais.logado == false)
+            {
+                this.Close();
+            }
+
 
         }
 
@@ -40,11 +49,22 @@ namespace WinFormsApp1
         private void bt_salvar_Click(object sender, EventArgs e)
         {
 
+            double tb_peso1 = Convert.ToDouble(tb_peso.Text);
+            F_Configuracoes f_configuracoes = new F_Configuracoes(this);
+            double tb_vlr_kg1 = Convert.ToDouble(f_configuracoes.tb_vlr_kg.Text);
+            double tb_vlr_pg_empresa1 = Convert.ToDouble(f_configuracoes.tb_vlr_pg_empresa.Text);
+            double tb_outros_valor1 = Convert.ToDouble(tb_outros_valor.Text);
+
+
+            double result1 = (tb_peso1 * tb_vlr_kg1) / 1000;
+
+            result1 = result1 - tb_vlr_pg_empresa1;
+
 
             string dt_data_atual1 = dt_data_atual.Text;
-            int tb_peso1 = int.Parse(tb_peso.Text);
+            //int tb_peso1 = int.Parse(tb_peso.Text);
             string tb_diversos_descricao1 = tb_diversos_descricao.Text;
-            int tb_outros_valor1 = int.Parse(tb_outros_valor.Text);
+            //int tb_outros_valor1 = int.Parse(tb_outros_valor.Text);
             string sql1 = $"SELECT * FROM tb_dados WHERE T_DATA like '{dt_data_atual1}'";
             //string sql = "SELECT * FROM tb_dados";
 
@@ -57,11 +77,36 @@ namespace WinFormsApp1
                 {
                     if (!(tb_diversos_descricao1 is null) && tb_diversos_descricao1 != "")
                     {
-                        string sql = $"UPDATE tb_dados SET N_PESO = {tb_peso1}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1} WHERE T_DATA LIKE '{dt_data_atual1}'";
-                        //string sql = "SELECT * FROM tb_dados";
+                        //adiciona o valor do dia na coludo T_TOTAL_DIARIO
+                        if (result1 < 0)
+                        {
 
-                        dt = Banco.consulta(sql);
-                        MessageBox.Show("Salvo!");
+                            double result2 = tb_outros_valor1;
+                            string valor_diario = result2.ToString("F2");
+                            string sql = $"UPDATE tb_dados SET N_PESO = {tb_peso1}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
+                            //string sql = "SELECT * FROM tb_dados";
+
+                            dt = Banco.consulta(sql);
+                            MessageBox.Show("Salvo!");
+
+                        }
+                        else
+                        {
+                            double result2 = result1 + tb_outros_valor1;
+                            string valor_diario = result2.ToString("F2");
+                            string sql = $"UPDATE tb_dados SET N_PESO = {tb_peso1}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}'  WHERE T_DATA LIKE '{dt_data_atual1}'";
+                            //string sql = "SELECT * FROM tb_dados";
+
+                            dt = Banco.consulta(sql);
+                            MessageBox.Show("Salvo!");
+
+                        }
+
+
+
+
+                        ///final da adicao
+
                     }
                     else
                     {
@@ -70,13 +115,28 @@ namespace WinFormsApp1
                 }
                 else
                 {
-                    string sql = $"UPDATE tb_dados SET N_PESO = {tb_peso1}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1} WHERE T_DATA LIKE '{dt_data_atual1}'";
-                    //string sql = "SELECT * FROM tb_dados";
+                    if (result1 < 0)
+                    {
 
-                    dt = Banco.consulta(sql);
-                    MessageBox.Show("Salvo!");
+                        double result2 = tb_outros_valor1;
+                        string valor_diario = result2.ToString("F2");
+                        string sql = $"UPDATE tb_dados SET N_PESO = {tb_peso1}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
+                        //string sql = "SELECT * FROM tb_dados";
+
+                        dt = Banco.consulta(sql);
+                        MessageBox.Show("Salvo!");
+                    }
+                    else
+                    {
+                        double result2 = result1 + tb_outros_valor1;
+                        string valor_diario = result2.ToString("F2");
+                        string sql = $"UPDATE tb_dados SET N_PESO = {tb_peso1}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
+                        //string sql = "SELECT * FROM tb_dados";
+
+                        dt = Banco.consulta(sql);
+                        MessageBox.Show("Salvo!");
+                    }
                 }
-
                 //this.Close();
             }
 
@@ -99,11 +159,28 @@ namespace WinFormsApp1
                     {
                         if (!(tb_diversos_descricao1 is null) && tb_diversos_descricao1 != "")
                         {
-                            string sql = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR) VALUES ('{dt_data_atual1}',{tb_peso1},'{tb_diversos_descricao1}',{tb_outros_valor1})";
-                            //string sql = "SELECT * FROM tb_dados";
+                            if (result1 < 0)
+                            {
 
-                            dt = Banco.consulta(sql);
-                            MessageBox.Show("Salvo!");
+                                double result2 = tb_outros_valor1;
+                                string valor_diario = result2.ToString("F2");
+
+                                string sql = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{tb_peso1},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
+                                //string sql = "SELECT * FROM tb_dados";
+
+                                dt = Banco.consulta(sql);
+                                MessageBox.Show("Salvo!");
+                            }
+                            else
+                            {
+                                double result2 = result1 + tb_outros_valor1;
+                                string valor_diario = result2.ToString("F2");
+                                string sql = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{tb_peso1},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
+                                //string sql = "SELECT * FROM tb_dados";
+
+                                dt = Banco.consulta(sql);
+                                MessageBox.Show("Salvo!");
+                            }
                         }
                         else
                         {
@@ -112,11 +189,27 @@ namespace WinFormsApp1
                     }
                     else
                     {
-                        string sql = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR) VALUES ('{dt_data_atual1}',{tb_peso1},'{tb_diversos_descricao1}',{tb_outros_valor1})";
-                        //string sql = "SELECT * FROM tb_dados";
+                        if (result1 < 0)
+                        {
 
-                        dt = Banco.consulta(sql);
-                        MessageBox.Show("Salvo!");
+                            double result2 = tb_outros_valor1;
+                            string valor_diario = result2.ToString("F2");
+                            string sql = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{tb_peso1},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
+                            //string sql = "SELECT * FROM tb_dados";
+
+                            dt = Banco.consulta(sql);
+                            MessageBox.Show("Salvo!");
+                        }
+                        else
+                        {
+                            double result2 = result1 + tb_outros_valor1;
+                            string valor_diario = result2.ToString("F2");
+                            string sql = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{tb_peso1},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
+                            //string sql = "SELECT * FROM tb_dados";
+
+                            dt = Banco.consulta(sql);
+                            MessageBox.Show("Salvo!");
+                        }
                     }
                 }
             }
@@ -154,8 +247,8 @@ namespace WinFormsApp1
 
         private void l_vlr_peso_atual_Click(object sender, EventArgs e)
         {
-            F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            l_vlr_peso_atual.Text = f_Configuracoes.tb_vlr_kg.Text;
+            /*F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+            l_vlr_peso_atual.Text = f_Configuracoes.tb_vlr_kg.Text;*/
 
         }
 
@@ -193,6 +286,52 @@ namespace WinFormsApp1
 
 
             //l_vlrparcial.Refresh();
+        }
+
+        private void dt_data_atual_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void l_vlr_parcial_Click(object sender, EventArgs e)
+        {
+            /*
+            string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
+
+            dt = Banco.consulta(total_mes);
+
+            l_vlr_parcial.Text = "R$ " + dt.Rows[0].ItemArray[0].ToString();*/
+
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
+
+            dt = Banco.consulta(total_mes);
+
+            l_vlr_parcial.Text = "R$ " + double.Parse(dt.Rows[0].ItemArray[0].ToString());
+
+            F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+            l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
+        }
+
+        private void ll_versao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ll_versao.Text = "Versão: "+Globais.versao;
+            ll_versao.Refresh();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

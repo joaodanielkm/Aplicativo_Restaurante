@@ -42,7 +42,6 @@
             this.tb_vlr_kg.Name = "tb_vlr_kg";
             this.tb_vlr_kg.Size = new System.Drawing.Size(100, 23);
             this.tb_vlr_kg.TabIndex = 0;
-            this.tb_vlr_kg.Text = "37,00";
             this.tb_vlr_kg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_vlr_kg.TextChanged += new System.EventHandler(this.F_Configuracoes_Load);
             // 
@@ -52,8 +51,8 @@
             this.tb_vlr_pg_empresa.Name = "tb_vlr_pg_empresa";
             this.tb_vlr_pg_empresa.Size = new System.Drawing.Size(100, 23);
             this.tb_vlr_pg_empresa.TabIndex = 1;
-            this.tb_vlr_pg_empresa.Text = "18,50";
             this.tb_vlr_pg_empresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_vlr_pg_empresa.TextChanged += new System.EventHandler(this.tb_vlr_pg_empresa_TextChanged);
             // 
             // bt_salvar
             // 
@@ -63,6 +62,7 @@
             this.bt_salvar.TabIndex = 2;
             this.bt_salvar.Text = "Salvar";
             this.bt_salvar.UseVisualStyleBackColor = true;
+            this.bt_salvar.Click += new System.EventHandler(this.bt_salvar_Click);
             // 
             // l_vlr_kg
             // 
