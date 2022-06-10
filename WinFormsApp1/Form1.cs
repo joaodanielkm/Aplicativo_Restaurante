@@ -333,5 +333,23 @@ namespace WinFormsApp1
         {
 
         }
+
+        private void l_vlrkg_Click(object sender, EventArgs e)
+        {
+            F_Configuracoes f_Configuracoes = new F_Configuracoes();
+            l_vlrkg.Text = f_Configuracoes.tb_vlrkg.Text;
+        }
+
+        private void l_vlrdinamico_Click(object sender, EventArgs e)
+        {
+
+            F_Configuracoes f_Configuracoes = new F_Configuracoes();
+            int valor1 = int.Parse(tb_peso.Text);
+            int valor2 = int.Parse(f_Configuracoes.tb_vlrkg.Text);
+            int l_vlrdinamico = ((valor1 * valor2) / 1000); 
+
+
+
+        }
     }
 }

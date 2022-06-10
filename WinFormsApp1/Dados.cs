@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WinFormsApp1
 {
     internal class Dados
-    {
+    { 
         public string peso;
         public string data;
         public string outrosDiversos;

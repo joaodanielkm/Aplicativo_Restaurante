@@ -12,6 +12,7 @@ namespace WinFormsApp1
 {
     public partial class F_Configuracoes : Form
     {
+
         tl_home home;
         DataTable dt = new DataTable();
         public F_Configuracoes(tl_home h)
@@ -76,6 +77,7 @@ namespace WinFormsApp1
 
             MessageBox.Show("Salvo!");
             
+
         }
     }
 }

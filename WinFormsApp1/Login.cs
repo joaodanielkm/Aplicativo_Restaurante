@@ -38,7 +38,7 @@ namespace WinFormsApp1
             }
 
             string sql = $"SELECT * FROM tb_usuario WHERE T_USERNAME = '{username}' AND T_SENHA = '{senha}'";
-            //string sql = "SELECT * FROM tb_dados";
+           
 
             dt = Banco.consulta(sql);
             if (dt.Rows.Count == 1)

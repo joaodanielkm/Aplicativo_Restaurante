@@ -48,12 +48,14 @@
             this.tb_outros_valor = new System.Windows.Forms.TextBox();
             this.l_rs = new System.Windows.Forms.Label();
             this.ll_usuario = new System.Windows.Forms.Label();
+
             this.l_valor_peso = new System.Windows.Forms.Label();
             this.l_vlr_peso_atual = new System.Windows.Forms.Label();
             this.l_vlrparcial = new System.Windows.Forms.Label();
             this.bt_calcular = new System.Windows.Forms.Button();
             this.l_gastodehoje = new System.Windows.Forms.Label();
             this.bt_carregar = new System.Windows.Forms.Button();
+ 
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,25 +83,31 @@
             this.toolStripMenuItem1.Text = "Menu";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
+
             // históricoToolStripMenuItem
             // 
             this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
             this.históricoToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+ 
             this.históricoToolStripMenuItem.Text = "Histórico";
             this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
             // outrosMesesToolStripMenuItem
             // 
             this.outrosMesesToolStripMenuItem.Name = "outrosMesesToolStripMenuItem";
+
             this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+ 
             this.outrosMesesToolStripMenuItem.Text = "Outros Meses";
             // 
             // configuraçõesToolStripMenuItem
             // 
+
             this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
             this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
             this.configuraçõesToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesToolStripMenuItem_Click);
+ 
             // 
             // alterarSenhaToolStripMenuItem
             // 
@@ -231,12 +239,15 @@
             // 
             this.ll_usuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ll_usuario.AutoSize = true;
+
             this.ll_usuario.Location = new System.Drawing.Point(12, 24);
+ 
             this.ll_usuario.Name = "ll_usuario";
             this.ll_usuario.Size = new System.Drawing.Size(17, 15);
             this.ll_usuario.TabIndex = 17;
             this.ll_usuario.Text = "--";
             // 
+
             // l_valor_peso
             // 
             this.l_valor_peso.AutoSize = true;
@@ -297,18 +308,21 @@
             this.bt_carregar.Text = "Carregar";
             this.bt_carregar.UseVisualStyleBackColor = true;
             this.bt_carregar.Click += new System.EventHandler(this.button1_Click);
+ 
             // 
             // tl_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 411);
+
             this.Controls.Add(this.bt_carregar);
             this.Controls.Add(this.l_gastodehoje);
             this.Controls.Add(this.bt_calcular);
             this.Controls.Add(this.l_vlrparcial);
             this.Controls.Add(this.l_vlr_peso_atual);
             this.Controls.Add(this.l_valor_peso);
+ 
             this.Controls.Add(this.ll_usuario);
             this.Controls.Add(this.l_rs);
             this.Controls.Add(this.tb_outros_valor);
@@ -357,6 +371,7 @@
         private TextBox tb_outros_valor;
         private Label l_rs;
         public Label ll_usuario;
+
         private Label l_valor_peso;
         private ToolStripMenuItem configuraçõesToolStripMenuItem;
         public Label l_vlr_peso_atual;
@@ -364,5 +379,6 @@
         private Button bt_calcular;
         private Label l_gastodehoje;
         private Button bt_carregar;
+
     }
 }
