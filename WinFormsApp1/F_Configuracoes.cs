@@ -78,8 +78,20 @@ namespace WinFormsApp1
 
             MessageBox.Show("Salvo!");
 
-            
+            this.Close();
 
+
+        }
+
+        private void homeToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void homeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
 
         }
     }
