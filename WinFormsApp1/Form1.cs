@@ -10,11 +10,11 @@ namespace WinFormsApp1
 
         //F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
-        
+
         public tl_home()
         {
             InitializeComponent();
-            
+
             Login login = new Login(this);
             login.ShowDialog();
             if (Globais.logado == false)
@@ -43,6 +43,13 @@ namespace WinFormsApp1
 
         private void tl_home_Load(object sender, EventArgs e)
         {
+
+
+            string sql = "select * from tb_configuracoes";
+
+            dt = Banco.consulta(sql);
+            l_vlr_peso_atual.Text = dt.Rows[0].ItemArray[1].ToString();
+
 
         }
 
@@ -325,7 +332,7 @@ namespace WinFormsApp1
 
         private void ll_versao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ll_versao.Text = "Versão: "+Globais.versao;
+            ll_versao.Text = "Versão: " + Globais.versao;
             ll_versao.Refresh();
         }
 
@@ -336,17 +343,17 @@ namespace WinFormsApp1
 
         private void l_vlrkg_Click(object sender, EventArgs e)
         {
-            F_Configuracoes f_Configuracoes = new F_Configuracoes();
-            l_vlrkg.Text = f_Configuracoes.tb_vlrkg.Text;
+            F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+            // l_vlrkg.Text = f_Configuracoes.tb_vlrkg.Text;
         }
 
         private void l_vlrdinamico_Click(object sender, EventArgs e)
         {
 
-            F_Configuracoes f_Configuracoes = new F_Configuracoes();
+            F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
             int valor1 = int.Parse(tb_peso.Text);
-            int valor2 = int.Parse(f_Configuracoes.tb_vlrkg.Text);
-            int l_vlrdinamico = ((valor1 * valor2) / 1000); 
+            //int valor2 = int.Parse(f_Configuracoes.tb_vlrkg.Text);
+            //int l_vlrdinamico = ((valor1 * valor2) / 1000); 
 
 
 
