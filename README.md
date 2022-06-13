@@ -2,7 +2,7 @@
 
 **Urgencias:**
 
-1- Média:
+1. Média:
 * Identar;
 * Comentar;
 * Limpar codigo;
