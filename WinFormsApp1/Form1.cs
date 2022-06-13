@@ -44,12 +44,23 @@ namespace WinFormsApp1
         private void tl_home_Load(object sender, EventArgs e)
         {
 
-
+            //VLR DEFINIDO EM CONFIGURAÇÕES
             string sql = "select * from tb_configuracoes";
 
             dt = Banco.consulta(sql);
-            l_vlr_peso_atual.Text = dt.Rows[0].ItemArray[1].ToString();
+            l_vlr_peso_atual.Text = "R$ " + dt.Rows[0].ItemArray[1].ToString();
 
+            //GASTOS DO MES
+            string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
+
+            dt = Banco.consulta(total_mes);
+
+            l_vlr_parcial.Text = "R$ " + dt.Rows[0].ItemArray[0].ToString();
+            //FIM GASTOS DO MES
+
+            //VERSAO
+            ll_versao.Text = "Versão: " + Globais.versao;
+            ll_versao.Refresh();
 
         }
 
@@ -307,12 +318,8 @@ namespace WinFormsApp1
 
         private void l_vlr_parcial_Click(object sender, EventArgs e)
         {
-            /*
-            string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
-
-            dt = Banco.consulta(total_mes);
-
-            l_vlr_parcial.Text = "R$ " + dt.Rows[0].ItemArray[0].ToString();*/
+            
+            
 
 
 
