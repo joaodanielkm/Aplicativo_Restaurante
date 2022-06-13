@@ -44,7 +44,6 @@
             this.l_vlr_parcial = new System.Windows.Forms.Label();
             this.ll_sobre = new System.Windows.Forms.LinkLabel();
             this.ll_versao = new System.Windows.Forms.LinkLabel();
-            this.tb_outros_valor = new System.Windows.Forms.TextBox();
             this.l_rs = new System.Windows.Forms.Label();
             this.ll_usuario = new System.Windows.Forms.Label();
             this.l_valor_peso = new System.Windows.Forms.Label();
@@ -53,8 +52,11 @@
             this.bt_calcular = new System.Windows.Forms.Button();
             this.l_gastodehoje = new System.Windows.Forms.Label();
             this.tb_peso = new System.Windows.Forms.NumericUpDown();
+            this.tb_outros_valor = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_peso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_outros_valor)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -136,7 +138,7 @@
             // l_diversos
             // 
             this.l_diversos.AutoSize = true;
-            this.l_diversos.Location = new System.Drawing.Point(33, 181);
+            this.l_diversos.Location = new System.Drawing.Point(35, 167);
             this.l_diversos.Name = "l_diversos";
             this.l_diversos.Size = new System.Drawing.Size(51, 15);
             this.l_diversos.TabIndex = 4;
@@ -144,7 +146,7 @@
             // 
             // tb_diversos_descricao
             // 
-            this.tb_diversos_descricao.Location = new System.Drawing.Point(90, 178);
+            this.tb_diversos_descricao.Location = new System.Drawing.Point(92, 164);
             this.tb_diversos_descricao.Name = "tb_diversos_descricao";
             this.tb_diversos_descricao.Size = new System.Drawing.Size(160, 23);
             this.tb_diversos_descricao.TabIndex = 6;
@@ -202,19 +204,10 @@
             this.ll_versao.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.ll_versao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_versao_LinkClicked);
             // 
-            // tb_outros_valor
-            // 
-            this.tb_outros_valor.Location = new System.Drawing.Point(150, 207);
-            this.tb_outros_valor.Name = "tb_outros_valor";
-            this.tb_outros_valor.Size = new System.Drawing.Size(100, 23);
-            this.tb_outros_valor.TabIndex = 15;
-            this.tb_outros_valor.Text = "0";
-            this.tb_outros_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // l_rs
             // 
             this.l_rs.AutoSize = true;
-            this.l_rs.Location = new System.Drawing.Point(124, 210);
+            this.l_rs.Location = new System.Drawing.Point(107, 207);
             this.l_rs.Name = "l_rs";
             this.l_rs.Size = new System.Drawing.Size(20, 15);
             this.l_rs.TabIndex = 16;
@@ -235,9 +228,10 @@
             this.l_valor_peso.AutoSize = true;
             this.l_valor_peso.Location = new System.Drawing.Point(92, 92);
             this.l_valor_peso.Name = "l_valor_peso";
-            this.l_valor_peso.Size = new System.Drawing.Size(61, 15);
+            this.l_valor_peso.Size = new System.Drawing.Size(77, 15);
             this.l_valor_peso.TabIndex = 18;
-            this.l_valor_peso.Text = "Valor Peso";
+            this.l_valor_peso.Text = "Valor Peso R$";
+            this.l_valor_peso.Click += new System.EventHandler(this.l_valor_peso_Click);
             // 
             // l_vlr_peso_atual
             // 
@@ -267,7 +261,7 @@
             this.bt_calcular.Name = "bt_calcular";
             this.bt_calcular.Size = new System.Drawing.Size(75, 23);
             this.bt_calcular.TabIndex = 21;
-            this.bt_calcular.Text = "Calcular";
+            this.bt_calcular.Text = "Prévia";
             this.bt_calcular.UseVisualStyleBackColor = true;
             this.bt_calcular.Click += new System.EventHandler(this.l_vlrparcial_Click);
             // 
@@ -276,9 +270,9 @@
             this.l_gastodehoje.AutoSize = true;
             this.l_gastodehoje.Location = new System.Drawing.Point(58, 240);
             this.l_gastodehoje.Name = "l_gastodehoje";
-            this.l_gastodehoje.Size = new System.Drawing.Size(79, 15);
+            this.l_gastodehoje.Size = new System.Drawing.Size(95, 15);
             this.l_gastodehoje.TabIndex = 22;
-            this.l_gastodehoje.Text = "Gasto de hoje";
+            this.l_gastodehoje.Text = "Gasto de hoje R$";
             // 
             // tb_peso
             // 
@@ -294,11 +288,35 @@
             this.tb_peso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_peso.ValueChanged += new System.EventHandler(this.tb_peso_ValueChanged);
             // 
+            // tb_outros_valor
+            // 
+            this.tb_outros_valor.Location = new System.Drawing.Point(130, 203);
+            this.tb_outros_valor.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.tb_outros_valor.Name = "tb_outros_valor";
+            this.tb_outros_valor.Size = new System.Drawing.Size(120, 23);
+            this.tb_outros_valor.TabIndex = 24;
+            this.tb_outros_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(252, 129);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 15);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Kg";
+            // 
             // tl_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 411);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tb_outros_valor);
             this.Controls.Add(this.tb_peso);
             this.Controls.Add(this.l_gastodehoje);
             this.Controls.Add(this.bt_calcular);
@@ -307,7 +325,6 @@
             this.Controls.Add(this.l_valor_peso);
             this.Controls.Add(this.ll_usuario);
             this.Controls.Add(this.l_rs);
-            this.Controls.Add(this.tb_outros_valor);
             this.Controls.Add(this.ll_versao);
             this.Controls.Add(this.ll_sobre);
             this.Controls.Add(this.l_vlr_parcial);
@@ -328,6 +345,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_peso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_outros_valor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,7 +368,6 @@
         private LinkLabel ll_versao;
         private ToolStripMenuItem históricoToolStripMenuItem;
         private ToolStripMenuItem outrosMesesToolStripMenuItem;
-        private TextBox tb_outros_valor;
         private Label l_rs;
         public Label ll_usuario;
 
@@ -361,5 +378,7 @@
         private Button bt_calcular;
         private Label l_gastodehoje;
         private NumericUpDown tb_peso;
+        private NumericUpDown tb_outros_valor;
+        private Label label1;
     }
 }
