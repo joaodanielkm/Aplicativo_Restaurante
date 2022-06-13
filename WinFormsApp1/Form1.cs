@@ -272,7 +272,7 @@ namespace WinFormsApp1
 
         private void l_vlrparcial_Click(object sender, EventArgs e)
         {
-            //incrementar esse bloco todo novamente sem chamar os objetos de outro formulario, e sem do banco de dados
+            //Calculo parcial
 
             string sql = "select * from tb_configuracoes";
 

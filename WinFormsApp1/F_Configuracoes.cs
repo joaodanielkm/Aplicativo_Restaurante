@@ -58,17 +58,17 @@ namespace WinFormsApp1
         {
             
             double tb_vlr_kg1 = Convert.ToDouble(tb_vlr_kg.Text);
-            double tb_vlr_pago_empresa1 = Convert.ToDouble(tb_vlr_pg_empresa.Text);
-            //double var2 = (tb_vlr_kg1 / 2);
+            //double tb_vlr_pago_empresa1 = Convert.ToDouble(tb_vlr_pg_empresa.Text);
+            double var2 = (tb_vlr_kg1 / 2);
 
-            //double var3 = tb_vlr_kg1 - var2;
+            double var3 = tb_vlr_kg1 - var2;
 
 
             
 
             //tb_vlr_pg_empresa.Text = var3.ToString("F2");
 
-            string sql = $"UPDATE tb_configuracoes SET N_VLR_KG = '{tb_vlr_kg1}', N_VLR_PG_EMPRESA = '{tb_vlr_pago_empresa1}'";
+            string sql = $"UPDATE tb_configuracoes SET N_VLR_KG = '{tb_vlr_kg1}', N_VLR_PG_EMPRESA = '{var2}'";
             //string sql1 = $"UPDATE tb_configuracoes SET N_VLR_PG_EMPRESA = '{var3}'";
 
 
