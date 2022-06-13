@@ -200,13 +200,15 @@
             // 
             // ll_versao
             // 
+            this.ll_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ll_versao.AutoSize = true;
-            this.ll_versao.Location = new System.Drawing.Point(136, 387);
+            this.ll_versao.Location = new System.Drawing.Point(136, 375);
             this.ll_versao.Name = "ll_versao";
             this.ll_versao.Size = new System.Drawing.Size(17, 15);
             this.ll_versao.TabIndex = 14;
             this.ll_versao.TabStop = true;
             this.ll_versao.Text = "--";
+            this.ll_versao.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.ll_versao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_versao_LinkClicked);
             // 
             // tb_outros_valor

@@ -279,7 +279,6 @@ namespace WinFormsApp1
             double tb_vlr_pg_empresa1 = Convert.ToDouble(f_configuracoes.tb_vlr_pg_empresa.Text);
             double tb_outros_valor1 = Convert.ToDouble(tb_outros_valor.Text);
 
-
             double result1 = (tb_peso1 * tb_vlr_kg1) / 1000;
 
             result1 = result1 - tb_vlr_pg_empresa1;
@@ -350,17 +349,17 @@ namespace WinFormsApp1
 
         private void l_vlrkg_Click(object sender, EventArgs e)
         {
-            F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            // l_vlrkg.Text = f_Configuracoes.tb_vlrkg.Text;
+            /*F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+            // l_vlrkg.Text = f_Configuracoes.tb_vlrkg.Text;*/
         }
 
         private void l_vlrdinamico_Click(object sender, EventArgs e)
         {
 
-            F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+            /*F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
             int valor1 = int.Parse(tb_peso.Text);
             //int valor2 = int.Parse(f_Configuracoes.tb_vlrkg.Text);
-            //int l_vlrdinamico = ((valor1 * valor2) / 1000); 
+            //int l_vlrdinamico = ((valor1 * valor2) / 1000); */
 
 
 
