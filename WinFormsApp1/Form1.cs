@@ -48,7 +48,7 @@ namespace WinFormsApp1
             string sql = "select * from tb_configuracoes";
 
             dt = Banco.consulta(sql);
-            l_vlr_peso_atual.Text = "R$ " + dt.Rows[0].ItemArray[1].ToString();
+            l_vlr_peso_atual.Text =  dt.Rows[0].ItemArray[1].ToString();
 
             //GASTOS DO MES
             string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
@@ -277,30 +277,29 @@ namespace WinFormsApp1
             string sql = "select * from tb_configuracoes";
 
             dt = Banco.consulta(sql);
-            l_vlr_peso_atual.Text = dt.Rows[0].ItemArray[1].ToString();
+            string tb_vlr_pg_empresa1 = dt.Rows[0].ItemArray[2].ToString();
 
 
 
-            double vari = Convert.ToDouble(l_vlr_peso_atual.Text);
-
-
-
-
-            
-            double tb_peso1 = Convert.ToDouble(tb_peso.Text);
-            F_Configuracoes f_configuracoes = new F_Configuracoes(this);
-            vari = Convert.ToDouble(f_configuracoes.tb_vlr_kg.Text);
-            double tb_vlr_pg_empresa1 = Convert.ToDouble(f_configuracoes.tb_vlr_pg_empresa.Text);
+            double pesoAtual = Convert.ToDouble(l_vlr_peso_atual.Text);
+            double pesoDigitado = Convert.ToDouble(tb_peso.Text);
+            double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
             double tb_outros_valor1 = Convert.ToDouble(tb_outros_valor.Text);
+
+
+
+
+            //double tb_vlr_pg_empresa1 = Convert.ToDouble(f_configuracoes.tb_vlr_pg_empresa.Text);
+            
 
             /*F_Configuracoes f_configuracoes = new F_Configuracoes(this);
             double l_vlr_peso_atual1 = Convert.ToDouble(f_configuracoes.tb_vlr_kg.Text);
             double tb_vlr_pg_empresa1 = Convert.ToDouble(f_configuracoes.tb_vlr_pg_empresa.Text);
             double tb_outros_valor1 = Convert.ToDouble(tb_outros_valor.Text);
             */
-            double result1 = (tb_peso1 * vari) / 1000;
+            double result1 = (pesoDigitado * pesoAtual) / 1000;
 
-            result1 = result1 - tb_vlr_pg_empresa1;
+            result1 = result1 - pagoEmpresa;
             if (result1 < 0)
             {
 

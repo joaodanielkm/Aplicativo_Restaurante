@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-
             this.tb_vlr_kg = new System.Windows.Forms.TextBox();
             this.tb_vlr_pg_empresa = new System.Windows.Forms.TextBox();
             this.bt_salvar = new System.Windows.Forms.Button();
@@ -44,7 +43,6 @@
             this.tb_vlr_kg.Size = new System.Drawing.Size(100, 23);
             this.tb_vlr_kg.TabIndex = 0;
             this.tb_vlr_kg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_vlr_kg.TextChanged += new System.EventHandler(this.F_Configuracoes_Load);
             // 
             // tb_vlr_pg_empresa
             // 
@@ -91,14 +89,12 @@
             this.menuStrip1.Size = new System.Drawing.Size(290, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
-
             // 
             // F_Configuracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 411);
-
             this.Controls.Add(this.l_pg_empresa);
             this.Controls.Add(this.l_vlr_kg);
             this.Controls.Add(this.bt_salvar);
@@ -111,7 +107,6 @@
             this.Name = "F_Configuracoes";
             this.Text = "Configuracoes";
             this.Load += new System.EventHandler(this.F_Configuracoes_Load);
-
             this.ResumeLayout(false);
             this.PerformLayout();
 
