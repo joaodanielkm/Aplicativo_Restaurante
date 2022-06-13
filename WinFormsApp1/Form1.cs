@@ -8,7 +8,7 @@ namespace WinFormsApp1
 
 
 
-        //F_Configuracoes configuracoes;
+        F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
 
         public tl_home()
@@ -272,14 +272,33 @@ namespace WinFormsApp1
 
         private void l_vlrparcial_Click(object sender, EventArgs e)
         {
+            //incrementar esse bloco todo novamente sem chamar os objetos de outro formulario, e sem do banco de dados
 
+            string sql = "select * from tb_configuracoes";
+
+            dt = Banco.consulta(sql);
+            l_vlr_peso_atual.Text = dt.Rows[0].ItemArray[1].ToString();
+
+
+
+            double vari = Convert.ToDouble(l_vlr_peso_atual.Text);
+
+
+
+
+            
             double tb_peso1 = Convert.ToDouble(tb_peso.Text);
             F_Configuracoes f_configuracoes = new F_Configuracoes(this);
-            double tb_vlr_kg1 = Convert.ToDouble(f_configuracoes.tb_vlr_kg.Text);
+            vari = Convert.ToDouble(f_configuracoes.tb_vlr_kg.Text);
             double tb_vlr_pg_empresa1 = Convert.ToDouble(f_configuracoes.tb_vlr_pg_empresa.Text);
             double tb_outros_valor1 = Convert.ToDouble(tb_outros_valor.Text);
 
-            double result1 = (tb_peso1 * tb_vlr_kg1) / 1000;
+            /*F_Configuracoes f_configuracoes = new F_Configuracoes(this);
+            double l_vlr_peso_atual1 = Convert.ToDouble(f_configuracoes.tb_vlr_kg.Text);
+            double tb_vlr_pg_empresa1 = Convert.ToDouble(f_configuracoes.tb_vlr_pg_empresa.Text);
+            double tb_outros_valor1 = Convert.ToDouble(tb_outros_valor.Text);
+            */
+            double result1 = (tb_peso1 * vari) / 1000;
 
             result1 = result1 - tb_vlr_pg_empresa1;
             if (result1 < 0)
@@ -298,8 +317,8 @@ namespace WinFormsApp1
 
             }
             //recalcula valor do kg calculado na configuração
-            F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
+            //F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+            //l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
 
 
             //l_vlrparcial.Refresh();
@@ -317,10 +336,6 @@ namespace WinFormsApp1
 
         private void l_vlr_parcial_Click(object sender, EventArgs e)
         {
-            
-            
-
-
 
         }
 
