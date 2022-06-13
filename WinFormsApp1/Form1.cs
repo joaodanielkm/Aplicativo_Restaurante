@@ -67,7 +67,7 @@ namespace WinFormsApp1
         private void bt_salvar_Click(object sender, EventArgs e)
         {
 
-            double tb_peso1 = Convert.ToDouble(tb_peso.Text);
+            double tb_peso1 = Convert.ToDouble(tb_peso22.Text);
             F_Configuracoes f_configuracoes = new F_Configuracoes(this);
             double tb_vlr_kg1 = Convert.ToDouble(f_configuracoes.tb_vlr_kg.Text);
             double tb_vlr_pg_empresa1 = Convert.ToDouble(f_configuracoes.tb_vlr_pg_empresa.Text);
@@ -282,47 +282,39 @@ namespace WinFormsApp1
 
 
             double pesoAtual = Convert.ToDouble(l_vlr_peso_atual.Text);
+
+
             double pesoDigitado = Convert.ToDouble(tb_peso.Text);
             double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
             double tb_outros_valor1 = Convert.ToDouble(tb_outros_valor.Text);
 
-
-
-
-            //double tb_vlr_pg_empresa1 = Convert.ToDouble(f_configuracoes.tb_vlr_pg_empresa.Text);
-            
-
-            /*F_Configuracoes f_configuracoes = new F_Configuracoes(this);
-            double l_vlr_peso_atual1 = Convert.ToDouble(f_configuracoes.tb_vlr_kg.Text);
-            double tb_vlr_pg_empresa1 = Convert.ToDouble(f_configuracoes.tb_vlr_pg_empresa.Text);
-            double tb_outros_valor1 = Convert.ToDouble(tb_outros_valor.Text);
-            */
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
-            result1 = result1 - pagoEmpresa;
-            if (result1 < 0)
-            {
+            
+                result1 = result1 - pagoEmpresa;
+                if (result1 < 0)
+                {
 
-                double result2 = tb_outros_valor1;
-                l_vlrparcial.Text = "R$ " + result2.ToString("F2");
+                    double result2 = tb_outros_valor1;
+                    l_vlrparcial.Text = "R$ " + result2.ToString("F2");
 
 
+                }
+                else
+                {
+                    double result2 = result1 + tb_outros_valor1;
+                    l_vlrparcial.Text = "R$ " + result2.ToString("F2");
+
+
+                }
+                //recalcula valor do kg calculado na configuração
+                //F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+                //l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
+
+
+                l_vlrparcial.Refresh();
             }
-            else
-            {
-                double result2 = result1 + tb_outros_valor1;
-                l_vlrparcial.Text = "R$ " + result2.ToString("F2");
-
-
-            }
-            //recalcula valor do kg calculado na configuração
-            //F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            //l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
-
-
-            //l_vlrparcial.Refresh();
-        }
-
+        
         private void dt_data_atual_ValueChanged(object sender, EventArgs e)
         {
 
@@ -376,6 +368,16 @@ namespace WinFormsApp1
             //int l_vlrdinamico = ((valor1 * valor2) / 1000); */
 
 
+
+        }
+
+        private void tb_peso_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_peso22_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

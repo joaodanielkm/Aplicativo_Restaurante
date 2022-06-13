@@ -38,7 +38,6 @@
             this.l_peso = new System.Windows.Forms.Label();
             this.dt_data_atual = new System.Windows.Forms.DateTimePicker();
             this.l_diversos = new System.Windows.Forms.Label();
-            this.tb_peso = new System.Windows.Forms.TextBox();
             this.tb_diversos_descricao = new System.Windows.Forms.TextBox();
             this.bt_salvar = new System.Windows.Forms.Button();
             this.l_valor_parcial = new System.Windows.Forms.Label();
@@ -53,8 +52,9 @@
             this.l_vlrparcial = new System.Windows.Forms.Label();
             this.bt_calcular = new System.Windows.Forms.Button();
             this.l_gastodehoje = new System.Windows.Forms.Label();
-            this.bt_carregar = new System.Windows.Forms.Button();
+            this.tb_peso = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_peso)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -84,33 +84,33 @@
             // históricoToolStripMenuItem
             // 
             this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
-            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.históricoToolStripMenuItem.Text = "Histórico";
             this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
             // outrosMesesToolStripMenuItem
             // 
             this.outrosMesesToolStripMenuItem.Name = "outrosMesesToolStripMenuItem";
-            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.outrosMesesToolStripMenuItem.Text = "Outros Meses";
             // 
             // configuraçõesToolStripMenuItem
             // 
             this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
-            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
             this.configuraçõesToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesToolStripMenuItem_Click);
             // 
             // alterarSenhaToolStripMenuItem
             // 
             this.alterarSenhaToolStripMenuItem.Name = "alterarSenhaToolStripMenuItem";
-            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.alterarSenhaToolStripMenuItem.Text = "Alterar Senha";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -141,15 +141,6 @@
             this.l_diversos.Size = new System.Drawing.Size(51, 15);
             this.l_diversos.TabIndex = 4;
             this.l_diversos.Text = "Diversos";
-            // 
-            // tb_peso
-            // 
-            this.tb_peso.Location = new System.Drawing.Point(150, 126);
-            this.tb_peso.Name = "tb_peso";
-            this.tb_peso.Size = new System.Drawing.Size(100, 23);
-            this.tb_peso.TabIndex = 5;
-            this.tb_peso.Text = "0";
-            this.tb_peso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tb_diversos_descricao
             // 
@@ -272,7 +263,7 @@
             // bt_calcular
             // 
             this.bt_calcular.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_calcular.Location = new System.Drawing.Point(112, 319);
+            this.bt_calcular.Location = new System.Drawing.Point(53, 319);
             this.bt_calcular.Name = "bt_calcular";
             this.bt_calcular.Size = new System.Drawing.Size(75, 23);
             this.bt_calcular.TabIndex = 21;
@@ -289,23 +280,26 @@
             this.l_gastodehoje.TabIndex = 22;
             this.l_gastodehoje.Text = "Gasto de hoje";
             // 
-            // bt_carregar
+            // tb_peso
             // 
-            this.bt_carregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_carregar.Location = new System.Drawing.Point(31, 319);
-            this.bt_carregar.Name = "bt_carregar";
-            this.bt_carregar.Size = new System.Drawing.Size(75, 23);
-            this.bt_carregar.TabIndex = 23;
-            this.bt_carregar.Text = "Carregar";
-            this.bt_carregar.UseVisualStyleBackColor = true;
-            this.bt_carregar.Click += new System.EventHandler(this.button1_Click);
+            this.tb_peso.Location = new System.Drawing.Point(130, 124);
+            this.tb_peso.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.tb_peso.Name = "tb_peso";
+            this.tb_peso.Size = new System.Drawing.Size(120, 23);
+            this.tb_peso.TabIndex = 23;
+            this.tb_peso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_peso.ValueChanged += new System.EventHandler(this.tb_peso_ValueChanged);
             // 
             // tl_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 411);
-            this.Controls.Add(this.bt_carregar);
+            this.Controls.Add(this.tb_peso);
             this.Controls.Add(this.l_gastodehoje);
             this.Controls.Add(this.bt_calcular);
             this.Controls.Add(this.l_vlrparcial);
@@ -320,7 +314,6 @@
             this.Controls.Add(this.l_valor_parcial);
             this.Controls.Add(this.bt_salvar);
             this.Controls.Add(this.tb_diversos_descricao);
-            this.Controls.Add(this.tb_peso);
             this.Controls.Add(this.l_diversos);
             this.Controls.Add(this.dt_data_atual);
             this.Controls.Add(this.l_peso);
@@ -334,6 +327,7 @@
             this.Load += new System.EventHandler(this.tl_home_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_peso)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,7 +342,6 @@
         private Label l_peso;
         private DateTimePicker dt_data_atual;
         private Label l_diversos;
-        private TextBox tb_peso;
         private TextBox tb_diversos_descricao;
         private Button bt_salvar;
         private Label l_valor_parcial;
@@ -367,7 +360,6 @@
         private Label l_vlrparcial;
         private Button bt_calcular;
         private Label l_gastodehoje;
-        private Button bt_carregar;
-
+        private NumericUpDown tb_peso;
     }
 }
