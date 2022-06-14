@@ -1,5 +1,5 @@
 using System.Data;
-
+using System.Globalization;
 
 namespace WinFormsApp1
 {
@@ -54,7 +54,7 @@ namespace WinFormsApp1
             string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
 
             dt = Banco.consulta(total_mes);
-
+            
             l_vlr_parcial.Text = "R$ " + dt.Rows[0].ItemArray[0].ToString();
             //FIM GASTOS DO MES
 
@@ -105,7 +105,7 @@ namespace WinFormsApp1
                         {
 
                             double result2 = tb_outros_valor1;
-                            string valor_diario = result2.ToString("F2");
+                            string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
 
@@ -116,7 +116,7 @@ namespace WinFormsApp1
                         else
                         {
                             double result2 = result1 + tb_outros_valor1;
-                            string valor_diario = result2.ToString("F2");
+                            string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}'  WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
 
@@ -140,7 +140,7 @@ namespace WinFormsApp1
                     {
 
                         double result2 = tb_outros_valor1;
-                        string valor_diario = result2.ToString("F2");
+                        string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                         string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                         //string sql = "SELECT * FROM tb_dados";
 
@@ -150,7 +150,7 @@ namespace WinFormsApp1
                     else
                     {
                         double result2 = result1 + tb_outros_valor1;
-                        string valor_diario = result2.ToString("F2");
+                        string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                         string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                         //string sql = "SELECT * FROM tb_dados";
 
@@ -180,7 +180,7 @@ namespace WinFormsApp1
                             {
 
                                 double result2 = tb_outros_valor1;
-                                string valor_diario = result2.ToString("F2");
+                                string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
 
                                 string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
                                 //string sql = "SELECT * FROM tb_dados";
@@ -191,7 +191,7 @@ namespace WinFormsApp1
                             else
                             {
                                 double result2 = result1 + tb_outros_valor1;
-                                string valor_diario = result2.ToString("F2");
+                                string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
                                 //string sql = "SELECT * FROM tb_dados";
 
@@ -210,7 +210,7 @@ namespace WinFormsApp1
                         {
 
                             double result2 = tb_outros_valor1;
-                            string valor_diario = result2.ToString("F2");
+                            string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
                             //string sql = "SELECT * FROM tb_dados";
 
@@ -220,7 +220,7 @@ namespace WinFormsApp1
                         else
                         {
                             double result2 = result1 + tb_outros_valor1;
-                            string valor_diario = result2.ToString("F2");
+                            string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
                             //string sql = "SELECT * FROM tb_dados";
 
