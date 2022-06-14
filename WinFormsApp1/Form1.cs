@@ -48,7 +48,7 @@ namespace WinFormsApp1
             string sql = "select * from tb_configuracoes";
 
             dt = Banco.consulta(sql);
-            l_vlr_peso_atual.Text =  dt.Rows[0].ItemArray[1].ToString();
+            l_vlr_peso_atual.Text = dt.Rows[0].ItemArray[1].ToString();
 
             //GASTOS DO MES
             string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
@@ -126,8 +126,6 @@ namespace WinFormsApp1
                         }
 
 
-
-
                         ///final da adicao
 
                     }
@@ -167,11 +165,7 @@ namespace WinFormsApp1
             {
 
 
-
-
-
-
-                if (pesoDigitado <= 0)//PESO DIGITADO MENOR QUE 0
+                if (pesoDigitado < 0)//PESO DIGITADO MENOR QUE 0
                 {
                     MessageBox.Show("Favor informar o peso!");
 
@@ -246,8 +240,8 @@ namespace WinFormsApp1
 
         private void sQLiteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-           /* F_SQLite f_SQLite = new F_SQLite();
-            f_SQLite.ShowDialog();*/
+            /* F_SQLite f_SQLite = new F_SQLite();
+             f_SQLite.ShowDialog();*/
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -270,7 +264,7 @@ namespace WinFormsApp1
 
         private void l_vlr_peso_atual_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -294,31 +288,31 @@ namespace WinFormsApp1
 
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
-            
-                result1 = result1 - pagoEmpresa;
-                if (result1 < 0)
-                {
 
-                    double result2 = tb_outros_valor1;
-                    l_vlrparcial.Text = "R$ " + result2.ToString("F2");
+            result1 = result1 - pagoEmpresa;
+            if (result1 < 0)
+            {
 
-
-                }
-                else
-                {
-                    double result2 = result1 + tb_outros_valor1;
-                    l_vlrparcial.Text = "R$ " + result2.ToString("F2");
+                double result2 = tb_outros_valor1;
+                l_vlrparcial.Text = "R$ " + result2.ToString("F2");
 
 
-                }
-                //recalcula valor do kg calculado na configuração
-                //F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-                //l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
-
-
-                l_vlrparcial.Refresh();
             }
-        
+            else
+            {
+                double result2 = result1 + tb_outros_valor1;
+                l_vlrparcial.Text = "R$ " + result2.ToString("F2");
+
+
+            }
+            //recalcula valor do kg calculado na configuração
+            //F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+            //l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
+
+
+            l_vlrparcial.Refresh();
+        }
+
         private void dt_data_atual_ValueChanged(object sender, EventArgs e)
         {
 
