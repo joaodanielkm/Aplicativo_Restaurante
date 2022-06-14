@@ -132,7 +132,7 @@
             this.dt_data_atual.Location = new System.Drawing.Point(109, 48);
             this.dt_data_atual.Name = "dt_data_atual";
             this.dt_data_atual.Size = new System.Drawing.Size(78, 23);
-            this.dt_data_atual.TabIndex = 2;
+            this.dt_data_atual.TabIndex = 1;
             this.dt_data_atual.ValueChanged += new System.EventHandler(this.dt_data_atual_ValueChanged);
             // 
             // l_diversos
@@ -149,7 +149,7 @@
             this.tb_diversos_descricao.Location = new System.Drawing.Point(92, 164);
             this.tb_diversos_descricao.Name = "tb_diversos_descricao";
             this.tb_diversos_descricao.Size = new System.Drawing.Size(160, 23);
-            this.tb_diversos_descricao.TabIndex = 6;
+            this.tb_diversos_descricao.TabIndex = 3;
             // 
             // bt_salvar
             // 
@@ -157,7 +157,7 @@
             this.bt_salvar.Location = new System.Drawing.Point(193, 319);
             this.bt_salvar.Name = "bt_salvar";
             this.bt_salvar.Size = new System.Drawing.Size(75, 23);
-            this.bt_salvar.TabIndex = 8;
+            this.bt_salvar.TabIndex = 6;
             this.bt_salvar.Text = "Salvar";
             this.bt_salvar.UseVisualStyleBackColor = true;
             this.bt_salvar.Click += new System.EventHandler(this.bt_salvar_Click);
@@ -187,7 +187,7 @@
             this.ll_sobre.Location = new System.Drawing.Point(127, 360);
             this.ll_sobre.Name = "ll_sobre";
             this.ll_sobre.Size = new System.Drawing.Size(37, 15);
-            this.ll_sobre.TabIndex = 13;
+            this.ll_sobre.TabIndex = 7;
             this.ll_sobre.TabStop = true;
             this.ll_sobre.Text = "Sobre";
             // 
@@ -198,7 +198,7 @@
             this.ll_versao.Location = new System.Drawing.Point(136, 375);
             this.ll_versao.Name = "ll_versao";
             this.ll_versao.Size = new System.Drawing.Size(17, 15);
-            this.ll_versao.TabIndex = 14;
+            this.ll_versao.TabIndex = 8;
             this.ll_versao.TabStop = true;
             this.ll_versao.Text = "--";
             this.ll_versao.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -260,7 +260,7 @@
             this.bt_calcular.Location = new System.Drawing.Point(53, 319);
             this.bt_calcular.Name = "bt_calcular";
             this.bt_calcular.Size = new System.Drawing.Size(75, 23);
-            this.bt_calcular.TabIndex = 21;
+            this.bt_calcular.TabIndex = 5;
             this.bt_calcular.Text = "Prévia";
             this.bt_calcular.UseVisualStyleBackColor = true;
             this.bt_calcular.Click += new System.EventHandler(this.l_vlrparcial_Click);
@@ -284,7 +284,7 @@
             0});
             this.tb_peso.Name = "tb_peso";
             this.tb_peso.Size = new System.Drawing.Size(120, 23);
-            this.tb_peso.TabIndex = 23;
+            this.tb_peso.TabIndex = 2;
             this.tb_peso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_peso.ValueChanged += new System.EventHandler(this.tb_peso_ValueChanged);
             // 
@@ -298,7 +298,7 @@
             0});
             this.tb_outros_valor.Name = "tb_outros_valor";
             this.tb_outros_valor.Size = new System.Drawing.Size(120, 23);
-            this.tb_outros_valor.TabIndex = 24;
+            this.tb_outros_valor.TabIndex = 4;
             this.tb_outros_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
