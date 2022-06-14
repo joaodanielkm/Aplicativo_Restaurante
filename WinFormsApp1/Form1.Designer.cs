@@ -195,7 +195,7 @@
             // 
             this.ll_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ll_versao.AutoSize = true;
-            this.ll_versao.Location = new System.Drawing.Point(136, 375);
+            this.ll_versao.Location = new System.Drawing.Point(115, 376);
             this.ll_versao.Name = "ll_versao";
             this.ll_versao.Size = new System.Drawing.Size(17, 15);
             this.ll_versao.TabIndex = 8;
@@ -257,7 +257,7 @@
             // bt_calcular
             // 
             this.bt_calcular.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_calcular.Location = new System.Drawing.Point(53, 319);
+            this.bt_calcular.Location = new System.Drawing.Point(33, 319);
             this.bt_calcular.Name = "bt_calcular";
             this.bt_calcular.Size = new System.Drawing.Size(75, 23);
             this.bt_calcular.TabIndex = 5;
