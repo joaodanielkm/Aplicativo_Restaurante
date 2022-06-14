@@ -48,7 +48,7 @@ namespace WinFormsApp1
             string sql = "select * from tb_configuracoes";
 
             dt = Banco.consulta(sql);
-            l_vlr_peso_atual.Text = dt.Rows[0].ItemArray[1].ToString();
+            l_vlr_peso_atual.Text = "R$ " + dt.Rows[0].ItemArray[1].ToString();
 
             //GASTOS DO MES
             string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
@@ -72,8 +72,10 @@ namespace WinFormsApp1
             dt = Banco.consulta(sql);
             string tb_vlr_pg_empresa1 = dt.Rows[0].ItemArray[2].ToString();
             string tb_vlr_kg1 = dt.Rows[0].ItemArray[1].ToString();
+            string l_vlr_peso_atual1 = dt.Rows[0].ItemArray[1].ToString();
+            double pesoAtual = Convert.ToDouble(l_vlr_peso_atual1);
 
-            double pesoAtual = Convert.ToDouble(l_vlr_peso_atual.Text);
+
             //double vlrEmpresa = Convert.ToDouble(l_vlr_peso_atual.Text);
 
 
@@ -84,7 +86,7 @@ namespace WinFormsApp1
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
 
-            result1 = result1 - pagoEmpresa;
+            result1 = (result1 - pagoEmpresa)/100;
             string tb_diversos_descricao1 = tb_diversos_descricao.Text;
 
             //VERIFICA SE EXISTE LANÇAMENTO NA DATA
@@ -276,10 +278,10 @@ namespace WinFormsApp1
 
             dt = Banco.consulta(sql);
             string tb_vlr_pg_empresa1 = dt.Rows[0].ItemArray[2].ToString();
+            string l_vlr_peso_atual1 = dt.Rows[0].ItemArray[1].ToString();
 
 
-
-            double pesoAtual = Convert.ToDouble(l_vlr_peso_atual.Text);
+            double pesoAtual = Convert.ToDouble(l_vlr_peso_atual1);
 
 
             double pesoDigitado = Convert.ToDouble(tb_peso.Text);
@@ -288,20 +290,21 @@ namespace WinFormsApp1
 
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
+            result1 = (result1 - pagoEmpresa)/100;
 
-            result1 = result1 - pagoEmpresa;
+
             if (result1 < 0)
             {
 
                 double result2 = tb_outros_valor1;
-                l_vlrparcial.Text = "R$ " + result2.ToString("F2");
+                l_vlrparcial.Text = "R$ " + result2.ToString("F2", CultureInfo.InvariantCulture);
 
 
             }
             else
             {
                 double result2 = result1 + tb_outros_valor1;
-                l_vlrparcial.Text = "R$ " + result2.ToString("F2");
+                l_vlrparcial.Text = "R$ " + result2.ToString("F2", CultureInfo.InvariantCulture);
 
 
             }

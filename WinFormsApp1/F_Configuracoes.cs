@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace WinFormsApp1
 {
@@ -29,8 +30,8 @@ namespace WinFormsApp1
             dt = Banco.consulta(N_VLR_PG_EMPRESA);
 
 
-            tb_vlr_pg_empresa.Text = dt.Rows[0].ItemArray[2].ToString();
-            tb_vlr_kg.Text = dt.Rows[0].ItemArray[1].ToString();
+            tb_vlr_pg_empresa.Text = ""+dt.Rows[0].ItemArray[2].ToString();
+            tb_vlr_kg.Text = "" + dt.Rows[0].ItemArray[1].ToString();
 
         }
 
@@ -58,17 +59,22 @@ namespace WinFormsApp1
         {
             
             double tb_vlr_kg1 = Convert.ToDouble(tb_vlr_kg.Text);
+
+
+
             //double tb_vlr_pago_empresa1 = Convert.ToDouble(tb_vlr_pg_empresa.Text);
             double var2 = (tb_vlr_kg1 / 2);
 
             double var3 = tb_vlr_kg1 - var2;
 
+            string tb_vlr_kg2 = tb_vlr_kg1.ToString("F2", CultureInfo.InvariantCulture);
 
-            
+            string var4 = var2.ToString("F2", CultureInfo.InvariantCulture);
+
 
             //tb_vlr_pg_empresa.Text = var3.ToString("F2");
 
-            string sql = $"UPDATE tb_configuracoes SET N_VLR_KG = '{tb_vlr_kg1}', N_VLR_PG_EMPRESA = '{var2}'";
+            string sql = $"UPDATE tb_configuracoes SET N_VLR_KG = '{tb_vlr_kg2}', N_VLR_PG_EMPRESA = '{var4}'";
             //string sql1 = $"UPDATE tb_configuracoes SET N_VLR_PG_EMPRESA = '{var3}'";
 
 
@@ -92,6 +98,11 @@ namespace WinFormsApp1
         {
 
             this.Close();
+
+        }
+
+        private void tb_vlr_kg_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

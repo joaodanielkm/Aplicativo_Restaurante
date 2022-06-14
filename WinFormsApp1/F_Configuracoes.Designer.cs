@@ -47,6 +47,7 @@
             this.tb_vlr_kg.Size = new System.Drawing.Size(100, 23);
             this.tb_vlr_kg.TabIndex = 0;
             this.tb_vlr_kg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_vlr_kg.TextChanged += new System.EventHandler(this.tb_vlr_kg_TextChanged);
             // 
             // tb_vlr_pg_empresa
             // 

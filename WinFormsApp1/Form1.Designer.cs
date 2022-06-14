@@ -228,9 +228,9 @@
             this.l_valor_peso.AutoSize = true;
             this.l_valor_peso.Location = new System.Drawing.Point(92, 92);
             this.l_valor_peso.Name = "l_valor_peso";
-            this.l_valor_peso.Size = new System.Drawing.Size(77, 15);
+            this.l_valor_peso.Size = new System.Drawing.Size(61, 15);
             this.l_valor_peso.TabIndex = 18;
-            this.l_valor_peso.Text = "Valor Peso R$";
+            this.l_valor_peso.Text = "Valor Peso";
             this.l_valor_peso.Click += new System.EventHandler(this.l_valor_peso_Click);
             // 
             // l_vlr_peso_atual
@@ -270,9 +270,9 @@
             this.l_gastodehoje.AutoSize = true;
             this.l_gastodehoje.Location = new System.Drawing.Point(58, 240);
             this.l_gastodehoje.Name = "l_gastodehoje";
-            this.l_gastodehoje.Size = new System.Drawing.Size(95, 15);
+            this.l_gastodehoje.Size = new System.Drawing.Size(79, 15);
             this.l_gastodehoje.TabIndex = 22;
-            this.l_gastodehoje.Text = "Gasto de hoje R$";
+            this.l_gastodehoje.Text = "Gasto de hoje";
             // 
             // tb_peso
             // 
