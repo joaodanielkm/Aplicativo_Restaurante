@@ -85,17 +85,13 @@ namespace WinFormsApp1
 
 
             result1 = result1 - pagoEmpresa;
-
-           
-
-            string dt_data_atual1 = dt_data_atual.Text;
-            //int tb_peso1 = int.Parse(tb_peso.Text);
             string tb_diversos_descricao1 = tb_diversos_descricao.Text;
-            //int tb_outros_valor1 = int.Parse(tb_outros_valor.Text);
-            string sql1 = $"SELECT * FROM tb_dados WHERE T_DATA like '{dt_data_atual1}'";
-            //string sql = "SELECT * FROM tb_dados";
 
+            //VERIFICA SE EXISTE LANÇAMENTO NA DATA
+            string dt_data_atual1 = dt_data_atual.Text;
+            string sql1 = $"SELECT * FROM tb_dados WHERE T_DATA like '{dt_data_atual1}'";
             dt = Banco.consulta(sql1);
+
             if (dt.Rows.Count >= 1)
             {
                 MessageBox.Show("Ja existe lancamento para essa data!");
@@ -113,7 +109,7 @@ namespace WinFormsApp1
                             string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
 
-                            dt = Banco.consulta(sql1);
+                            dt = Banco.consulta(sql2);
                             MessageBox.Show("Salvo!");
 
                         }
@@ -124,7 +120,7 @@ namespace WinFormsApp1
                             string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}'  WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
 
-                            dt = Banco.consulta(sql);
+                            dt = Banco.consulta(sql2);
                             MessageBox.Show("Salvo!");
 
                         }
@@ -150,7 +146,7 @@ namespace WinFormsApp1
                         string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                         //string sql = "SELECT * FROM tb_dados";
 
-                        dt = Banco.consulta(sql);
+                        dt = Banco.consulta(sql2);
                         MessageBox.Show("Salvo!");
                     }
                     else
@@ -160,7 +156,7 @@ namespace WinFormsApp1
                         string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                         //string sql = "SELECT * FROM tb_dados";
 
-                        dt = Banco.consulta(sql);
+                        dt = Banco.consulta(sql2);
                         MessageBox.Show("Salvo!");
                     }
                 }
@@ -175,7 +171,7 @@ namespace WinFormsApp1
 
 
 
-                if (pesoDigitado <= 0)
+                if (pesoDigitado <= 0)//PESO DIGITADO MENOR QUE 0
                 {
                     MessageBox.Show("Favor informar o peso!");
 
@@ -195,7 +191,7 @@ namespace WinFormsApp1
                                 string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
                                 //string sql = "SELECT * FROM tb_dados";
 
-                                dt = Banco.consulta(sql);
+                                dt = Banco.consulta(sql2);
                                 MessageBox.Show("Salvo!");
                             }
                             else
@@ -205,7 +201,7 @@ namespace WinFormsApp1
                                 string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
                                 //string sql = "SELECT * FROM tb_dados";
 
-                                dt = Banco.consulta(sql);
+                                dt = Banco.consulta(sql2);
                                 MessageBox.Show("Salvo!");
                             }
                         }
@@ -224,7 +220,7 @@ namespace WinFormsApp1
                             string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
                             //string sql = "SELECT * FROM tb_dados";
 
-                            dt = Banco.consulta(sql);
+                            dt = Banco.consulta(sql2);
                             MessageBox.Show("Salvo!");
                         }
                         else
@@ -234,7 +230,7 @@ namespace WinFormsApp1
                             string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor1},'{valor_diario}')";
                             //string sql = "SELECT * FROM tb_dados";
 
-                            dt = Banco.consulta(sql);
+                            dt = Banco.consulta(sql2);
                             MessageBox.Show("Salvo!");
                         }
                     }
@@ -250,8 +246,8 @@ namespace WinFormsApp1
 
         private void sQLiteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            F_SQLite f_SQLite = new F_SQLite();
-            f_SQLite.ShowDialog();
+           /* F_SQLite f_SQLite = new F_SQLite();
+            f_SQLite.ShowDialog();*/
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -274,8 +270,7 @@ namespace WinFormsApp1
 
         private void l_vlr_peso_atual_Click(object sender, EventArgs e)
         {
-            /*F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            l_vlr_peso_atual.Text = f_Configuracoes.tb_vlr_kg.Text;*/
+            
 
         }
 
@@ -347,14 +342,14 @@ namespace WinFormsApp1
 
             l_vlr_parcial.Text = "R$ " + double.Parse(dt.Rows[0].ItemArray[0].ToString());
 
-            F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
+            /*F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+            l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;*/
         }
 
         private void ll_versao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ll_versao.Text = "Versão: " + Globais.versao;
-            ll_versao.Refresh();
+            /*ll_versao.Text = "Versão: " + Globais.versao;
+            ll_versao.Refresh();*/
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
