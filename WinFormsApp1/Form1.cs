@@ -20,7 +20,7 @@ namespace WinFormsApp1
             login.ShowDialog();
             if (Globais.logado == false)
             {
-
+                MessageBox.Show("NÃO ESTÁ LOGADO", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
 
             }
@@ -99,13 +99,52 @@ namespace WinFormsApp1
 
             if (dt.Rows.Count >= 1)
             {
-                MessageBox.Show("Ja existe lancamento para essa data!");
-                //home.ll_usuario.Text = dt.Rows[0].ItemArray[1].ToString(); outra forma de fazer
-                if (tb_outros_valor1 > 0)
+                var mensg = MessageBox.Show("Ja existe lancamento para essa data! Deseja Alterar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (mensg == DialogResult.Yes)
                 {
-                    if (!(tb_diversos_descricao1 is null) && tb_diversos_descricao1 != "")
+
+
+                    //home.ll_usuario.Text = dt.Rows[0].ItemArray[1].ToString(); outra forma de fazer
+                    if (tb_outros_valor1 > 0)
                     {
-                        //adiciona o valor do dia na coludo T_TOTAL_DIARIO
+                        if (!(tb_diversos_descricao1 is null) && tb_diversos_descricao1 != "")
+                        {
+                            //adiciona o valor do dia na coludo T_TOTAL_DIARIO
+                            if (result1 < 0)
+                            {
+
+                                double result2 = tb_outros_valor1;
+                                string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
+                                string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
+                                //string sql = "SELECT * FROM tb_dados";
+
+                                dt = Banco.consulta(sql2);
+                                MessageBox.Show("Salvo!","Lançamento",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                            }
+                            else
+                            {
+                                double result2 = result1 + tb_outros_valor1;
+                                string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
+                                string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}'  WHERE T_DATA LIKE '{dt_data_atual1}'";
+                                //string sql = "SELECT * FROM tb_dados";
+
+                                dt = Banco.consulta(sql2);
+                                MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            }
+
+
+                            ///final da adicao
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Favor informar a descricao do diversos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                    }
+                    else
+                    {
                         if (result1 < 0)
                         {
 
@@ -115,64 +154,31 @@ namespace WinFormsApp1
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
-                            MessageBox.Show("Salvo!");
-
+                            MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
                             double result2 = result1 + tb_outros_valor1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}'  WHERE T_DATA LIKE '{dt_data_atual1}'";
+                            string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
-                            MessageBox.Show("Salvo!");
-
+                            MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-
-
-                        ///final da adicao
-
                     }
-                    else
-                    {
-                        MessageBox.Show("Favor informar a descricao do diversos!");
-                    }
+                    //this.Close();
                 }
-                else
-                {
-                    if (result1 < 0)
-                    {
-
-                        double result2 = tb_outros_valor1;
-                        string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                        string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
-                        //string sql = "SELECT * FROM tb_dados";
-
-                        dt = Banco.consulta(sql2);
-                        MessageBox.Show("Salvo!");
-                    }
-                    else
-                    {
-                        double result2 = result1 + tb_outros_valor1;
-                        string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                        string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor1},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
-                        //string sql = "SELECT * FROM tb_dados";
-
-                        dt = Banco.consulta(sql2);
-                        MessageBox.Show("Salvo!");
-                    }
-                }
-                //this.Close();
+                
             }
-
+            
             else
             {
 
 
                 if (pesoDigitado < 0)//PESO DIGITADO MENOR QUE 0
                 {
-                    MessageBox.Show("Favor informar o peso!");
+                    MessageBox.Show("Favor informar o peso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 
                 }
                 else
@@ -191,7 +197,7 @@ namespace WinFormsApp1
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
-                                MessageBox.Show("Salvo!");
+                                MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
@@ -201,12 +207,12 @@ namespace WinFormsApp1
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
-                                MessageBox.Show("Salvo!");
+                                MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Favor informar a descricao do diversos!");
+                            MessageBox.Show("Favor informar a descricao do diversos!","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Stop);
                         }
                     }
                     else
@@ -220,7 +226,7 @@ namespace WinFormsApp1
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
-                            MessageBox.Show("Salvo!");
+                            MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -230,11 +236,12 @@ namespace WinFormsApp1
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
-                            MessageBox.Show("Salvo!");
+                            MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
             }
+            
             /*
             Dados dados = new Dados();
             dados.data = dt_data_atual.Text;
