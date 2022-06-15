@@ -274,7 +274,9 @@ namespace WinFormsApp1
         private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+            this.Hide();
             f_Configuracoes.ShowDialog();
+            
         }
 
         private void l_vlr_peso_atual_Click(object sender, EventArgs e)

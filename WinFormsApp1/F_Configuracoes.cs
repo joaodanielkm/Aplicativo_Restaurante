@@ -82,9 +82,11 @@ namespace WinFormsApp1
            // dt = Banco.consulta(sql);
             dt = Banco.consulta(sql);
 
-            MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Alterado!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            this.Close();
+            this.Hide();
+            tl_home home = new tl_home();
+            home.ShowDialog();
 
 
         }
@@ -97,7 +99,9 @@ namespace WinFormsApp1
         private void homeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
-            this.Close();
+            tl_home home = new tl_home();
+            this.Hide();
+            home.ShowDialog();
 
         }
 
