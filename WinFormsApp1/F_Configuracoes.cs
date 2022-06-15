@@ -82,7 +82,7 @@ namespace WinFormsApp1
            // dt = Banco.consulta(sql);
             dt = Banco.consulta(sql);
 
-            MessageBox.Show("Salvo!");
+            MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Close();
 

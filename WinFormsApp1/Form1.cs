@@ -11,7 +11,7 @@ namespace WinFormsApp1
 
         F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
-
+        
         public tl_home()
         {
             InitializeComponent();
@@ -20,7 +20,10 @@ namespace WinFormsApp1
             login.ShowDialog();
             if (Globais.logado == false)
             {
-                MessageBox.Show("NÃO ESTÁ LOGADO", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Login login2 = new Login(this);
+                MessageBox.Show("NÃO ESTÁ LOGADO", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                login2.ShowDialog();
+                
                 this.Close();
 
             }

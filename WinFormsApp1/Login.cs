@@ -26,13 +26,13 @@ namespace WinFormsApp1
             string senha = tb_senha.Text;
             if (username == "")
             {
-                MessageBox.Show("Favor digitar o usuario!");
+                MessageBox.Show("Favor digitar o usuario!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tb_username.Focus();
                 return;
             }
             else if (senha == "")
             {
-                MessageBox.Show("Favor digite a senha!");
+                MessageBox.Show("Favor digite a senha!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tb_senha.Focus();
                 return;
             }
@@ -50,7 +50,7 @@ namespace WinFormsApp1
             }
             else
             {
-                MessageBox.Show("Usuario ou senha invalidos");
+                MessageBox.Show("Usuario ou senha invalidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
 
