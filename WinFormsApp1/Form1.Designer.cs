@@ -290,6 +290,8 @@
             // 
             // tb_outros_valor
             // 
+            this.tb_outros_valor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_outros_valor.DecimalPlaces = 2;
             this.tb_outros_valor.Location = new System.Drawing.Point(130, 203);
             this.tb_outros_valor.Maximum = new decimal(new int[] {
             99999,
@@ -300,6 +302,7 @@
             this.tb_outros_valor.Size = new System.Drawing.Size(120, 23);
             this.tb_outros_valor.TabIndex = 4;
             this.tb_outros_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_outros_valor.ValueChanged += new System.EventHandler(this.tb_outros_valor_ValueChanged);
             // 
             // label1
             // 

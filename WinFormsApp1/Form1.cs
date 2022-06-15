@@ -386,5 +386,10 @@ namespace WinFormsApp1
         {
 
         }
+
+        private void tb_outros_valor_ValueChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
