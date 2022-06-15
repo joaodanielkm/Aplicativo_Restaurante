@@ -335,6 +335,7 @@
             this.Controls.Add(this.dt_data_atual);
             this.Controls.Add(this.l_peso);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

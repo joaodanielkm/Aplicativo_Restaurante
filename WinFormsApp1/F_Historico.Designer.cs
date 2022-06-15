@@ -163,10 +163,12 @@
             this.Controls.Add(this.ll_sobre);
             this.Controls.Add(this.ll_usuario);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "F_Historico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_Historico";
             this.Load += new System.EventHandler(this.F_Historico_Load);
             this.menuStrip1.ResumeLayout(false);

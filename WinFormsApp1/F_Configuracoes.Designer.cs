@@ -133,6 +133,7 @@
             this.Controls.Add(this.tb_vlr_kg);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

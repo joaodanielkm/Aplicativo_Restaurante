@@ -118,6 +118,7 @@
             this.Controls.Add(this.l_username);
             this.Controls.Add(this.ll_versao);
             this.Controls.Add(this.ll_sobre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
