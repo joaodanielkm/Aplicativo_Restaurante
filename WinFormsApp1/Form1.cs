@@ -1,5 +1,6 @@
 using System.Data;
 using System.Globalization;
+using System.Windows;
 
 namespace WinFormsApp1
 {
@@ -19,7 +20,9 @@ namespace WinFormsApp1
             login.ShowDialog();
             if (Globais.logado == false)
             {
+
                 this.Close();
+
             }
 
 

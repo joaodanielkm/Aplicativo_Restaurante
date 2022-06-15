@@ -53,7 +53,6 @@
             this.l_gastodehoje = new System.Windows.Forms.Label();
             this.tb_peso = new System.Windows.Forms.NumericUpDown();
             this.tb_outros_valor = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_peso)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_outros_valor)).BeginInit();
@@ -121,9 +120,9 @@
             this.l_peso.AutoSize = true;
             this.l_peso.Location = new System.Drawing.Point(33, 126);
             this.l_peso.Name = "l_peso";
-            this.l_peso.Size = new System.Drawing.Size(95, 15);
+            this.l_peso.Size = new System.Drawing.Size(49, 15);
             this.l_peso.TabIndex = 1;
-            this.l_peso.Text = "Peso em Gramas";
+            this.l_peso.Text = "Peso Kg";
             this.l_peso.Click += new System.EventHandler(this.label1_Click);
             // 
             // dt_data_atual
@@ -207,7 +206,7 @@
             // l_rs
             // 
             this.l_rs.AutoSize = true;
-            this.l_rs.Location = new System.Drawing.Point(107, 207);
+            this.l_rs.Location = new System.Drawing.Point(35, 211);
             this.l_rs.Name = "l_rs";
             this.l_rs.Size = new System.Drawing.Size(20, 15);
             this.l_rs.TabIndex = 16;
@@ -276,14 +275,14 @@
             // 
             // tb_peso
             // 
-            this.tb_peso.Location = new System.Drawing.Point(130, 124);
+            this.tb_peso.Location = new System.Drawing.Point(92, 124);
             this.tb_peso.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
             this.tb_peso.Name = "tb_peso";
-            this.tb_peso.Size = new System.Drawing.Size(120, 23);
+            this.tb_peso.Size = new System.Drawing.Size(158, 23);
             this.tb_peso.TabIndex = 2;
             this.tb_peso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_peso.ValueChanged += new System.EventHandler(this.tb_peso_ValueChanged);
@@ -292,7 +291,7 @@
             // 
             this.tb_outros_valor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_outros_valor.DecimalPlaces = 2;
-            this.tb_outros_valor.Location = new System.Drawing.Point(130, 203);
+            this.tb_outros_valor.Location = new System.Drawing.Point(92, 203);
             this.tb_outros_valor.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -304,21 +303,11 @@
             this.tb_outros_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_outros_valor.ValueChanged += new System.EventHandler(this.tb_outros_valor_ValueChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(252, 129);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 15);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Kg";
-            // 
             // tl_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 411);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_outros_valor);
             this.Controls.Add(this.tb_peso);
             this.Controls.Add(this.l_gastodehoje);
@@ -383,6 +372,5 @@
         private Label l_gastodehoje;
         private NumericUpDown tb_peso;
         private NumericUpDown tb_outros_valor;
-        private Label label1;
     }
 }
