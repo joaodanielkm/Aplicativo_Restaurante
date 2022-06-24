@@ -99,9 +99,9 @@
             // 
             // bt_entrar
             // 
-            this.bt_entrar.Location = new System.Drawing.Point(101, 157);
+            this.bt_entrar.Location = new System.Drawing.Point(12, 159);
             this.bt_entrar.Name = "bt_entrar";
-            this.bt_entrar.Size = new System.Drawing.Size(94, 31);
+            this.bt_entrar.Size = new System.Drawing.Size(112, 31);
             this.bt_entrar.TabIndex = 21;
             this.bt_entrar.Text = "Logar";
             this.bt_entrar.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(22, 157);
+            this.button1.Location = new System.Drawing.Point(132, 159);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(63, 32);
             this.button1.TabIndex = 22;
