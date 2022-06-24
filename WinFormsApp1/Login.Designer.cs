@@ -35,6 +35,7 @@
             this.tb_username = new System.Windows.Forms.TextBox();
             this.tb_senha = new System.Windows.Forms.TextBox();
             this.bt_entrar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ll_versao
@@ -98,19 +99,31 @@
             // 
             // bt_entrar
             // 
-            this.bt_entrar.Location = new System.Drawing.Point(59, 156);
+            this.bt_entrar.Location = new System.Drawing.Point(101, 157);
             this.bt_entrar.Name = "bt_entrar";
             this.bt_entrar.Size = new System.Drawing.Size(94, 31);
             this.bt_entrar.TabIndex = 21;
-            this.bt_entrar.Text = "Entrar";
+            this.bt_entrar.Text = "Logar";
             this.bt_entrar.UseVisualStyleBackColor = true;
             this.bt_entrar.Click += new System.EventHandler(this.bt_entrar_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(22, 157);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 32);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Fechar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(209, 251);
+            this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bt_entrar);
             this.Controls.Add(this.tb_senha);
             this.Controls.Add(this.tb_username);
@@ -140,5 +153,6 @@
         private TextBox tb_username;
         private TextBox tb_senha;
         private Button bt_entrar;
+        private Button button1;
     }
 }

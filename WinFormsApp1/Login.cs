@@ -46,7 +46,7 @@ namespace WinFormsApp1
                 //home.ll_usuario.Text = dt.Rows[0].ItemArray[1].ToString(); outra forma de fazer
                 home.ll_usuario.Text = dt.Rows[0].Field<string>("T_NOMEUSUARIO");
                 Globais.logado = true;
-                this.Close();
+                this.Hide();
             }
             else
             {
@@ -65,7 +65,19 @@ namespace WinFormsApp1
 
         private void Login_FormClosed_1(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (Globais.logado == true)
+            {
+                tl_home home = new tl_home();
+                home.ShowDialog();
+            }
+            else {
+                Application.Exit();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           Application.Exit();
         }
     }
 }
