@@ -21,16 +21,21 @@ namespace WinFormsApp1
             if (Globais.logado == false)
             {
                 Login login2 = new Login(this);
-                MessageBox.Show("NÃO ESTÁ LOGADO", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                login2.ShowDialog();
+                /*MessageBox.Show("NÃO ESTÁ LOGADO", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                login2.ShowDialog();*/
+                //adicionar uma tela de finalização
+                //this.Close();
+                Application.Exit();
                 
-                this.Close();
 
             }
-
+           
 
         }
-
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
 

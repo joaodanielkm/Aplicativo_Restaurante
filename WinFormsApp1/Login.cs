@@ -58,10 +58,14 @@ namespace WinFormsApp1
         {
 
         }
-
-        private void tb_username_TextChanged(object sender, EventArgs e)
+                private void tb_username_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Login_FormClosed_1(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

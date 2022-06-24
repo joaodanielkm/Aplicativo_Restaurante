@@ -14,8 +14,8 @@ namespace WinFormsApp1
 
         private static SQLiteConnection ConexaoBanco()
         {
-            conexao = new SQLiteConnection("Data Source=C:\\eRepositorios-\\dbeys\\Banco_restaurante\\bd_restaurante.db");
-            //C:\\Program Files (x86)\\Aplicativo Restaurante\\Restaurante App\\Repositorios\\Banco\\
+            conexao = new SQLiteConnection("Data Source=C:\\Program Files (x86)\\Aplicativo Restaurante\\Restaurante App\\Repositorios\\Banco\\bd_restaurante.db");
+            //C:\\eRepositorios-\\dbeys\\Banco_restaurante\\
             conexao.Open();
             return conexao;
         }
@@ -38,8 +38,9 @@ namespace WinFormsApp1
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Erro: " + ex);
+                throw new ("Não foi possivel verificar os usuarios no banco de dados",ex);
                 
-                throw ex;
 
             }
      
@@ -63,7 +64,8 @@ namespace WinFormsApp1
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("Erro: " + ex);
+                throw new ("Falha na conexão com o banco",ex);
                 
             }
 
