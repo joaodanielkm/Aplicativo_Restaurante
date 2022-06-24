@@ -14,7 +14,8 @@ namespace WinFormsApp1
 
         private static SQLiteConnection ConexaoBanco()
         {
-            conexao = new SQLiteConnection("Data Source=C:\\Program Files (x86)\\Aplicativo Restaurante\\Restaurante App\\Repositorios\\Banco\\bd_restaurante.db");
+            conexao = new SQLiteConnection("Data Source=C:\\eRepositorios-\\dbeys\\Banco_restaurante\\bd_restaurante.db");
+            //C:\\Program Files (x86)\\Aplicativo Restaurante\\Restaurante App\\Repositorios\\Banco\\
             conexao.Open();
             return conexao;
         }
@@ -37,7 +38,9 @@ namespace WinFormsApp1
             }
             catch (Exception ex)
             {
+                
                 throw ex;
+
             }
      
 
@@ -61,6 +64,7 @@ namespace WinFormsApp1
             catch (Exception ex)
             {
                 throw ex;
+                
             }
 
         }
