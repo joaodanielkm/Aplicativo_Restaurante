@@ -8,24 +8,26 @@ namespace WinFormsApp1
     {
 
 
-
+        
         F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
         
         public tl_home()
         {
             InitializeComponent();
+            
 
-            Login login = new Login(this);
-            login.ShowDialog();
+
             if (Globais.logado == false)
             {
-                Login login2 = new Login(this);
-                /*MessageBox.Show("NÃO ESTÁ LOGADO", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                login2.ShowDialog();*/
+                Login login = new Login(this);
+                
+                
+                //MessageBox.Show("NÃO ESTÁ LOGADO", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                login.ShowDialog();
                 //adicionar uma tela de finalização
-                //this.Close();
-                Application.Exit();
+                this.Hide();
+                //Application.Exit();
                 
 
             }
@@ -54,6 +56,10 @@ namespace WinFormsApp1
 
         private void tl_home_Load(object sender, EventArgs e)
         {
+            //Perciste usuario logado
+            ll_usuario.Text = Globais.user;
+            
+
 
             //VLR DEFINIDO EM CONFIGURAÇÕES
             string sql = "select * from tb_configuracoes";
@@ -269,7 +275,8 @@ namespace WinFormsApp1
 
             ll_usuario.Text = "---";
             Globais.logado = false;
-
+            Globais.user = "";
+            MessageBox.Show("Até logo!", "Bye", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Login login = new Login(this);
             login.ShowDialog();
 
@@ -410,6 +417,11 @@ namespace WinFormsApp1
         private void tb_outros_valor_ValueChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void ll_usuario_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

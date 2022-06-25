@@ -126,6 +126,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 411);
+            this.ControlBox = false;
             this.Controls.Add(this.l_pg_empresa);
             this.Controls.Add(this.l_vlr_kg);
             this.Controls.Add(this.bt_salvar);
@@ -140,6 +141,7 @@
             this.Name = "F_Configuracoes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuracoes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.F_Configuracoes_FormClosed);
             this.Load += new System.EventHandler(this.F_Configuracoes_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();

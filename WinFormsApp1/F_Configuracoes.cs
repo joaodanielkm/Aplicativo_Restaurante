@@ -49,10 +49,6 @@ namespace WinFormsApp1
             
             //tb_vlr_pg_empresa.Text = dt.Rows[0].ItemArray[0].ToString();
 
-
-
-
-
         }
 
         private void bt_salvar_Click(object sender, EventArgs e)
@@ -83,7 +79,6 @@ namespace WinFormsApp1
             dt = Banco.consulta(sql);
 
             MessageBox.Show("Alterado!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             this.Hide();
             tl_home home = new tl_home();
             home.ShowDialog();
@@ -98,7 +93,6 @@ namespace WinFormsApp1
 
         private void homeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
             tl_home home = new tl_home();
             this.Hide();
             home.ShowDialog();
@@ -108,6 +102,13 @@ namespace WinFormsApp1
         private void tb_vlr_kg_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void F_Configuracoes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+            Application.Exit();
+            
         }
     }
 }

@@ -10,6 +10,7 @@ namespace WinFormsApp1
     {
            public static string versao = "1.0";
            public static Boolean logado = false;
+           public static string user = "";
            public static int nivel = 0;
     }
 }
