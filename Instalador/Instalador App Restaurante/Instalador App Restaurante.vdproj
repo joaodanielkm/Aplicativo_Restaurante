@@ -15,13 +15,31 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_2F294DCAB02842CB8D1054F7A77BD5E7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_65B726DA29384C609AA93F3FC5B9E559"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7D7036E6F3EA4DDB97AB57054A2BABC0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_955C0D1AE3E6473083860706F9A3BB95"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A6E0197BE51B406C9525B0DCEF70BD6E"
+        "MsmKey" = "8:_CDBAF3E3BFD84942B699CA40085BDC24"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -90,10 +108,90 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2F294DCAB02842CB8D1054F7A77BD5E7"
+            {
+            "SourcePath" = "8:..\\Release\\SQLite.Interop.dll"
+            "TargetName" = "8:SQLite.Interop.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_65B726DA29384C609AA93F3FC5B9E559"
+            {
+            "SourcePath" = "8:..\\Release\\sni.dll"
+            "TargetName" = "8:sni.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D7036E6F3EA4DDB97AB57054A2BABC0"
+            {
+            "SourcePath" = "8:..\\Release\\WinFormsApp1.pdb"
+            "TargetName" = "8:WinFormsApp1.pdb"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_955C0D1AE3E6473083860706F9A3BB95"
             {
             "SourcePath" = "8:..\\..\\Banco\\bd_restaurante.db"
             "TargetName" = "8:bd_restaurante.db"
+            "Tag" = "8:"
+            "Folder" = "8:_6E41F83E8703430F8CF0D7E6DCF6D513"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:FALSE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CDBAF3E3BFD84942B699CA40085BDC24"
+            {
+            "SourcePath" = "8:..\\Release\\WinFormsApp1.exe"
+            "TargetName" = "8:WinFormsApp1.exe"
             "Tag" = "8:"
             "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
             "Condition" = "8:"
@@ -126,6 +224,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_6E41F83E8703430F8CF0D7E6DCF6D513"
+                    {
+                    "Name" = "8:Banco"
+                    "AlwaysCreate" = "11:TRUE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_F96E822D3C984AA1A3A79479BD915B92"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_DA2C0EBEA9C048E08D9556E684FAC314"
@@ -165,9 +274,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Instalador App Restaurante"
+        "ProductName" = "8:Restaurante App"
         "ProductCode" = "8:{4D1175A5-5D14-4351-80F5-1AB60987DCD9}"
-        "PackageCode" = "8:{18BCA8E4-2127-4436-B0B3-08F428AFC80A}"
+        "PackageCode" = "8:{1BDCDB63-09B6-4B3C-9346-6EA2C9D98266}"
         "UpgradeCode" = "8:{7FFE5D0F-A832-406E-90EE-8C71DA37E329}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -287,6 +396,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_00ACF0952DD64F5A83B7CF0D6BF4B198"
+            {
+            "Name" = "8:App Restaurante"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_CDBAF3E3BFD84942B699CA40085BDC24"
+            "Folder" = "8:_E7F0142FC1F34C73AC0A47F700EA60A4"
+            "WorkingFolder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
@@ -686,34 +809,6 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A6E0197BE51B406C9525B0DCEF70BD6E"
-            {
-            "SourcePath" = "8:..\\..\\WinFormsApp1\\obj\\Debug\\net6.0-windows\\WinFormsApp1.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{9C8F06B2-5484-4ABD-A6A9-92B67152B86C}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
         }
     }
 }
