@@ -27,7 +27,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_898B12236A2446DF9EBFE94D4B404277"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_955C0D1AE3E6473083860706F9A3BB95"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C48355C724154490848D272D3AC653AE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -62,6 +74,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -112,6 +132,14 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_85EF7FC936FD4B1896DE42718F168769"
+                {
+                "Name" = "8:.NET Framework"
+                "Message" = "8:[VSDNETMSG]"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.7.2"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=863262"
+                }
                 "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_C6C165E589394A078658A26DD1EF2599"
                 {
                 "Name" = "8:.NET Core"
@@ -166,12 +194,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_898B12236A2446DF9EBFE94D4B404277"
+            {
+            "SourcePath" = "8:..\\Release\\sni.dll"
+            "TargetName" = "8:sni.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_955C0D1AE3E6473083860706F9A3BB95"
             {
             "SourcePath" = "8:..\\..\\Banco\\bd_restaurante.db"
             "TargetName" = "8:bd_restaurante.db"
             "Tag" = "8:"
             "Folder" = "8:_35D17EF4CCE24EEC9A77E79DBFEBCFDC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C48355C724154490848D272D3AC653AE"
+            {
+            "SourcePath" = "8:..\\Release\\SQLite.Interop.dll"
+            "TargetName" = "8:SQLite.Interop.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -274,7 +342,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Restaurante App"
         "ProductCode" = "8:{4D1175A5-5D14-4351-80F5-1AB60987DCD9}"
-        "PackageCode" = "8:{23ACD743-E6CC-4987-AAF6-277C4000B135}"
+        "PackageCode" = "8:{9B362184-EBD1-4D58-B396-3DFD5BDEBC37}"
         "UpgradeCode" = "8:{7FFE5D0F-A832-406E-90EE-8C71DA37E329}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -394,7 +462,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_00ACF0952DD64F5A83B7CF0D6BF4B198"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3EE6118C615E4F44ADC1BDFC3D8B2E33"
             {
             "Name" = "8:App Restaurante"
             "Arguments" = "8:"
