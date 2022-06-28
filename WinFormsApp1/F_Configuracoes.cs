@@ -31,7 +31,7 @@ namespace WinFormsApp1
             dt = Banco.consulta(N_VLR_PG_EMPRESA);
 
 
-            tb_vlr_pg_empresa.Text = ""+dt.Rows[0].ItemArray[2].ToString();
+            tb_vlr_pg_empresa.Text = "" + dt.Rows[0].ItemArray[2].ToString();
             tb_vlr_kg.Text = "" + dt.Rows[0].ItemArray[1].ToString();
 
             textBox1.Text = Regex.Replace(tb_vlr_kg.Text, @"[^a-zA-Z,]+", ",");
@@ -40,7 +40,7 @@ namespace WinFormsApp1
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void tb_vlr_pg_empresa_TextChanged(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace WinFormsApp1
 
             dt = Banco.consulta(N_VLR_PG_EMPRESA);
 
-            
+
             //tb_vlr_pg_empresa.Text = dt.Rows[0].ItemArray[0].ToString();
 
         }
@@ -60,12 +60,13 @@ namespace WinFormsApp1
             //Regex rx = new Regex(pattern);
             Regex.Replace(tb_vlr_kg.Text,pattern, ",");*/
             //if (!Regex.Match(tb_vlr_kg.Text, @"[0-9][\,\w+]").Success) {
-                Regex.Replace(tb_vlr_kg.Text, ".", ",");
-           // }
+            Regex.Replace(tb_vlr_kg.Text, ".", ",");
+            // }
 
             double tb_vlr_kg1 = Convert.ToDouble(tb_vlr_kg.Text);
 
-        
+            //tb_vlr_kg.Text = Convert.ToString((Convert.ToDouble(tb_vlr_kg.Text) / 2));
+
             double var2 = (tb_vlr_kg1 / 2);
 
             double var3 = tb_vlr_kg1 - var2;
@@ -80,7 +81,7 @@ namespace WinFormsApp1
 
 
             string sql = $"UPDATE tb_configuracoes SET N_VLR_KG = '{tb_vlr_kg3}', N_VLR_PG_EMPRESA = '{var4}'";
-            
+
             dt = Banco.consulta(sql);
 
             MessageBox.Show("Alterado!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -107,13 +108,37 @@ namespace WinFormsApp1
         private void tb_vlr_kg_TextChanged(object sender, EventArgs e)
         {
 
+            double tb_vlr_kg1 = Convert.ToDouble(tb_vlr_kg.Text);
+
+            //tb_vlr_kg.Text = Convert.ToString((Convert.ToDouble(tb_vlr_kg.Text) / 2));
+
+            double var2 = (tb_vlr_kg1 / 2);
+
+            double var3 = tb_vlr_kg1 - var2;
+
+            double tb_vlr_kg2 = tb_vlr_kg1;
+
+            double var4 = var2;
+
+
+            tb_vlr_pg_empresa.Text = Convert.ToString(var4);
+
+
         }
 
         private void F_Configuracoes_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
             Application.Exit();
-            
+
+        }
+
+        private void tb_vlr_kg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar) || (char.IsPunctuation(e.KeyChar))))) {
+
+                e.Handled = true;
+            };
         }
     }
 }

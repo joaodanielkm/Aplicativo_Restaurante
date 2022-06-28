@@ -421,5 +421,46 @@ namespace WinFormsApp1
         {
 
         }
+
+        private void tb_outros_valor_Click(object sender, EventArgs e)
+        {
+           /* double verifica = Convert.ToDouble(tb_outros_valor.Text);
+            if (verifica > 0)
+            {
+                l_diversos.Visible = true;
+                tb_diversos_descricao.Visible = true;
+                tb_diversos_descricao.Enabled = true;
+
+            }
+            else {
+                l_diversos.Visible=false;
+                tb_diversos_descricao.Visible = false;
+                //tb_diversos_descricao.Enabled = false;
+            }*/
+            
+        }
+
+        private void tb_diversos_descricao_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tb_diversos_descricao_TextChanged(object sender, EventArgs e)
+        {
+            string verifica = tb_diversos_descricao.Text;
+            if (verifica != "")
+            {
+                l_rs.Visible = true;
+                tb_outros_valor.Visible = true;
+                //tb_outros_valor.Enabled = true;
+
+            }
+            else
+            {
+                l_rs.Visible = false;
+                tb_outros_valor.Visible = false;
+                //tb_diversos_descricao.Enabled = false;
+            }
+        }
     }
 }

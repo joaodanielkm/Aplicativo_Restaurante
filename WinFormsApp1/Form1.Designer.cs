@@ -85,33 +85,33 @@
             // históricoToolStripMenuItem
             // 
             this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
-            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.históricoToolStripMenuItem.Text = "Histórico";
             this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
             // outrosMesesToolStripMenuItem
             // 
             this.outrosMesesToolStripMenuItem.Name = "outrosMesesToolStripMenuItem";
-            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.outrosMesesToolStripMenuItem.Text = "Outros Meses";
             // 
             // configuraçõesToolStripMenuItem
             // 
             this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
-            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
             this.configuraçõesToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesToolStripMenuItem_Click);
             // 
             // alterarSenhaToolStripMenuItem
             // 
             this.alterarSenhaToolStripMenuItem.Name = "alterarSenhaToolStripMenuItem";
-            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.alterarSenhaToolStripMenuItem.Text = "Alterar Senha";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -149,6 +149,8 @@
             this.tb_diversos_descricao.Name = "tb_diversos_descricao";
             this.tb_diversos_descricao.Size = new System.Drawing.Size(160, 23);
             this.tb_diversos_descricao.TabIndex = 3;
+            this.tb_diversos_descricao.Click += new System.EventHandler(this.tb_diversos_descricao_Click);
+            this.tb_diversos_descricao.TextChanged += new System.EventHandler(this.tb_diversos_descricao_TextChanged);
             // 
             // bt_salvar
             // 
@@ -211,6 +213,7 @@
             this.l_rs.Size = new System.Drawing.Size(20, 15);
             this.l_rs.TabIndex = 16;
             this.l_rs.Text = "R$";
+            this.l_rs.Visible = false;
             // 
             // ll_usuario
             // 
@@ -302,7 +305,9 @@
             this.tb_outros_valor.Size = new System.Drawing.Size(120, 23);
             this.tb_outros_valor.TabIndex = 4;
             this.tb_outros_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_outros_valor.Visible = false;
             this.tb_outros_valor.ValueChanged += new System.EventHandler(this.tb_outros_valor_ValueChanged);
+            this.tb_outros_valor.Click += new System.EventHandler(this.tb_outros_valor_Click);
             // 
             // tl_home
             // 
