@@ -8,30 +8,26 @@ namespace WinFormsApp1
     {
 
 
-        
+
         F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
-        
+
         public tl_home()
         {
             InitializeComponent();
-            
+
 
 
             if (Globais.logado == false)
             {
                 Login login = new Login(this);
-                
-                
-                //MessageBox.Show("NÃO ESTÁ LOGADO", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 login.ShowDialog();
-                //adicionar uma tela de finalização
                 this.Hide();
-                //Application.Exit();
-                
+
 
             }
-           
+
 
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -58,7 +54,7 @@ namespace WinFormsApp1
         {
             //Perciste usuario logado
             ll_usuario.Text = Globais.user;
-            
+
 
 
             //VLR DEFINIDO EM CONFIGURAÇÕES
@@ -71,7 +67,7 @@ namespace WinFormsApp1
             string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
 
             dt = Banco.consulta(total_mes);
-            
+
             l_vlr_parcial.Text = "R$ " + dt.Rows[0].ItemArray[0].ToString();
             //FIM GASTOS DO MES
 
@@ -103,7 +99,7 @@ namespace WinFormsApp1
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
 
-            result1 = (result1 - pagoEmpresa)/100;
+            result1 = (result1 - pagoEmpresa) / 100;
             string tb_diversos_descricao1 = tb_diversos_descricao.Text;
 
             //VERIFICA SE EXISTE LANÇAMENTO NA DATA
@@ -133,7 +129,7 @@ namespace WinFormsApp1
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
-                                MessageBox.Show("Salvo!","Lançamento",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             }
                             else
@@ -183,9 +179,9 @@ namespace WinFormsApp1
                     }
                     //this.Close();
                 }
-                
+
             }
-            
+
             else
             {
 
@@ -226,7 +222,7 @@ namespace WinFormsApp1
                         }
                         else
                         {
-                            MessageBox.Show("Favor informar a descricao do diversos!","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                            MessageBox.Show("Favor informar a descricao do diversos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         }
                     }
                     else
@@ -255,7 +251,7 @@ namespace WinFormsApp1
                     }
                 }
             }
-            
+
             /*
             Dados dados = new Dados();
             dados.data = dt_data_atual.Text;
@@ -288,7 +284,7 @@ namespace WinFormsApp1
             F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
             this.Hide();
             f_Configuracoes.ShowDialog();
-            
+
         }
 
         private void l_vlr_peso_atual_Click(object sender, EventArgs e)
@@ -317,7 +313,7 @@ namespace WinFormsApp1
 
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
-            result1 = (result1 - pagoEmpresa)/100;
+            result1 = (result1 - pagoEmpresa) / 100;
 
 
             if (result1 < 0)
@@ -390,13 +386,6 @@ namespace WinFormsApp1
         private void l_vlrdinamico_Click(object sender, EventArgs e)
         {
 
-            /*F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            int valor1 = int.Parse(tb_peso.Text);
-            //int valor2 = int.Parse(f_Configuracoes.tb_vlrkg.Text);
-            //int l_vlrdinamico = ((valor1 * valor2) / 1000); */
-
-
-
         }
 
         private void tb_peso_ValueChanged(object sender, EventArgs e)
@@ -416,7 +405,7 @@ namespace WinFormsApp1
 
         private void tb_outros_valor_ValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void ll_usuario_Click(object sender, EventArgs e)
