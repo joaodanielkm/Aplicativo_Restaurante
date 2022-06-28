@@ -99,7 +99,7 @@ namespace WinFormsApp1
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
 
-            result1 = (result1 - pagoEmpresa) / 100;
+            result1 = (result1 - pagoEmpresa);
             string tb_diversos_descricao1 = tb_diversos_descricao.Text;
 
             //VERIFICA SE EXISTE LANÇAMENTO NA DATA
@@ -258,6 +258,15 @@ namespace WinFormsApp1
             dados.peso = tb_peso.Text;
             dados.outrosDiversos = tb_diversos_descricao.Text;
             dados.outrosValor = tb_outros_valor.Text;*/
+
+            //GASTOS DO MES
+            string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
+
+            dt = Banco.consulta(total_mes);
+
+            l_vlr_parcial.Text = "R$ " + dt.Rows[0].ItemArray[0].ToString();
+            //FIM GASTOS DO MES
+
         }
 
         private void sQLiteToolStripMenuItem1_Click(object sender, EventArgs e)

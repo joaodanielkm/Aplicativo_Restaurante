@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace WinFormsApp1
 {
@@ -33,6 +34,8 @@ namespace WinFormsApp1
             tb_vlr_pg_empresa.Text = ""+dt.Rows[0].ItemArray[2].ToString();
             tb_vlr_kg.Text = "" + dt.Rows[0].ItemArray[1].ToString();
 
+            textBox1.Text = Regex.Replace(tb_vlr_kg.Text, @"[^a-zA-Z,]+", ",");
+
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,34 +56,36 @@ namespace WinFormsApp1
 
         private void bt_salvar_Click(object sender, EventArgs e)
         {
-            
+            /*string pattern = @"\.\w+";
+            //Regex rx = new Regex(pattern);
+            Regex.Replace(tb_vlr_kg.Text,pattern, ",");*/
+            //if (!Regex.Match(tb_vlr_kg.Text, @"[0-9][\,\w+]").Success) {
+                Regex.Replace(tb_vlr_kg.Text, ".", ",");
+           // }
+
             double tb_vlr_kg1 = Convert.ToDouble(tb_vlr_kg.Text);
 
-
-
-            //double tb_vlr_pago_empresa1 = Convert.ToDouble(tb_vlr_pg_empresa.Text);
+        
             double var2 = (tb_vlr_kg1 / 2);
 
             double var3 = tb_vlr_kg1 - var2;
 
-            string tb_vlr_kg2 = tb_vlr_kg1.ToString("F2", CultureInfo.InvariantCulture);
+            double tb_vlr_kg2 = tb_vlr_kg1;
 
-            string var4 = var2.ToString("F2", CultureInfo.InvariantCulture);
+            double var4 = var2;
 
-
-            //tb_vlr_pg_empresa.Text = var3.ToString("F2");
-
-            string sql = $"UPDATE tb_configuracoes SET N_VLR_KG = '{tb_vlr_kg2}', N_VLR_PG_EMPRESA = '{var4}'";
-            //string sql1 = $"UPDATE tb_configuracoes SET N_VLR_PG_EMPRESA = '{var3}'";
+            string tb_vlr_kg3 = tb_vlr_kg2.ToString("F2", CultureInfo.InvariantCulture);
 
 
 
-           // dt = Banco.consulta(sql);
+
+            string sql = $"UPDATE tb_configuracoes SET N_VLR_KG = '{tb_vlr_kg3}', N_VLR_PG_EMPRESA = '{var4}'";
+            
             dt = Banco.consulta(sql);
 
             MessageBox.Show("Alterado!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Hide();
-            tl_home home = new tl_home();
+            //this.Hide();
+            //tl_home home = new tl_home();
             home.ShowDialog();
 
 
