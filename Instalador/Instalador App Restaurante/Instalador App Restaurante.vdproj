@@ -45,7 +45,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E070725ED9134152B89BB81AD96E6060"
+        "MsmKey" = "8:_A3351F63714C4FDE97A6C7C53564A33A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -254,7 +254,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E070725ED9134152B89BB81AD96E6060"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A3351F63714C4FDE97A6C7C53564A33A"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Desktop\\TESTE\\V1\\Icon.ico"
             "TargetName" = "8:Icon.ico"
@@ -473,7 +473,7 @@
             "Target" = "8:_4AC7D59306364EC3AD09F8F47C2C6B63"
             "Folder" = "8:_E7F0142FC1F34C73AC0A47F700EA60A4"
             "WorkingFolder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
-            "Icon" = "8:_E070725ED9134152B89BB81AD96E6060"
+            "Icon" = "8:_A3351F63714C4FDE97A6C7C53564A33A"
             "Feature" = "8:"
             }
         }
