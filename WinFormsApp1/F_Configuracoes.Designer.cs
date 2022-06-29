@@ -45,7 +45,7 @@
             this.tb_vlr_kg.Location = new System.Drawing.Point(114, 74);
             this.tb_vlr_kg.Name = "tb_vlr_kg";
             this.tb_vlr_kg.Size = new System.Drawing.Size(100, 23);
-            this.tb_vlr_kg.TabIndex = 0;
+            this.tb_vlr_kg.TabIndex = 1;
             this.tb_vlr_kg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_vlr_kg.TextChanged += new System.EventHandler(this.tb_vlr_kg_TextChanged);
             this.tb_vlr_kg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_vlr_kg_KeyPress);
@@ -55,7 +55,7 @@
             this.tb_vlr_pg_empresa.Location = new System.Drawing.Point(114, 141);
             this.tb_vlr_pg_empresa.Name = "tb_vlr_pg_empresa";
             this.tb_vlr_pg_empresa.Size = new System.Drawing.Size(100, 23);
-            this.tb_vlr_pg_empresa.TabIndex = 1;
+            this.tb_vlr_pg_empresa.TabIndex = 2;
             this.tb_vlr_pg_empresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_vlr_pg_empresa.TextChanged += new System.EventHandler(this.tb_vlr_pg_empresa_TextChanged);
             // 
@@ -64,7 +64,7 @@
             this.bt_salvar.Location = new System.Drawing.Point(99, 214);
             this.bt_salvar.Name = "bt_salvar";
             this.bt_salvar.Size = new System.Drawing.Size(75, 23);
-            this.bt_salvar.TabIndex = 2;
+            this.bt_salvar.TabIndex = 3;
             this.bt_salvar.Text = "Salvar";
             this.bt_salvar.UseVisualStyleBackColor = true;
             this.bt_salvar.Click += new System.EventHandler(this.bt_salvar_Click);
@@ -118,7 +118,7 @@
             // homeToolStripMenuItem1
             // 
             this.homeToolStripMenuItem1.Name = "homeToolStripMenuItem1";
-            this.homeToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.homeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.homeToolStripMenuItem1.Text = "Home";
             this.homeToolStripMenuItem1.Click += new System.EventHandler(this.homeToolStripMenuItem1_Click);
             // 

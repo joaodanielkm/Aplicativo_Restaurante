@@ -54,7 +54,7 @@
             this.ll_sobre.Location = new System.Drawing.Point(87, 205);
             this.ll_sobre.Name = "ll_sobre";
             this.ll_sobre.Size = new System.Drawing.Size(37, 15);
-            this.ll_sobre.TabIndex = 15;
+            this.ll_sobre.TabIndex = 5;
             this.ll_sobre.TabStop = true;
             this.ll_sobre.Text = "Sobre";
             // 
@@ -81,7 +81,7 @@
             this.tb_username.Location = new System.Drawing.Point(15, 31);
             this.tb_username.Name = "tb_username";
             this.tb_username.Size = new System.Drawing.Size(180, 23);
-            this.tb_username.TabIndex = 19;
+            this.tb_username.TabIndex = 1;
             this.tb_username.Tag = "";
             this.tb_username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_username.TextChanged += new System.EventHandler(this.tb_username_TextChanged);
@@ -94,7 +94,7 @@
             this.tb_senha.Name = "tb_senha";
             this.tb_senha.PasswordChar = '*';
             this.tb_senha.Size = new System.Drawing.Size(180, 23);
-            this.tb_senha.TabIndex = 20;
+            this.tb_senha.TabIndex = 2;
             this.tb_senha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_senha.TextChanged += new System.EventHandler(this.tb_senha_TextChanged);
             this.tb_senha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_senha_KeyDown);
@@ -106,7 +106,7 @@
             this.bt_entrar.Location = new System.Drawing.Point(12, 159);
             this.bt_entrar.Name = "bt_entrar";
             this.bt_entrar.Size = new System.Drawing.Size(112, 31);
-            this.bt_entrar.TabIndex = 21;
+            this.bt_entrar.TabIndex = 3;
             this.bt_entrar.Text = "Logar";
             this.bt_entrar.UseVisualStyleBackColor = true;
             this.bt_entrar.Click += new System.EventHandler(this.bt_entrar_Click);
@@ -116,7 +116,7 @@
             this.button1.Location = new System.Drawing.Point(132, 159);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(63, 32);
-            this.button1.TabIndex = 22;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Fechar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.bt_fechar);
