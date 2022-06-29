@@ -32,10 +32,10 @@
             this.ll_sobre = new System.Windows.Forms.LinkLabel();
             this.l_username = new System.Windows.Forms.Label();
             this.l_senha = new System.Windows.Forms.Label();
-            this.tb_username = new System.Windows.Forms.TextBox();
             this.tb_senha = new System.Windows.Forms.TextBox();
             this.bt_entrar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbx_username = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // ll_versao
@@ -76,21 +76,9 @@
             this.l_senha.TabIndex = 18;
             this.l_senha.Text = "Senha";
             // 
-            // tb_username
-            // 
-            this.tb_username.Location = new System.Drawing.Point(15, 31);
-            this.tb_username.Name = "tb_username";
-            this.tb_username.Size = new System.Drawing.Size(180, 23);
-            this.tb_username.TabIndex = 1;
-            this.tb_username.Tag = "";
-            this.tb_username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_username.TextChanged += new System.EventHandler(this.tb_username_TextChanged);
-            this.tb_username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_username_KeyDown);
-            this.tb_username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_username_KeyPress);
-            // 
             // tb_senha
             // 
-            this.tb_senha.Location = new System.Drawing.Point(15, 108);
+            this.tb_senha.Location = new System.Drawing.Point(12, 109);
             this.tb_senha.Name = "tb_senha";
             this.tb_senha.PasswordChar = '*';
             this.tb_senha.Size = new System.Drawing.Size(180, 23);
@@ -121,16 +109,31 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.bt_fechar);
             // 
+            // cbx_username
+            // 
+            this.cbx_username.FormattingEnabled = true;
+            this.cbx_username.Items.AddRange(new object[] {
+            "JOAO",
+            "LEONARDO",
+            "ZAMBRANO"});
+            this.cbx_username.Location = new System.Drawing.Point(12, 36);
+            this.cbx_username.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.cbx_username.Name = "cbx_username";
+            this.cbx_username.Size = new System.Drawing.Size(180, 23);
+            this.cbx_username.TabIndex = 1;
+            this.cbx_username.TextChanged += new System.EventHandler(this.cbx_username_TextChanged);
+            this.cbx_username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbx_username_KeyDown);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(209, 251);
             this.ControlBox = false;
+            this.Controls.Add(this.cbx_username);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bt_entrar);
             this.Controls.Add(this.tb_senha);
-            this.Controls.Add(this.tb_username);
             this.Controls.Add(this.l_senha);
             this.Controls.Add(this.l_username);
             this.Controls.Add(this.ll_versao);
@@ -154,9 +157,9 @@
         private LinkLabel ll_sobre;
         private Label l_username;
         private Label l_senha;
-        private TextBox tb_username;
         private TextBox tb_senha;
         private Button bt_entrar;
         private Button button1;
+        private ComboBox cbx_username;
     }
 }

@@ -22,12 +22,12 @@ namespace WinFormsApp1
 
         private void bt_entrar_Click(object sender, EventArgs e)
         {
-            string username = tb_username.Text;
+            string username = cbx_username.Text;
             string senha = tb_senha.Text;
             if (username == "")
             {
                 MessageBox.Show("Favor digitar o usuario!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tb_username.Focus();
+                cbx_username.Focus();
                 return;
             }
             else if (senha == "")
@@ -57,11 +57,11 @@ namespace WinFormsApp1
 
         private void Login_Load(object sender, EventArgs e)
         {
-            tb_username.Focus();
+            cbx_username.Focus();
         }
         private void tb_username_TextChanged(object sender, EventArgs e)
         {
-            tb_username.CharacterCasing = CharacterCasing.Upper;
+            //cbx_username.CharacterCasing = CharacterCasing.Upper;
         }
 
         private void Login_FormClosed_1(object sender, FormClosedEventArgs e)
@@ -129,6 +129,20 @@ namespace WinFormsApp1
             if (e.KeyCode == Keys.Enter)
             {
                 bt_entrar.Focus();
+
+            };
+        }
+
+        private void cbx_username_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbx_username_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tb_senha.Focus();
 
             };
         }
