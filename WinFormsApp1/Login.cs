@@ -57,7 +57,7 @@ namespace WinFormsApp1
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            tb_username.Focus();
         }
         private void tb_username_TextChanged(object sender, EventArgs e)
         {
@@ -93,6 +93,7 @@ namespace WinFormsApp1
 
                 e.Handled = true;
             };
+            
         }
 
         private void tb_senha_KeyPress(object sender, KeyPressEventArgs e)
@@ -101,6 +102,34 @@ namespace WinFormsApp1
             {
 
                 e.Handled = true;
+            };
+        }
+
+        private void tb_senha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_senha_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void tb_username_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tb_senha.Focus();
+
+            };
+        }
+
+        private void tb_senha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                bt_entrar.Focus();
+
             };
         }
     }

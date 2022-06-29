@@ -85,6 +85,7 @@
             this.tb_username.Tag = "";
             this.tb_username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_username.TextChanged += new System.EventHandler(this.tb_username_TextChanged);
+            this.tb_username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_username_KeyDown);
             this.tb_username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_username_KeyPress);
             // 
             // tb_senha
@@ -95,7 +96,10 @@
             this.tb_senha.Size = new System.Drawing.Size(180, 23);
             this.tb_senha.TabIndex = 20;
             this.tb_senha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_senha.TextChanged += new System.EventHandler(this.tb_senha_TextChanged);
+            this.tb_senha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_senha_KeyDown);
             this.tb_senha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_senha_KeyPress);
+            this.tb_senha.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tb_senha_KeyUp);
             // 
             // bt_entrar
             // 
