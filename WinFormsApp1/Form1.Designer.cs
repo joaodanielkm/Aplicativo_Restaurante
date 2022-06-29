@@ -157,7 +157,7 @@
             this.bt_salvar.Location = new System.Drawing.Point(193, 319);
             this.bt_salvar.Name = "bt_salvar";
             this.bt_salvar.Size = new System.Drawing.Size(75, 23);
-            this.bt_salvar.TabIndex = 6;
+            this.bt_salvar.TabIndex = 5;
             this.bt_salvar.Text = "Salvar";
             this.bt_salvar.UseVisualStyleBackColor = true;
             this.bt_salvar.Click += new System.EventHandler(this.bt_salvar_Click);
@@ -262,7 +262,7 @@
             this.bt_calcular.Location = new System.Drawing.Point(33, 319);
             this.bt_calcular.Name = "bt_calcular";
             this.bt_calcular.Size = new System.Drawing.Size(75, 23);
-            this.bt_calcular.TabIndex = 5;
+            this.bt_calcular.TabIndex = 99;
             this.bt_calcular.Text = "Prévia";
             this.bt_calcular.UseVisualStyleBackColor = true;
             this.bt_calcular.Click += new System.EventHandler(this.l_vlrparcial_Click);
@@ -281,7 +281,7 @@
             this.tb_peso1.Location = new System.Drawing.Point(92, 118);
             this.tb_peso1.Name = "tb_peso1";
             this.tb_peso1.Size = new System.Drawing.Size(95, 23);
-            this.tb_peso1.TabIndex = 23;
+            this.tb_peso1.TabIndex = 2;
             this.tb_peso1.Text = "0";
             this.tb_peso1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_peso1.BackColorChanged += new System.EventHandler(this.tb_peso1_BackColorChanged);
@@ -294,7 +294,7 @@
             this.tb_outros_valor.Location = new System.Drawing.Point(92, 203);
             this.tb_outros_valor.Name = "tb_outros_valor";
             this.tb_outros_valor.Size = new System.Drawing.Size(95, 23);
-            this.tb_outros_valor.TabIndex = 24;
+            this.tb_outros_valor.TabIndex = 4;
             this.tb_outros_valor.Text = "0";
             this.tb_outros_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_outros_valor.TextChanged += new System.EventHandler(this.tb_outros_valor_TextChanged);
