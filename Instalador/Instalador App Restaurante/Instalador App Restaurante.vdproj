@@ -21,7 +21,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_28D96C9F76844ECB9707C8FCF827F568"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_48664FCEA58849D0B4B9AC6B793A9007"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_48FA6078F0534A1091B29C14B65A5E99"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -45,7 +57,25 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9F3D7D8DFD454212811C20283DF33B4D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A3351F63714C4FDE97A6C7C53564A33A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B41BB94D3FC84B74A965CE3FEAE4F7BF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D4F2E4B2B5AF4130B459E7044AC19217"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -174,10 +204,50 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_28D96C9F76844ECB9707C8FCF827F568"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\TESTE\\V1\\D3DCompiler_47_cor3.dll"
+            "TargetName" = "8:D3DCompiler_47_cor3.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_48664FCEA58849D0B4B9AC6B793A9007"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Desktop\\TESTE\\V1\\WinFormsApp1.pdb"
             "TargetName" = "8:WinFormsApp1.pdb"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_48FA6078F0534A1091B29C14B65A5E99"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\TESTE\\V1\\PresentationNative_cor3.dll"
+            "TargetName" = "8:PresentationNative_cor3.dll"
             "Tag" = "8:"
             "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
             "Condition" = "8:"
@@ -254,10 +324,70 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9F3D7D8DFD454212811C20283DF33B4D"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\TESTE\\V1\\PenImc_cor3.dll"
+            "TargetName" = "8:PenImc_cor3.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A3351F63714C4FDE97A6C7C53564A33A"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Desktop\\TESTE\\V1\\Icon.ico"
             "TargetName" = "8:Icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B41BB94D3FC84B74A965CE3FEAE4F7BF"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\TESTE\\V1\\vcruntime140_cor3.dll"
+            "TargetName" = "8:vcruntime140_cor3.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D4F2E4B2B5AF4130B459E7044AC19217"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\TESTE\\V1\\wpfgfx_cor3.dll"
+            "TargetName" = "8:wpfgfx_cor3.dll"
             "Tag" = "8:"
             "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
             "Condition" = "8:"
