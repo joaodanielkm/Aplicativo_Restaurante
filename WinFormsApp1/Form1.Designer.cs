@@ -242,6 +242,7 @@
             this.l_vlr_peso_atual.Size = new System.Drawing.Size(22, 15);
             this.l_vlr_peso_atual.TabIndex = 19;
             this.l_vlr_peso_atual.Text = "---";
+            this.l_vlr_peso_atual.TextChanged += new System.EventHandler(this.l_vlr_peso_atual_TextChanged);
             this.l_vlr_peso_atual.Click += new System.EventHandler(this.l_vlr_peso_atual_Click);
             // 
             // l_vlrparcial

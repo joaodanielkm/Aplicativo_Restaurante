@@ -34,7 +34,7 @@ namespace WinFormsApp1
             tb_vlr_pg_empresa.Text = "" + dt.Rows[0].ItemArray[2].ToString();
             tb_vlr_kg.Text = "" + dt.Rows[0].ItemArray[1].ToString();
 
-            
+
 
         }
 
@@ -56,36 +56,34 @@ namespace WinFormsApp1
 
         private void bt_salvar_Click(object sender, EventArgs e)
         {
-            if (tb_vlr_kg.Text == "" || tb_vlr_pg_empresa.Text == "")
-            {
-                tb_vlr_kg.Text = "0";
-                tb_vlr_pg_empresa.Text = "0";
-            }
-            /*string pattern = @"\.\w+";
-            //Regex rx = new Regex(pattern);
-            Regex.Replace(tb_vlr_kg.Text,pattern, ",");*/
-            //if (!Regex.Match(tb_vlr_kg.Text, @"[0-9][\,\w+]").Success) {
-            Regex.Replace(tb_vlr_kg.Text, ".", ",");
-            // }
+            
+            //CONVERSAO . POR ,
+            String convertePonto = tb_vlr_kg.Text;
 
-            double tb_vlr_kg1 = Convert.ToDouble(tb_vlr_kg.Text);
+            convertePonto = convertePonto.Replace(".", ",");
 
+            
+            //FIM DA CONVERSAO
+
+
+            //double tb_vlr_kg1 = Convert.ToDouble(tb_vlr_kg.Text);
+            double convertePonto1 = Convert.ToDouble(convertePonto);
             //tb_vlr_kg.Text = Convert.ToString((Convert.ToDouble(tb_vlr_kg.Text) / 2));
 
-            double var2 = (tb_vlr_kg1 / 2);
+            double pg_empresa = (convertePonto1 / 2);
 
-            double var3 = tb_vlr_kg1 - var2;
+            //double var3 = convertePonto1 - var2;
 
-            double tb_vlr_kg2 = tb_vlr_kg1;
+            //double tb_vlr_kg2 = convertePonto1;
 
-            double var4 = var2;
+            //double var4 = var2;
 
-            string tb_vlr_kg3 = tb_vlr_kg2.ToString("F2", CultureInfo.InvariantCulture);
-
-
+            //string tb_vlr_kg3 = tb_vlr_kg2.ToString();
 
 
-            string sql = $"UPDATE tb_configuracoes SET N_VLR_KG = '{tb_vlr_kg3}', N_VLR_PG_EMPRESA = '{var4}'";
+
+
+            string sql = $"UPDATE tb_configuracoes SET N_VLR_KG = '{convertePonto1}', N_VLR_PG_EMPRESA = '{pg_empresa}'";
 
             dt = Banco.consulta(sql);
 
@@ -113,20 +111,28 @@ namespace WinFormsApp1
         private void tb_vlr_kg_TextChanged(object sender, EventArgs e)
         {
 
-            if (tb_vlr_kg.Text == "" || tb_vlr_pg_empresa.Text == "")
-            {
-                tb_vlr_kg.Text = "0";
-                tb_vlr_pg_empresa.Text = "0";
+            if (string.IsNullOrWhiteSpace(tb_vlr_kg.Text)) {
+                return;
             }
+
+
+            String convertePonto = tb_vlr_kg.Text;
+
+            convertePonto = convertePonto.Replace(".", ",");
+
+            double convertePonto1 = Convert.ToDouble(convertePonto);
+
+
+           
             double tb_vlr_kg1 = Convert.ToDouble(tb_vlr_kg.Text);
 
             //tb_vlr_kg.Text = Convert.ToString((Convert.ToDouble(tb_vlr_kg.Text) / 2));
 
-            double var2 = (tb_vlr_kg1 / 2);
+            double var2 = (convertePonto1 / 2);
 
-            double var3 = tb_vlr_kg1 - var2;
+            double var3 = convertePonto1 - var2;
 
-            double tb_vlr_kg2 = tb_vlr_kg1;
+            double tb_vlr_kg2 = convertePonto1;
 
             double var4 = var2;
 
@@ -145,7 +151,7 @@ namespace WinFormsApp1
 
         private void tb_vlr_kg_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) || (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar) || (char.IsPunctuation(e.KeyChar))))) {
+            if (char.IsLetter(e.KeyChar) || (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar) ))) {
 
                 e.Handled = true;
             };
