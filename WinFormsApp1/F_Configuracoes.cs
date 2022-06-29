@@ -34,7 +34,7 @@ namespace WinFormsApp1
             tb_vlr_pg_empresa.Text = "" + dt.Rows[0].ItemArray[2].ToString();
             tb_vlr_kg.Text = "" + dt.Rows[0].ItemArray[1].ToString();
 
-            textBox1.Text = Regex.Replace(tb_vlr_kg.Text, @"[^a-zA-Z,]+", ",");
+            
 
         }
 
@@ -56,6 +56,11 @@ namespace WinFormsApp1
 
         private void bt_salvar_Click(object sender, EventArgs e)
         {
+            if (tb_vlr_kg.Text == "" || tb_vlr_pg_empresa.Text == "")
+            {
+                tb_vlr_kg.Text = "0";
+                tb_vlr_pg_empresa.Text = "0";
+            }
             /*string pattern = @"\.\w+";
             //Regex rx = new Regex(pattern);
             Regex.Replace(tb_vlr_kg.Text,pattern, ",");*/
@@ -108,6 +113,11 @@ namespace WinFormsApp1
         private void tb_vlr_kg_TextChanged(object sender, EventArgs e)
         {
 
+            if (tb_vlr_kg.Text == "" || tb_vlr_pg_empresa.Text == "")
+            {
+                tb_vlr_kg.Text = "0";
+                tb_vlr_pg_empresa.Text = "0";
+            }
             double tb_vlr_kg1 = Convert.ToDouble(tb_vlr_kg.Text);
 
             //tb_vlr_kg.Text = Convert.ToString((Convert.ToDouble(tb_vlr_kg.Text) / 2));

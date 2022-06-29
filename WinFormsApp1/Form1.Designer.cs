@@ -51,11 +51,9 @@
             this.l_vlrparcial = new System.Windows.Forms.Label();
             this.bt_calcular = new System.Windows.Forms.Button();
             this.l_gastodehoje = new System.Windows.Forms.Label();
-            this.tb_peso = new System.Windows.Forms.NumericUpDown();
-            this.tb_outros_valor = new System.Windows.Forms.NumericUpDown();
+            this.tb_peso1 = new System.Windows.Forms.TextBox();
+            this.tb_outros_valor = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_peso)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_outros_valor)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -151,6 +149,7 @@
             this.tb_diversos_descricao.TabIndex = 3;
             this.tb_diversos_descricao.Click += new System.EventHandler(this.tb_diversos_descricao_Click);
             this.tb_diversos_descricao.TextChanged += new System.EventHandler(this.tb_diversos_descricao_TextChanged);
+            this.tb_diversos_descricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_diversos_descricao_KeyPress);
             // 
             // bt_salvar
             // 
@@ -277,37 +276,29 @@
             this.l_gastodehoje.TabIndex = 22;
             this.l_gastodehoje.Text = "Gasto de hoje";
             // 
-            // tb_peso
+            // tb_peso1
             // 
-            this.tb_peso.Location = new System.Drawing.Point(92, 124);
-            this.tb_peso.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.tb_peso.Name = "tb_peso";
-            this.tb_peso.Size = new System.Drawing.Size(158, 23);
-            this.tb_peso.TabIndex = 2;
-            this.tb_peso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_peso.ValueChanged += new System.EventHandler(this.tb_peso_ValueChanged);
+            this.tb_peso1.Location = new System.Drawing.Point(92, 118);
+            this.tb_peso1.Name = "tb_peso1";
+            this.tb_peso1.Size = new System.Drawing.Size(95, 23);
+            this.tb_peso1.TabIndex = 23;
+            this.tb_peso1.Text = "0";
+            this.tb_peso1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_peso1.BackColorChanged += new System.EventHandler(this.tb_peso1_BackColorChanged);
+            this.tb_peso1.TextChanged += new System.EventHandler(this.tb_peso_TextChanged);
+            this.tb_peso1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_peso1_KeyDown);
+            this.tb_peso1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_peso1_KeyPress);
             // 
             // tb_outros_valor
             // 
-            this.tb_outros_valor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_outros_valor.DecimalPlaces = 2;
             this.tb_outros_valor.Location = new System.Drawing.Point(92, 203);
-            this.tb_outros_valor.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
             this.tb_outros_valor.Name = "tb_outros_valor";
-            this.tb_outros_valor.Size = new System.Drawing.Size(120, 23);
-            this.tb_outros_valor.TabIndex = 4;
+            this.tb_outros_valor.Size = new System.Drawing.Size(95, 23);
+            this.tb_outros_valor.TabIndex = 24;
+            this.tb_outros_valor.Text = "0";
             this.tb_outros_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_outros_valor.Visible = false;
-            this.tb_outros_valor.ValueChanged += new System.EventHandler(this.tb_outros_valor_ValueChanged);
-            this.tb_outros_valor.Click += new System.EventHandler(this.tb_outros_valor_Click);
+            this.tb_outros_valor.TextChanged += new System.EventHandler(this.tb_outros_valor_TextChanged);
+            this.tb_outros_valor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_outros_valor_KeyPress);
             // 
             // tl_home
             // 
@@ -315,7 +306,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 411);
             this.Controls.Add(this.tb_outros_valor);
-            this.Controls.Add(this.tb_peso);
+            this.Controls.Add(this.tb_peso1);
             this.Controls.Add(this.l_gastodehoje);
             this.Controls.Add(this.bt_calcular);
             this.Controls.Add(this.l_vlrparcial);
@@ -344,8 +335,6 @@
             this.Load += new System.EventHandler(this.tl_home_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_peso)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_outros_valor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,7 +366,7 @@
         private Label l_vlrparcial;
         private Button bt_calcular;
         private Label l_gastodehoje;
-        private NumericUpDown tb_peso;
-        private NumericUpDown tb_outros_valor;
+        private TextBox tb_peso1;
+        private TextBox tb_outros_valor;
     }
 }

@@ -61,7 +61,7 @@ namespace WinFormsApp1
         }
         private void tb_username_TextChanged(object sender, EventArgs e)
         {
-
+            tb_username.CharacterCasing = CharacterCasing.Upper;
         }
 
         private void Login_FormClosed_1(object sender, FormClosedEventArgs e)
@@ -84,6 +84,24 @@ namespace WinFormsApp1
         private void bt_fechar(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tb_username_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar)))
+            {
+
+                e.Handled = true;
+            };
+        }
+
+        private void tb_senha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char.IsWhiteSpace(e.KeyChar)))
+            {
+
+                e.Handled = true;
+            };
         }
     }
 }
