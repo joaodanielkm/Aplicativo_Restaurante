@@ -135,7 +135,7 @@
             // l_diversos
             // 
             this.l_diversos.AutoSize = true;
-            this.l_diversos.Location = new System.Drawing.Point(35, 167);
+            this.l_diversos.Location = new System.Drawing.Point(33, 167);
             this.l_diversos.Name = "l_diversos";
             this.l_diversos.Size = new System.Drawing.Size(51, 15);
             this.l_diversos.TabIndex = 4;
@@ -145,7 +145,7 @@
             // 
             this.tb_diversos_descricao.Location = new System.Drawing.Point(92, 164);
             this.tb_diversos_descricao.Name = "tb_diversos_descricao";
-            this.tb_diversos_descricao.Size = new System.Drawing.Size(160, 23);
+            this.tb_diversos_descricao.Size = new System.Drawing.Size(176, 23);
             this.tb_diversos_descricao.TabIndex = 3;
             this.tb_diversos_descricao.Click += new System.EventHandler(this.tb_diversos_descricao_Click);
             this.tb_diversos_descricao.TextChanged += new System.EventHandler(this.tb_diversos_descricao_TextChanged);
@@ -207,7 +207,7 @@
             // l_rs
             // 
             this.l_rs.AutoSize = true;
-            this.l_rs.Location = new System.Drawing.Point(35, 211);
+            this.l_rs.Location = new System.Drawing.Point(33, 211);
             this.l_rs.Name = "l_rs";
             this.l_rs.Size = new System.Drawing.Size(20, 15);
             this.l_rs.TabIndex = 16;

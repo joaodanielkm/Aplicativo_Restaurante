@@ -286,6 +286,7 @@ namespace WinFormsApp1
             ll_usuario.Text = "---";
             Globais.logado = false;
             Globais.user = "";
+            this.Hide();
             MessageBox.Show("Até logo!", "Bye", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Login login = new Login(this);
             login.ShowDialog();
