@@ -83,6 +83,7 @@
             this.tb_senha.PasswordChar = '*';
             this.tb_senha.Size = new System.Drawing.Size(180, 23);
             this.tb_senha.TabIndex = 2;
+            this.tb_senha.Text = "123";
             this.tb_senha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_senha.TextChanged += new System.EventHandler(this.tb_senha_TextChanged);
             this.tb_senha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_senha_KeyDown);
@@ -113,14 +114,13 @@
             // 
             this.cbx_username.FormattingEnabled = true;
             this.cbx_username.Items.AddRange(new object[] {
-            "JOAO",
-            "LEONARDO",
-            "ZAMBRANO"});
+            "JOAO"});
             this.cbx_username.Location = new System.Drawing.Point(12, 36);
             this.cbx_username.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.cbx_username.Name = "cbx_username";
             this.cbx_username.Size = new System.Drawing.Size(180, 23);
             this.cbx_username.TabIndex = 1;
+            this.cbx_username.Text = "JOAO";
             this.cbx_username.TextChanged += new System.EventHandler(this.cbx_username_TextChanged);
             this.cbx_username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbx_username_KeyDown);
             // 

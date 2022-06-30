@@ -49,7 +49,6 @@
             this.l_valor_peso = new System.Windows.Forms.Label();
             this.l_vlr_peso_atual = new System.Windows.Forms.Label();
             this.l_vlrparcial = new System.Windows.Forms.Label();
-            this.bt_calcular = new System.Windows.Forms.Button();
             this.l_gastodehoje = new System.Windows.Forms.Label();
             this.tb_peso1 = new System.Windows.Forms.TextBox();
             this.tb_outros_valor = new System.Windows.Forms.TextBox();
@@ -154,7 +153,7 @@
             // bt_salvar
             // 
             this.bt_salvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_salvar.Location = new System.Drawing.Point(193, 319);
+            this.bt_salvar.Location = new System.Drawing.Point(109, 316);
             this.bt_salvar.Name = "bt_salvar";
             this.bt_salvar.Size = new System.Drawing.Size(75, 23);
             this.bt_salvar.TabIndex = 5;
@@ -243,6 +242,7 @@
             this.l_vlr_peso_atual.Size = new System.Drawing.Size(22, 15);
             this.l_vlr_peso_atual.TabIndex = 19;
             this.l_vlr_peso_atual.Text = "---";
+            this.l_vlr_peso_atual.TextChanged += new System.EventHandler(this.l_vlr_peso_atual_TextChanged);
             this.l_vlr_peso_atual.Click += new System.EventHandler(this.l_vlr_peso_atual_Click);
             // 
             // l_vlrparcial
@@ -255,17 +255,6 @@
             this.l_vlrparcial.TabIndex = 20;
             this.l_vlrparcial.Text = "---";
             this.l_vlrparcial.Click += new System.EventHandler(this.l_vlrparcial_Click);
-            // 
-            // bt_calcular
-            // 
-            this.bt_calcular.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_calcular.Location = new System.Drawing.Point(33, 319);
-            this.bt_calcular.Name = "bt_calcular";
-            this.bt_calcular.Size = new System.Drawing.Size(75, 23);
-            this.bt_calcular.TabIndex = 99;
-            this.bt_calcular.Text = "Prévia";
-            this.bt_calcular.UseVisualStyleBackColor = true;
-            this.bt_calcular.Click += new System.EventHandler(this.l_vlrparcial_Click);
             // 
             // l_gastodehoje
             // 
@@ -308,7 +297,6 @@
             this.Controls.Add(this.tb_outros_valor);
             this.Controls.Add(this.tb_peso1);
             this.Controls.Add(this.l_gastodehoje);
-            this.Controls.Add(this.bt_calcular);
             this.Controls.Add(this.l_vlrparcial);
             this.Controls.Add(this.l_vlr_peso_atual);
             this.Controls.Add(this.l_valor_peso);
@@ -364,7 +352,6 @@
         private ToolStripMenuItem configuraçõesToolStripMenuItem;
         public Label l_vlr_peso_atual;
         private Label l_vlrparcial;
-        private Button bt_calcular;
         private Label l_gastodehoje;
         private TextBox tb_peso1;
         private TextBox tb_outros_valor;

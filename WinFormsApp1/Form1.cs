@@ -80,11 +80,13 @@ namespace WinFormsApp1
 
         private void bt_salvar_Click(object sender, EventArgs e)
         {
-            if (tb_peso1.Text == "" || tb_outros_valor.Text == "")
-            {
-                tb_outros_valor.Text = "0";
-                tb_peso1.Text = "0";
-            }
+            String convertePonto = tb_outros_valor.Text;
+
+            convertePonto = convertePonto.Replace(".", ",");
+
+            double convertePonto1 = Convert.ToDouble(convertePonto);
+
+            
             string sql = "select * from tb_configuracoes";
 
             dt = Banco.consulta(sql);
@@ -99,7 +101,7 @@ namespace WinFormsApp1
 
             double pesoDigitado = Convert.ToDouble(tb_peso1.Text);
             double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
-            double tb_outros_valor1 = Convert.ToDouble(this.tb_outros_valor.Text);
+            //double tb_outros_valor1 = Convert.ToDouble(this.tb_outros_valor.Text);
 
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
@@ -120,7 +122,7 @@ namespace WinFormsApp1
 
 
                     //home.ll_usuario.Text = dt.Rows[0].ItemArray[1].ToString(); outra forma de fazer
-                    if (tb_outros_valor1 > 0)
+                    if (convertePonto1 > 0)
                     {
                         if (!(tb_diversos_descricao1 is null) && tb_diversos_descricao1 != "")
                         {
@@ -128,7 +130,7 @@ namespace WinFormsApp1
                             if (result1 < 0)
                             {
 
-                                double result2 = tb_outros_valor1;
+                                double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                                 //string sql = "SELECT * FROM tb_dados";
@@ -139,7 +141,7 @@ namespace WinFormsApp1
                             }
                             else
                             {
-                                double result2 = result1 + tb_outros_valor1;
+                                double result2 = result1 + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor},T_TOTAL_DIARIO = '{valor_diario}'  WHERE T_DATA LIKE '{dt_data_atual1}'";
                                 //string sql = "SELECT * FROM tb_dados";
@@ -163,7 +165,7 @@ namespace WinFormsApp1
                         if (result1 < 0)
                         {
 
-                            double result2 = tb_outros_valor1;
+                            double result2 = convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
@@ -173,7 +175,7 @@ namespace WinFormsApp1
                         }
                         else
                         {
-                            double result2 = result1 + tb_outros_valor1;
+                            double result2 = result1 + convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {tb_outros_valor},T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
@@ -198,14 +200,14 @@ namespace WinFormsApp1
                 }
                 else
                 {
-                    if (tb_outros_valor1 > 0)
+                    if (convertePonto1 > 0)
                     {
                         if (!(tb_diversos_descricao1 is null) && tb_diversos_descricao1 != "")
                         {
                             if (result1 < 0)
                             {
 
-                                double result2 = tb_outros_valor1;
+                                double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
 
                                 string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor},'{valor_diario}')";
@@ -216,7 +218,7 @@ namespace WinFormsApp1
                             }
                             else
                             {
-                                double result2 = result1 + tb_outros_valor1;
+                                double result2 = result1 + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor},'{valor_diario}')";
                                 //string sql = "SELECT * FROM tb_dados";
@@ -235,7 +237,7 @@ namespace WinFormsApp1
                         if (result1 < 0)
                         {
 
-                            double result2 = tb_outros_valor1;
+                            double result2 = convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor},'{valor_diario}')";
                             //string sql = "SELECT * FROM tb_dados";
@@ -245,7 +247,7 @@ namespace WinFormsApp1
                         }
                         else
                         {
-                            double result2 = result1 + tb_outros_valor1;
+                            double result2 = result1 + convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{tb_outros_valor},'{valor_diario}')";
                             //string sql = "SELECT * FROM tb_dados";
@@ -455,6 +457,8 @@ namespace WinFormsApp1
 
         private void tb_diversos_descricao_TextChanged(object sender, EventArgs e)
         {
+            
+
             tb_diversos_descricao.CharacterCasing = CharacterCasing.Upper;
 
             string verifica = tb_diversos_descricao.Text;
@@ -475,10 +479,9 @@ namespace WinFormsApp1
 
         private void tb_peso_TextChanged(object sender, EventArgs e)
         {
-            if (tb_peso1.Text == "" || tb_outros_valor.Text == "")
+            if (string.IsNullOrWhiteSpace(tb_peso1.Text))
             {
-                tb_outros_valor.Text = "0";
-                tb_peso1.Text = "0";
+                return;
             }
 
             //Calculo parcial
@@ -499,7 +502,7 @@ namespace WinFormsApp1
 
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
-            result1 = (result1 - pagoEmpresa) / 100;
+            result1 = (result1 - pagoEmpresa);
 
 
             if (result1 < 0)
@@ -527,11 +530,16 @@ namespace WinFormsApp1
 
         private void tb_outros_valor_TextChanged(object sender, EventArgs e)
         {
-            if (tb_peso1.Text == "" || tb_outros_valor.Text == "")
+            if (string.IsNullOrWhiteSpace(tb_outros_valor.Text))
             {
-                tb_outros_valor.Text = "0";
-                tb_peso1.Text = "0";
+                return;
             }
+
+            String convertePonto = tb_outros_valor.Text;
+
+            convertePonto = convertePonto.Replace(".", ",");
+
+            double convertePonto1 = Convert.ToDouble(convertePonto);
             //Calculo parcial
 
             string sql = "select * from tb_configuracoes";
@@ -546,24 +554,24 @@ namespace WinFormsApp1
 
             double pesoDigitado = Convert.ToDouble(tb_peso1.Text);
             double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
-            double tb_outros_valor1 = Convert.ToDouble(this.tb_outros_valor.Text);
+            //double tb_outros_valor1 = Convert.ToDouble(this.tb_outros_valor.Text);
 
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
-            result1 = (result1 - pagoEmpresa) / 100;
+            result1 = (result1 - pagoEmpresa) ;
 
 
             if (result1 < 0)
             {
 
-                double result2 = tb_outros_valor1;
+                double result2 = convertePonto1;
                 l_vlrparcial.Text = "R$ " + result2.ToString("F2", CultureInfo.InvariantCulture);
 
 
             }
             else
             {
-                double result2 = result1 + tb_outros_valor1;
+                double result2 = result1 + convertePonto1;
                 l_vlrparcial.Text = "R$ " + result2.ToString("F2", CultureInfo.InvariantCulture);
 
 
@@ -578,7 +586,7 @@ namespace WinFormsApp1
 
         private void tb_peso1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) || (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar) )))
+            if (char.IsLetter(e.KeyChar) || (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar))))
             {
 
                 e.Handled = true;
@@ -587,10 +595,7 @@ namespace WinFormsApp1
 
         private void tb_peso1_BackColorChanged(object sender, EventArgs e)
         {
-            if (tb_peso1.Text == "") {
-                
-                tb_peso1.Text = "0";
-            }
+            
         }
 
         private void tb_peso1_KeyDown(object sender, KeyEventArgs e)
@@ -605,7 +610,7 @@ namespace WinFormsApp1
 
         private void tb_outros_valor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) || (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))))
+            if (char.IsLetter(e.KeyChar) || (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar))))
             {
 
                 e.Handled = true;
@@ -614,11 +619,20 @@ namespace WinFormsApp1
 
         private void tb_diversos_descricao_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
+            if (char.IsSymbol(e.KeyChar))
             {
 
                 e.Handled = true;
             };
+        }
+
+        private void l_vlr_peso_atual_TextChanged(object sender, EventArgs e)
+        {
+            /*String convertePonto = l_vlr_peso_atual.Text;
+
+            convertePonto = convertePonto.Replace(".", ",");
+
+            double convertePonto1 = Convert.ToDouble(convertePonto);*/
         }
     }
 }
