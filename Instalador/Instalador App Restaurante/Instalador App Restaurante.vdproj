@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0E7C8A5DDCCB43AA98DCCDFEF6693652"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_263C7797B855408188297D67BC79B323"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -28,12 +34,6 @@
         "Entry"
         {
         "MsmKey" = "8:_49C2A107E9DC47AEAA51EF461CB7AE2D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4A6EF9CC6813490EB8C7AEAAAE79FF54"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -184,6 +184,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0E7C8A5DDCCB43AA98DCCDFEF6693652"
+            {
+            "SourcePath" = "8:..\\..\\icon.ico"
+            "TargetName" = "8:icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_263C7797B855408188297D67BC79B323"
             {
             "SourcePath" = "8:..\\Release\\wpfgfx_cor3.dll"
@@ -228,26 +248,6 @@
             {
             "SourcePath" = "8:..\\Release\\PresentationNative_cor3.dll"
             "TargetName" = "8:PresentationNative_cor3.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4A6EF9CC6813490EB8C7AEAAAE79FF54"
-            {
-            "SourcePath" = "8:..\\Release\\Icon.ico"
-            "TargetName" = "8:Icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
             "Condition" = "8:"
@@ -472,7 +472,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Restaurante App"
         "ProductCode" = "8:{4D1175A5-5D14-4351-80F5-1AB60987DCD9}"
-        "PackageCode" = "8:{68BA7144-ACCA-485E-B717-94AB76DC97B9}"
+        "PackageCode" = "8:{4D63EA2A-D014-4558-99E6-5C91D45651A8}"
         "UpgradeCode" = "8:{7FFE5D0F-A832-406E-90EE-8C71DA37E329}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -603,7 +603,7 @@
             "Target" = "8:_39B9B7D35D604202A0FFC884C81A95E8"
             "Folder" = "8:_E7F0142FC1F34C73AC0A47F700EA60A4"
             "WorkingFolder" = "8:_3DCAC2985EEE4E4A9395CE7876A12384"
-            "Icon" = "8:_4A6EF9CC6813490EB8C7AEAAAE79FF54"
+            "Icon" = "8:_0E7C8A5DDCCB43AA98DCCDFEF6693652"
             "Feature" = "8:"
             }
         }
