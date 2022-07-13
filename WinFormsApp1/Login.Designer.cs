@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ll_versao = new System.Windows.Forms.LinkLabel();
             this.ll_sobre = new System.Windows.Forms.LinkLabel();
             this.l_username = new System.Windows.Forms.Label();
             this.l_senha = new System.Windows.Forms.Label();
@@ -38,25 +37,19 @@
             this.cbx_username = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // ll_versao
-            // 
-            this.ll_versao.AutoSize = true;
-            this.ll_versao.Location = new System.Drawing.Point(79, 250);
-            this.ll_versao.Name = "ll_versao";
-            this.ll_versao.Size = new System.Drawing.Size(50, 15);
-            this.ll_versao.TabIndex = 16;
-            this.ll_versao.TabStop = true;
-            this.ll_versao.Text = "Versão 1";
-            // 
             // ll_sobre
             // 
+            this.ll_sobre.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ll_sobre.AutoSize = true;
-            this.ll_sobre.Location = new System.Drawing.Point(87, 205);
+            this.ll_sobre.LinkArea = new System.Windows.Forms.LinkArea(0, 10);
+            this.ll_sobre.Location = new System.Drawing.Point(73, 209);
             this.ll_sobre.Name = "ll_sobre";
-            this.ll_sobre.Size = new System.Drawing.Size(37, 15);
+            this.ll_sobre.Size = new System.Drawing.Size(70, 15);
             this.ll_sobre.TabIndex = 5;
             this.ll_sobre.TabStop = true;
-            this.ll_sobre.Text = "Sobre";
+            this.ll_sobre.Text = "Como logar";
+            this.ll_sobre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ll_sobre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_sobre_LinkClicked);
             // 
             // l_username
             // 
@@ -136,7 +129,6 @@
             this.Controls.Add(this.tb_senha);
             this.Controls.Add(this.l_senha);
             this.Controls.Add(this.l_username);
-            this.Controls.Add(this.ll_versao);
             this.Controls.Add(this.ll_sobre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -152,8 +144,6 @@
         }
 
         #endregion
-
-        private LinkLabel ll_versao;
         private LinkLabel ll_sobre;
         private Label l_username;
         private Label l_senha;

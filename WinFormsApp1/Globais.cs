@@ -12,5 +12,6 @@ namespace WinFormsApp1
            public static Boolean logado = false;
            public static string user = "";
            public static int nivel = 0;
+           public static string sobre = "Sistema para aprendizado da linguagem C#.";
     }
 }

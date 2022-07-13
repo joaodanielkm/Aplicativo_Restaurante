@@ -53,6 +53,8 @@ namespace WinFormsApp1
 
         private void tl_home_Load(object sender, EventArgs e)
         {
+            tb_outros_valor.Visible = false;
+
             //Perciste usuario logado
             ll_usuario.Text = Globais.user;
 
@@ -259,12 +261,7 @@ namespace WinFormsApp1
                 }
             }
 
-            /*
-            Dados dados = new Dados();
-            dados.data = dt_data_atual.Text;
-            dados.peso = tb_peso.Text;
-            dados.outrosDiversos = tb_diversos_descricao.Text;
-            dados.outrosValor = tb_outros_valor.Text;*/
+          
 
             //GASTOS DO MES
             string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
@@ -312,50 +309,7 @@ namespace WinFormsApp1
 
         private void l_vlrparcial_Click(object sender, EventArgs e)
         {
-            /*
-            
-            //Calculo parcial
-
-            string sql = "select * from tb_configuracoes";
-
-            dt = Banco.consulta(sql);
-            string tb_vlr_pg_empresa1 = dt.Rows[0].ItemArray[2].ToString();
-            string l_vlr_peso_atual1 = dt.Rows[0].ItemArray[1].ToString();
-
-
-            double pesoAtual = Convert.ToDouble(l_vlr_peso_atual1);
-
-
-            double pesoDigitado = Convert.ToDouble(tb_peso1.Text);
-            double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
-            double tb_outros_valor = Convert.ToDouble(this.tb_outros_valor.Text);
-
-            double result1 = (pesoDigitado * pesoAtual) / 1000;
-
-            result1 = (result1 - pagoEmpresa) / 100;
-
-
-            if (result1 < 0)
-            {
-
-                double result2 = tb_outros_valor;
-                l_vlrparcial.Text = "R$ " + result2.ToString("F2", CultureInfo.InvariantCulture);
-
-
-            }
-            else
-            {
-                double result2 = result1 + tb_outros_valor;
-                l_vlrparcial.Text = "R$ " + result2.ToString("F2", CultureInfo.InvariantCulture);
-
-
-            }
-            //recalcula valor do kg calculado na configuração
-            //F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            //l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
-
-
-            l_vlrparcial.Refresh();*/
+           
         }
 
         private void dt_data_atual_ValueChanged(object sender, EventArgs e)
@@ -381,8 +335,7 @@ namespace WinFormsApp1
 
             l_vlr_parcial.Text = "R$ " + double.Parse(dt.Rows[0].ItemArray[0].ToString());
 
-            /*F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;*/
+            */
         }
 
         private void ll_versao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -434,19 +387,7 @@ namespace WinFormsApp1
 
         private void tb_outros_valor_Click(object sender, EventArgs e)
         {
-           /* double verifica = Convert.ToDouble(tb_outros_valor.Text);
-            if (verifica > 0)
-            {
-                l_diversos.Visible = true;
-                tb_diversos_descricao.Visible = true;
-                tb_diversos_descricao.Enabled = true;
-
-            }
-            else {
-                l_diversos.Visible=false;
-                tb_diversos_descricao.Visible = false;
-                //tb_diversos_descricao.Enabled = false;
-            }*/
+           
             
         }
 
@@ -481,6 +422,7 @@ namespace WinFormsApp1
         {
             if (string.IsNullOrWhiteSpace(tb_peso1.Text))
             {
+                tb_peso1.Text = "0";
                 return;
             }
 
@@ -532,6 +474,7 @@ namespace WinFormsApp1
         {
             if (string.IsNullOrWhiteSpace(tb_outros_valor.Text))
             {
+                tb_outros_valor.Text = "0";
                 return;
             }
 
@@ -633,6 +576,56 @@ namespace WinFormsApp1
             convertePonto = convertePonto.Replace(".", ",");
 
             double convertePonto1 = Convert.ToDouble(convertePonto);*/
+        }
+
+        private void tb_peso1_MouseClick(object sender, MouseEventArgs e)
+        {
+            tb_peso1.SelectAll();
+            tb_peso1.BackColor = Color.LightGreen;
+            
+        }
+
+        private void tb_outros_valor_MouseClick(object sender, MouseEventArgs e)
+        {
+            tb_outros_valor.SelectAll();
+            tb_outros_valor.BackColor = Color.LightGreen;
+        }
+
+        private void tb_diversos_descricao_MouseClick(object sender, MouseEventArgs e)
+        {
+            tb_diversos_descricao.SelectAll();
+            tb_diversos_descricao.BackColor = Color.LightGreen;
+        }
+
+        private void tb_peso1_Leave(object sender, EventArgs e)
+        {
+            int tb_peso11 = Convert.ToInt32(tb_peso1.Text);
+            if(tb_peso11 > 1)
+            {
+                tb_peso11 = 0;
+                tb_peso1.Text = tb_peso1.ToString();
+
+            }
+            
+            tb_peso1.BackColor = Color.White;
+            
+        }
+
+        private void tb_diversos_descricao_Leave(object sender, EventArgs e)
+        {
+            tb_diversos_descricao.BackColor = Color.White;
+        }
+
+        private void tb_outros_valor_Leave(object sender, EventArgs e)
+        {
+            tb_outros_valor.BackColor = Color.White;
+        }
+
+        private void ll_sobre_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Sobre sobre = new Sobre();
+            this.Hide();
+            sobre.ShowDialog();
         }
     }
 }

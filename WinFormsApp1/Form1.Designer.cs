@@ -142,13 +142,16 @@
             // 
             // tb_diversos_descricao
             // 
+            this.tb_diversos_descricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_diversos_descricao.Location = new System.Drawing.Point(92, 164);
             this.tb_diversos_descricao.Name = "tb_diversos_descricao";
             this.tb_diversos_descricao.Size = new System.Drawing.Size(176, 23);
             this.tb_diversos_descricao.TabIndex = 3;
             this.tb_diversos_descricao.Click += new System.EventHandler(this.tb_diversos_descricao_Click);
+            this.tb_diversos_descricao.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_diversos_descricao_MouseClick);
             this.tb_diversos_descricao.TextChanged += new System.EventHandler(this.tb_diversos_descricao_TextChanged);
             this.tb_diversos_descricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_diversos_descricao_KeyPress);
+            this.tb_diversos_descricao.Leave += new System.EventHandler(this.tb_diversos_descricao_Leave);
             // 
             // bt_salvar
             // 
@@ -189,6 +192,7 @@
             this.ll_sobre.TabIndex = 7;
             this.ll_sobre.TabStop = true;
             this.ll_sobre.Text = "Sobre";
+            this.ll_sobre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_sobre_LinkClicked);
             // 
             // ll_versao
             // 
@@ -267,27 +271,34 @@
             // 
             // tb_peso1
             // 
+            this.tb_peso1.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_peso1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_peso1.Location = new System.Drawing.Point(92, 118);
             this.tb_peso1.Name = "tb_peso1";
             this.tb_peso1.Size = new System.Drawing.Size(95, 23);
             this.tb_peso1.TabIndex = 2;
             this.tb_peso1.Text = "0";
             this.tb_peso1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_peso1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_peso1_MouseClick);
             this.tb_peso1.BackColorChanged += new System.EventHandler(this.tb_peso1_BackColorChanged);
             this.tb_peso1.TextChanged += new System.EventHandler(this.tb_peso_TextChanged);
             this.tb_peso1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_peso1_KeyDown);
             this.tb_peso1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_peso1_KeyPress);
+            this.tb_peso1.Leave += new System.EventHandler(this.tb_peso1_Leave);
             // 
             // tb_outros_valor
             // 
+            this.tb_outros_valor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_outros_valor.Location = new System.Drawing.Point(92, 203);
             this.tb_outros_valor.Name = "tb_outros_valor";
             this.tb_outros_valor.Size = new System.Drawing.Size(95, 23);
             this.tb_outros_valor.TabIndex = 4;
             this.tb_outros_valor.Text = "0";
             this.tb_outros_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_outros_valor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_outros_valor_MouseClick);
             this.tb_outros_valor.TextChanged += new System.EventHandler(this.tb_outros_valor_TextChanged);
             this.tb_outros_valor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_outros_valor_KeyPress);
+            this.tb_outros_valor.Leave += new System.EventHandler(this.tb_outros_valor_Leave);
             // 
             // tl_home
             // 

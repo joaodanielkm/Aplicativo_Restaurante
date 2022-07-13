@@ -146,5 +146,10 @@ namespace WinFormsApp1
 
             };
         }
+
+        private void ll_sobre_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
+        }
     }
 }

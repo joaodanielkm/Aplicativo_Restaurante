@@ -42,22 +42,28 @@
             // 
             // tb_vlr_kg
             // 
+            this.tb_vlr_kg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_vlr_kg.Location = new System.Drawing.Point(114, 74);
             this.tb_vlr_kg.Name = "tb_vlr_kg";
             this.tb_vlr_kg.Size = new System.Drawing.Size(100, 23);
             this.tb_vlr_kg.TabIndex = 1;
             this.tb_vlr_kg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_vlr_kg.Click += new System.EventHandler(this.tb_vlr_kg_Click);
             this.tb_vlr_kg.TextChanged += new System.EventHandler(this.tb_vlr_kg_TextChanged);
             this.tb_vlr_kg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_vlr_kg_KeyPress);
+            this.tb_vlr_kg.Leave += new System.EventHandler(this.tb_vlr_kg_Leave);
             // 
             // tb_vlr_pg_empresa
             // 
+            this.tb_vlr_pg_empresa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_vlr_pg_empresa.Location = new System.Drawing.Point(114, 141);
             this.tb_vlr_pg_empresa.Name = "tb_vlr_pg_empresa";
             this.tb_vlr_pg_empresa.Size = new System.Drawing.Size(100, 23);
             this.tb_vlr_pg_empresa.TabIndex = 2;
             this.tb_vlr_pg_empresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_vlr_pg_empresa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_vlr_pg_empresa_MouseClick);
             this.tb_vlr_pg_empresa.TextChanged += new System.EventHandler(this.tb_vlr_pg_empresa_TextChanged);
+            this.tb_vlr_pg_empresa.Leave += new System.EventHandler(this.tb_vlr_pg_empresa_Leave);
             // 
             // bt_salvar
             // 
