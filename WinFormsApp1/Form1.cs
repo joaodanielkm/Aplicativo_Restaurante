@@ -335,7 +335,7 @@ namespace WinFormsApp1
 
             l_vlr_parcial.Text = "R$ " + double.Parse(dt.Rows[0].ItemArray[0].ToString());
 
-            */
+            
         }
 
         private void ll_versao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
