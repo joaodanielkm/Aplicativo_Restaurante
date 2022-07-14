@@ -9,4 +9,5 @@
 
 2. Urgente:
 * Valor negativo;
-* Segundo salvamento configurações.
+* Segundo salvamento configurações;
+* Valor segundo plano.
