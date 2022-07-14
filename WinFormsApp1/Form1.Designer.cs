@@ -181,6 +181,7 @@
             this.l_vlr_parcial.Size = new System.Drawing.Size(22, 15);
             this.l_vlr_parcial.TabIndex = 10;
             this.l_vlr_parcial.Text = "---";
+            this.l_vlr_parcial.TextChanged += new System.EventHandler(this.l_vlr_parcial_TextChanged);
             this.l_vlr_parcial.Click += new System.EventHandler(this.l_vlr_parcial_Click);
             // 
             // ll_sobre
@@ -258,6 +259,7 @@
             this.l_vlrparcial.Size = new System.Drawing.Size(22, 15);
             this.l_vlrparcial.TabIndex = 20;
             this.l_vlrparcial.Text = "---";
+            this.l_vlrparcial.TextChanged += new System.EventHandler(this.l_vlrparcial_TextChanged);
             this.l_vlrparcial.Click += new System.EventHandler(this.l_vlrparcial_Click);
             // 
             // l_gastodehoje
