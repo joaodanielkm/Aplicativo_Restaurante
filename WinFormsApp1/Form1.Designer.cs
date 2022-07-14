@@ -210,7 +210,7 @@
             // l_rs
             // 
             this.l_rs.AutoSize = true;
-            this.l_rs.Location = new System.Drawing.Point(33, 211);
+            this.l_rs.Location = new System.Drawing.Point(62, 207);
             this.l_rs.Name = "l_rs";
             this.l_rs.Size = new System.Drawing.Size(20, 15);
             this.l_rs.TabIndex = 16;

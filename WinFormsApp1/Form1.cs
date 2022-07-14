@@ -88,7 +88,7 @@ namespace WinFormsApp1
 
             double convertePonto1 = Convert.ToDouble(convertePonto);
 
-            
+
             string sql = "select * from tb_configuracoes";
 
             dt = Banco.consulta(sql);
@@ -261,7 +261,7 @@ namespace WinFormsApp1
                 }
             }
 
-          
+
 
             //GASTOS DO MES
             string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
@@ -309,7 +309,7 @@ namespace WinFormsApp1
 
         private void l_vlrparcial_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void dt_data_atual_ValueChanged(object sender, EventArgs e)
@@ -335,7 +335,7 @@ namespace WinFormsApp1
 
             l_vlr_parcial.Text = "R$ " + double.Parse(dt.Rows[0].ItemArray[0].ToString());
 
-            
+
         }
 
         private void ll_versao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -387,18 +387,18 @@ namespace WinFormsApp1
 
         private void tb_outros_valor_Click(object sender, EventArgs e)
         {
-           
-            
+
+
         }
 
         private void tb_diversos_descricao_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void tb_diversos_descricao_TextChanged(object sender, EventArgs e)
         {
-            
+
 
             tb_diversos_descricao.CharacterCasing = CharacterCasing.Upper;
 
@@ -423,7 +423,8 @@ namespace WinFormsApp1
             if (string.IsNullOrWhiteSpace(tb_peso1.Text))
             {
                 tb_peso1.Text = "0";
-                return;
+                tb_peso1.SelectAll();
+                
             }
 
             //Calculo parcial
@@ -437,10 +438,10 @@ namespace WinFormsApp1
 
             double pesoAtual = Convert.ToDouble(l_vlr_peso_atual1);
 
-
+         
             double pesoDigitado = Convert.ToDouble(tb_peso1.Text);
             double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
-            double tb_outros_valor1 = Convert.ToDouble(this.tb_outros_valor.Text);
+            double tb_outros_valor1 = Convert.ToDouble(tb_outros_valor.Text);
 
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
@@ -475,7 +476,8 @@ namespace WinFormsApp1
             if (string.IsNullOrWhiteSpace(tb_outros_valor.Text))
             {
                 tb_outros_valor.Text = "0";
-                return;
+                tb_outros_valor.SelectAll();
+                
             }
 
             String convertePonto = tb_outros_valor.Text;
@@ -501,7 +503,7 @@ namespace WinFormsApp1
 
             double result1 = (pesoDigitado * pesoAtual) / 1000;
 
-            result1 = (result1 - pagoEmpresa) ;
+            result1 = (result1 - pagoEmpresa);
 
 
             if (result1 < 0)
@@ -526,7 +528,7 @@ namespace WinFormsApp1
 
             l_vlrparcial.Refresh();
         }
-
+           
         private void tb_peso1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetter(e.KeyChar) || (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar))))
@@ -538,13 +540,13 @@ namespace WinFormsApp1
 
         private void tb_peso1_BackColorChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void tb_peso1_KeyDown(object sender, KeyEventArgs e)
         {
-            
-            
+
+
             /*if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == (Keys.LControlKey & Keys.A)  || e.KeyCode == (Keys.RControlKey & Keys.A)  || e.KeyCode == (Keys.ControlKey & Keys.A))
             {
                 e.Handled = true;
@@ -582,7 +584,7 @@ namespace WinFormsApp1
         {
             tb_peso1.SelectAll();
             tb_peso1.BackColor = Color.LightGreen;
-            
+
         }
 
         private void tb_outros_valor_MouseClick(object sender, MouseEventArgs e)
@@ -599,16 +601,16 @@ namespace WinFormsApp1
 
         private void tb_peso1_Leave(object sender, EventArgs e)
         {
-            int tb_peso11 = Convert.ToInt32(tb_peso1.Text);
-            if(tb_peso11 > 1)
+            /*int tb_peso11 = Convert.ToInt32(tb_peso1.Text);
+            if (tb_peso11 > 1)
             {
                 tb_peso11 = 0;
                 tb_peso1.Text = tb_peso1.ToString();
 
-            }
-            
+            }*/
+
             tb_peso1.BackColor = Color.White;
-            
+
         }
 
         private void tb_diversos_descricao_Leave(object sender, EventArgs e)
