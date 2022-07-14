@@ -64,14 +64,18 @@ namespace WinFormsApp1
             string sql = "select * from tb_configuracoes";
 
             dt = Banco.consulta(sql);
-            l_vlr_peso_atual.Text = "R$ " + dt.Rows[0].ItemArray[1].ToString();
+            l_vlr_peso_atual.Text =  Convert.ToDouble(dt.Rows[0].ItemArray[1]).ToString("C2");
 
             //GASTOS DO MES
             string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
 
             dt = Banco.consulta(total_mes);
 
-            l_vlr_parcial.Text = "R$ " + dt.Rows[0].ItemArray[0].ToString();
+            //CONVERSAO DO TIPO
+            l_vlr_parcial.Text =  Convert.ToDouble(dt.Rows[0].ItemArray[0]).ToString("C2");
+
+            
+
             //FIM GASTOS DO MES
 
             //VERSAO
@@ -134,7 +138,7 @@ namespace WinFormsApp1
 
                                 double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                                string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {convertePonto},T_TOTAL_DIARIO = {valor_diario} WHERE T_DATA LIKE '{dt_data_atual1}'";
+                                string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = '{convertePonto}',T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
@@ -145,7 +149,7 @@ namespace WinFormsApp1
                             {
                                 double result2 = result1 + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                                string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {convertePonto},T_TOTAL_DIARIO = {valor_diario}  WHERE T_DATA LIKE '{dt_data_atual1}'";
+                                string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR ='{convertePonto}',T_TOTAL_DIARIO = '{valor_diario}'  WHERE T_DATA LIKE '{dt_data_atual1}'";
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
@@ -169,7 +173,7 @@ namespace WinFormsApp1
 
                             double result2 = convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {convertePonto},T_TOTAL_DIARIO = {valor_diario} WHERE T_DATA LIKE '{dt_data_atual1}'";
+                            string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = '{convertePonto}',T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
@@ -179,7 +183,7 @@ namespace WinFormsApp1
                         {
                             double result2 = result1 + convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = {convertePonto},T_TOTAL_DIARIO = {valor_diario} WHERE T_DATA LIKE '{dt_data_atual1}'";
+                            string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = '{convertePonto}',T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
@@ -212,7 +216,7 @@ namespace WinFormsApp1
                                 double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
 
-                                string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{convertePonto},{valor_diario})";
+                                string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto}','{valor_diario}')";
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
@@ -222,7 +226,7 @@ namespace WinFormsApp1
                             {
                                 double result2 = result1 + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                                string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{convertePonto},{valor_diario})";
+                                string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto}','{valor_diario}')";
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
@@ -241,7 +245,7 @@ namespace WinFormsApp1
 
                             double result2 = convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{convertePonto},{valor_diario})";
+                            string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto}','{valor_diario}')";
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
@@ -251,7 +255,7 @@ namespace WinFormsApp1
                         {
                             double result2 = result1 + convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}',{convertePonto},{valor_diario})";
+                            string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto}','{valor_diario}')";
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
@@ -268,7 +272,7 @@ namespace WinFormsApp1
 
             dt = Banco.consulta(total_mes);
 
-            l_vlr_parcial.Text = "R$ " + dt.Rows[0].ItemArray[0].ToString();
+            l_vlr_parcial.Text =  Convert.ToDouble(dt.Rows[0].ItemArray[0]).ToString("C2");
             //FIM GASTOS DO MES
 
         }
@@ -333,7 +337,7 @@ namespace WinFormsApp1
 
             dt = Banco.consulta(total_mes);
 
-            l_vlr_parcial.Text = "R$ " + double.Parse(dt.Rows[0].ItemArray[0].ToString());
+            l_vlr_parcial.Text = Convert.ToDouble(dt.Rows[0].ItemArray[0]).ToString("C2");
 
 
         }
@@ -426,7 +430,7 @@ namespace WinFormsApp1
                 tb_peso1.SelectAll();
                 
             }
-
+            
             //Calculo parcial
 
             string sql = "select * from tb_configuracoes";
@@ -452,7 +456,7 @@ namespace WinFormsApp1
             {
 
                 double result2 = tb_outros_valor1;
-                l_vlrparcial.Text = "R$ " + result2.ToString("F2", CultureInfo.InvariantCulture);
+                l_vlrparcial.Text =  result2.ToString("C2");
                 if (result2 > 6)
                 {
                     l_vlrparcial.ForeColor = Color.Red;
@@ -465,7 +469,7 @@ namespace WinFormsApp1
             else
             {
                 double result2 = result1 + tb_outros_valor1;
-                l_vlrparcial.Text = "R$ " + result2.ToString("F2", CultureInfo.InvariantCulture);
+                l_vlrparcial.Text =  result2.ToString("C2");
                 if (result2 > 6)
                 {
                     l_vlrparcial.ForeColor = Color.Red;
@@ -491,12 +495,14 @@ namespace WinFormsApp1
                 tb_outros_valor.SelectAll();
                 
             }
-
             String convertePonto = tb_outros_valor.Text;
+                    
 
             convertePonto = convertePonto.Replace(".", ",");
 
             double convertePonto1 = Convert.ToDouble(convertePonto);
+
+            
             //Calculo parcial
 
             string sql = "select * from tb_configuracoes";
@@ -522,7 +528,7 @@ namespace WinFormsApp1
             {
 
                 double result2 = convertePonto1;
-                l_vlrparcial.Text = "R$ " + result2.ToString("F2", CultureInfo.InvariantCulture);
+                l_vlrparcial.Text =  Convert.ToDouble(result2).ToString("C2");
                 if (result2 > 6)
                 {
                     l_vlrparcial.ForeColor = Color.Red;
@@ -536,7 +542,7 @@ namespace WinFormsApp1
             else
             {
                 double result2 = result1 + convertePonto1;
-                l_vlrparcial.Text = "R$ " + result2.ToString("F2", CultureInfo.InvariantCulture);
+                l_vlrparcial.Text = Convert.ToDouble( result2).ToString("C2");
                 if (result2 > 6)
                 {
                     l_vlrparcial.ForeColor = Color.Red;

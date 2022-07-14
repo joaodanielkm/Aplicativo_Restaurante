@@ -31,8 +31,8 @@ namespace WinFormsApp1
             dt = Banco.consulta(N_VLR_PG_EMPRESA);
 
 
-            tb_vlr_pg_empresa.Text = "" + dt.Rows[0].ItemArray[2].ToString();
-            tb_vlr_kg.Text = "" + dt.Rows[0].ItemArray[1].ToString();
+            tb_vlr_pg_empresa.Text = "" + Convert.ToDouble(dt.Rows[0].ItemArray[2]).ToString("F2");
+            tb_vlr_kg.Text = "" + Convert.ToDouble(dt.Rows[0].ItemArray[1]).ToString("F2");
 
 
         }
@@ -167,6 +167,8 @@ namespace WinFormsApp1
             double tb_vlr_kg2 = convertePonto1;
 
             double var4 = var2;
+
+            
 
             tb_vlr_pg_empresa.Text = Convert.ToString(var4);
 
