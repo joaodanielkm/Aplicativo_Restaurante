@@ -45,12 +45,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8EE10E94381F4F0AB4ED02483A74C9E1"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_945B3B6468AF4ACDA462EA9388072651"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -70,6 +64,12 @@
         "Entry"
         {
         "MsmKey" = "8:_D9E1BA10E8284E089B7E2DF676E13394"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DE449EA1327940DE903A68A63264D688"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -284,26 +284,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8EE10E94381F4F0AB4ED02483A74C9E1"
-            {
-            "SourcePath" = "8:..\\..\\Banco\\bd_restaurante.db"
-            "TargetName" = "8:bd_restaurante.db"
-            "Tag" = "8:"
-            "Folder" = "8:_35D17EF4CCE24EEC9A77E79DBFEBCFDC"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_945B3B6468AF4ACDA462EA9388072651"
             {
             "SourcePath" = "8:..\\Release\\D3DCompiler_47_cor3.dll"
@@ -384,6 +364,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DE449EA1327940DE903A68A63264D688"
+            {
+            "SourcePath" = "8:..\\..\\Banco\\bd_restaurante.db"
+            "TargetName" = "8:bd_restaurante.db"
+            "Tag" = "8:"
+            "Folder" = "8:_0155186BA25D48D699159B6579EBD3F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FD09C5A974BF4E4981269EC5BE2B5C79"
             {
             "SourcePath" = "8:..\\Release\\PenImc_cor3.dll"
@@ -410,6 +410,18 @@
         }
         "Folder"
         {
+            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_0155186BA25D48D699159B6579EBD3F6"
+            {
+            "DefaultLocation" = "8:C:\\Banco"
+            "Name" = "8:Banco"
+            "AlwaysCreate" = "11:TRUE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:NEWPROPERTY1"
+                "Folders"
+                {
+                }
+            }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_3DCAC2985EEE4E4A9395CE7876A12384"
             {
             "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
@@ -420,17 +432,6 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_35D17EF4CCE24EEC9A77E79DBFEBCFDC"
-                    {
-                    "Name" = "8:Banco"
-                    "AlwaysCreate" = "11:TRUE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_71F5071A43694B8FA68775BC85273061"
-                        "Folders"
-                        {
-                        }
-                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_DA2C0EBEA9C048E08D9556E684FAC314"
@@ -472,7 +473,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Restaurante App"
         "ProductCode" = "8:{4D1175A5-5D14-4351-80F5-1AB60987DCD9}"
-        "PackageCode" = "8:{4D63EA2A-D014-4558-99E6-5C91D45651A8}"
+        "PackageCode" = "8:{C7EE5BC2-07B7-4D01-A9FF-C4EF1489B5A1}"
         "UpgradeCode" = "8:{7FFE5D0F-A832-406E-90EE-8C71DA37E329}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
