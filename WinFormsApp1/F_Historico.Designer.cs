@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarSenhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outrosMesesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +42,6 @@
             this.testeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testeaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgv_historico = new System.Windows.Forms.DataGridView();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip3.SuspendLayout();
@@ -69,22 +69,29 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            // 
             // alterarSenhaToolStripMenuItem
             // 
             this.alterarSenhaToolStripMenuItem.Name = "alterarSenhaToolStripMenuItem";
-            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.alterarSenhaToolStripMenuItem.Text = "Alterar Senha";
             // 
             // outrosMesesToolStripMenuItem
             // 
             this.outrosMesesToolStripMenuItem.Name = "outrosMesesToolStripMenuItem";
-            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.outrosMesesToolStripMenuItem.Text = "Outros Meses";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // contextMenuStrip1
@@ -129,7 +136,10 @@
             // 
             this.dgv_historico.AllowUserToAddRows = false;
             this.dgv_historico.AllowUserToDeleteRows = false;
-            this.dgv_historico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_historico.AllowUserToResizeColumns = false;
+            this.dgv_historico.AllowUserToResizeRows = false;
+            this.dgv_historico.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgv_historico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_historico.EnableHeadersVisualStyles = false;
             this.dgv_historico.Location = new System.Drawing.Point(0, 27);
             this.dgv_historico.Name = "dgv_historico";
@@ -138,14 +148,7 @@
             this.dgv_historico.RowTemplate.Height = 25;
             this.dgv_historico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_historico.Size = new System.Drawing.Size(470, 265);
-            this.dgv_historico.TabIndex = 17;
-            // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.homeToolStripMenuItem.Text = "Home";
-            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            this.dgv_historico.TabIndex = 1;
             // 
             // F_Historico
             // 
