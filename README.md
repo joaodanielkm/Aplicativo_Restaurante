@@ -8,4 +8,6 @@
 * Limpar codigo;
 
 2. Urgente:
-* Corrigir soma double;
+* Valor negativo;
+* Segundo salvamento configurações;
+* Valor segundo plano.
