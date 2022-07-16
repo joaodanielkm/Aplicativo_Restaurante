@@ -33,10 +33,9 @@
             this.bt_salvar = new System.Windows.Forms.Button();
             this.l_vlr_kg = new System.Windows.Forms.Label();
             this.l_pg_empresa = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,24 +93,6 @@
             this.l_pg_empresa.Text = "PG Empresa";
             this.l_pg_empresa.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(290, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.homeToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(290, 24);
-            this.menuStrip2.TabIndex = 6;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -128,6 +109,16 @@
             this.homeToolStripMenuItem1.Text = "Home";
             this.homeToolStripMenuItem1.Click += new System.EventHandler(this.homeToolStripMenuItem1_Click);
             // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.homeToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(290, 24);
+            this.menuStrip2.TabIndex = 6;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
             // F_Configuracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -139,10 +130,8 @@
             this.Controls.Add(this.bt_salvar);
             this.Controls.Add(this.tb_vlr_pg_empresa);
             this.Controls.Add(this.tb_vlr_kg);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "F_Configuracoes";
@@ -165,7 +154,6 @@
         private Button bt_salvar;
         private Label l_vlr_kg;
         private Label l_pg_empresa;
-        private MenuStrip menuStrip1;
         private MenuStrip menuStrip2;
         private ToolStripMenuItem homeToolStripMenuItem;
         private ToolStripMenuItem homeToolStripMenuItem1;

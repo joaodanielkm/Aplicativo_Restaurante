@@ -409,14 +409,16 @@ namespace WinFormsApp1
             string verifica = tb_diversos_descricao.Text;
             if (verifica != "")
             {
-                l_rs.Visible = true;
+                //l_rs.Visible = true;
                 tb_outros_valor.Visible = true;
+                
                 //tb_outros_valor.Enabled = true;
 
             }
             else
             {
-                l_rs.Visible = false;
+                //l_rs.Visible = false;
+                tb_outros_valor.Text = "0";
                 tb_outros_valor.Visible = false;
                 //tb_diversos_descricao.Enabled = false;
             }

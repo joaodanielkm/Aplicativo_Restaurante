@@ -34,18 +34,18 @@
             this.alterarSenhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outrosMesesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ll_usuario = new System.Windows.Forms.LinkLabel();
-            this.ll_versao = new System.Windows.Forms.LinkLabel();
-            this.ll_sobre = new System.Windows.Forms.LinkLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.testeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testeaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgv_historico = new System.Windows.Forms.DataGridView();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_historico)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -54,13 +54,14 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(290, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(470, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.homeToolStripMenuItem,
             this.alterarSenhaToolStripMenuItem,
             this.outrosMesesToolStripMenuItem,
             this.logoutToolStripMenuItem});
@@ -71,50 +72,20 @@
             // alterarSenhaToolStripMenuItem
             // 
             this.alterarSenhaToolStripMenuItem.Name = "alterarSenhaToolStripMenuItem";
-            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alterarSenhaToolStripMenuItem.Text = "Alterar Senha";
             // 
             // outrosMesesToolStripMenuItem
             // 
             this.outrosMesesToolStripMenuItem.Name = "outrosMesesToolStripMenuItem";
-            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.outrosMesesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.outrosMesesToolStripMenuItem.Text = "Outros Meses";
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
-            // 
-            // ll_usuario
-            // 
-            this.ll_usuario.AutoSize = true;
-            this.ll_usuario.Location = new System.Drawing.Point(243, 24);
-            this.ll_usuario.Name = "ll_usuario";
-            this.ll_usuario.Size = new System.Drawing.Size(47, 15);
-            this.ll_usuario.TabIndex = 4;
-            this.ll_usuario.TabStop = true;
-            this.ll_usuario.Text = "Usuario";
-            // 
-            // ll_versao
-            // 
-            this.ll_versao.AutoSize = true;
-            this.ll_versao.Location = new System.Drawing.Point(113, 342);
-            this.ll_versao.Name = "ll_versao";
-            this.ll_versao.Size = new System.Drawing.Size(50, 15);
-            this.ll_versao.TabIndex = 16;
-            this.ll_versao.TabStop = true;
-            this.ll_versao.Text = "Versão 1";
-            // 
-            // ll_sobre
-            // 
-            this.ll_sobre.AutoSize = true;
-            this.ll_sobre.Location = new System.Drawing.Point(121, 302);
-            this.ll_sobre.Name = "ll_sobre";
-            this.ll_sobre.Size = new System.Drawing.Size(37, 15);
-            this.ll_sobre.TabIndex = 15;
-            this.ll_sobre.TabStop = true;
-            this.ll_sobre.Text = "Sobre";
             // 
             // contextMenuStrip1
             // 
@@ -154,14 +125,35 @@
             this.testeaaToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.testeaaToolStripMenuItem.Text = "testeaa";
             // 
+            // dgv_historico
+            // 
+            this.dgv_historico.AllowUserToAddRows = false;
+            this.dgv_historico.AllowUserToDeleteRows = false;
+            this.dgv_historico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_historico.EnableHeadersVisualStyles = false;
+            this.dgv_historico.Location = new System.Drawing.Point(0, 27);
+            this.dgv_historico.Name = "dgv_historico";
+            this.dgv_historico.ReadOnly = true;
+            this.dgv_historico.RowHeadersVisible = false;
+            this.dgv_historico.RowTemplate.Height = 25;
+            this.dgv_historico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_historico.Size = new System.Drawing.Size(470, 265);
+            this.dgv_historico.TabIndex = 17;
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            // 
             // F_Historico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 411);
-            this.Controls.Add(this.ll_versao);
-            this.Controls.Add(this.ll_sobre);
-            this.Controls.Add(this.ll_usuario);
+            this.ClientSize = new System.Drawing.Size(470, 411);
+            this.ControlBox = false;
+            this.Controls.Add(this.dgv_historico);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -175,6 +167,7 @@
             this.menuStrip1.PerformLayout();
             this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_historico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,14 +180,13 @@
         private ToolStripMenuItem outrosMesesToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem alterarSenhaToolStripMenuItem;
-        private LinkLabel ll_usuario;
-        private LinkLabel ll_versao;
-        private LinkLabel ll_sobre;
         private ContextMenuStrip contextMenuStrip1;
         private ContextMenuStrip contextMenuStrip2;
         private ToolStripMenuItem testeToolStripMenuItem;
         private ContextMenuStrip contextMenuStrip3;
         private ToolStripMenuItem testeToolStripMenuItem1;
         private ToolStripMenuItem testeaaToolStripMenuItem;
+        private DataGridView dgv_historico;
+        private ToolStripMenuItem homeToolStripMenuItem;
     }
 }
