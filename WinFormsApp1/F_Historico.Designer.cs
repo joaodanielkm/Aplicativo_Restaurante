@@ -185,6 +185,7 @@
             this.dgv_historico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_historico.Size = new System.Drawing.Size(498, 353);
             this.dgv_historico.TabIndex = 1;
+            this.dgv_historico.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_historico_CellContentClick);
             this.dgv_historico.SelectionChanged += new System.EventHandler(this.dgv_historico_SelectionChanged);
             // 
             // cb_meses

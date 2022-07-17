@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace WinFormsApp1
 {
@@ -42,19 +43,24 @@ namespace WinFormsApp1
 
             string sql = @"select 
                      T_DATA as 'Data',
-                     iif(N_PESO = 0, '', N_PESO) as 'Peso',
+                     iif(N_PESO = 0, '', N_PESO || ' Kg') as 'Peso',
                      T_OUTROSDIVERSOS as 'Descricao outros valores',
-                     iif(CAST(N_OUTROSVALOR AS NUMERIC (17,8)) <= 0  , '' , 'R$ '|| N_OUTROSVALOR) as 'Outros VLR',
-                     iif(CAST(T_TOTAL_DIARIO AS NUMERIC (17,8)) <= 0 , '' , 'R$ '|| T_TOTAL_DIARIO ) as 'valor total diario'
+                     iif(CAST(N_OUTROSVALOR AS NUMERIC (17,8)) <= 0  , '' ,  'R$ '|| REPLACE(N_OUTROSVALOR, '.', ',' ) )as 'Outros VLR',
+                     iif (CAST(T_TOTAL_DIARIO AS NUMERIC (17,8)) <= 0 , '' , 'R$ '||  replace(T_TOTAL_DIARIO, '.',',') ) as 'valor total diario'
                      from tb_dados";
 
 
             dgv_historico.DataSource = Banco.consulta(sql);
+
+
             dgv_historico.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_historico.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_historico.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dgv_historico.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_historico.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            
+            
+
 
 
             dgv_historico.Columns[0].Width = 80;//DATA
@@ -62,6 +68,9 @@ namespace WinFormsApp1
             dgv_historico.Columns[2].Width = 200;//DESCRIÇÃO OUTROS
             dgv_historico.Columns[3].Width = 80;//OUTROS VALOR
             dgv_historico.Columns[4].Width = 68;//VALOR TOTAL DIARIO
+            dgv_historico.Columns[3].DefaultCellStyle.Format = "C2";
+            dgv_historico.Columns[4].DefaultCellStyle.Format = "C2";
+
 
             //gasto do mes
             string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
@@ -87,6 +96,11 @@ namespace WinFormsApp1
         }
 
         private void dgv_historico_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_historico_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

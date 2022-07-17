@@ -105,6 +105,7 @@
             // 
             // cbx_username
             // 
+            this.cbx_username.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbx_username.FormattingEnabled = true;
             this.cbx_username.Items.AddRange(new object[] {
             "JOAO"});
