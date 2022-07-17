@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +42,8 @@
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.testeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testeaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tb_gasto_do_mes = new System.Windows.Forms.TextBox();
+            this.l_gasto_do_mes = new System.Windows.Forms.Label();
             this.dgv_historico = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -54,7 +57,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(470, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(501, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -132,6 +135,26 @@
             this.testeaaToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.testeaaToolStripMenuItem.Text = "testeaa";
             // 
+            // tb_gasto_do_mes
+            // 
+            this.tb_gasto_do_mes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tb_gasto_do_mes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_gasto_do_mes.Location = new System.Drawing.Point(377, 383);
+            this.tb_gasto_do_mes.Name = "tb_gasto_do_mes";
+            this.tb_gasto_do_mes.ReadOnly = true;
+            this.tb_gasto_do_mes.Size = new System.Drawing.Size(105, 23);
+            this.tb_gasto_do_mes.TabIndex = 3;
+            this.tb_gasto_do_mes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // l_gasto_do_mes
+            // 
+            this.l_gasto_do_mes.AutoSize = true;
+            this.l_gasto_do_mes.Location = new System.Drawing.Point(311, 387);
+            this.l_gasto_do_mes.Name = "l_gasto_do_mes";
+            this.l_gasto_do_mes.Size = new System.Drawing.Size(60, 15);
+            this.l_gasto_do_mes.TabIndex = 4;
+            this.l_gasto_do_mes.Text = "Total Mês:";
+            // 
             // dgv_historico
             // 
             this.dgv_historico.AllowUserToAddRows = false;
@@ -139,23 +162,37 @@
             this.dgv_historico.AllowUserToResizeColumns = false;
             this.dgv_historico.AllowUserToResizeRows = false;
             this.dgv_historico.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgv_historico.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgv_historico.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_historico.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_historico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_historico.EnableHeadersVisualStyles = false;
-            this.dgv_historico.Location = new System.Drawing.Point(0, 27);
+            this.dgv_historico.Location = new System.Drawing.Point(3, 28);
             this.dgv_historico.Name = "dgv_historico";
             this.dgv_historico.ReadOnly = true;
             this.dgv_historico.RowHeadersVisible = false;
             this.dgv_historico.RowTemplate.Height = 25;
             this.dgv_historico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_historico.Size = new System.Drawing.Size(470, 265);
+            this.dgv_historico.Size = new System.Drawing.Size(498, 353);
             this.dgv_historico.TabIndex = 1;
             // 
             // F_Historico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 411);
+            this.ClientSize = new System.Drawing.Size(501, 411);
             this.ControlBox = false;
+            this.Controls.Add(this.l_gasto_do_mes);
+            this.Controls.Add(this.tb_gasto_do_mes);
             this.Controls.Add(this.dgv_historico);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -189,7 +226,9 @@
         private ContextMenuStrip contextMenuStrip3;
         private ToolStripMenuItem testeToolStripMenuItem1;
         private ToolStripMenuItem testeaaToolStripMenuItem;
-        private DataGridView dgv_historico;
         private ToolStripMenuItem homeToolStripMenuItem;
+        private TextBox tb_gasto_do_mes;
+        private Label l_gasto_do_mes;
+        private DataGridView dgv_historico;
     }
 }

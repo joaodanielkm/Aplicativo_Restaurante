@@ -92,6 +92,8 @@ namespace WinFormsApp1
 
             double convertePonto1 = Convert.ToDouble(convertePonto);
 
+            
+
 
             string sql = "select * from tb_configuracoes";
 
@@ -138,7 +140,8 @@ namespace WinFormsApp1
 
                                 double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                                string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = '{convertePonto}',T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
+                                string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
+                                string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = '{convertePonto11}',T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
@@ -149,7 +152,8 @@ namespace WinFormsApp1
                             {
                                 double result2 = result1 + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                                string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR ='{convertePonto}',T_TOTAL_DIARIO = '{valor_diario}'  WHERE T_DATA LIKE '{dt_data_atual1}'";
+                                string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
+                                string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR ='{convertePonto11}',T_TOTAL_DIARIO = '{valor_diario}'  WHERE T_DATA LIKE '{dt_data_atual1}'";
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
@@ -173,7 +177,8 @@ namespace WinFormsApp1
 
                             double result2 = convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = '{convertePonto}',T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
+                            string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
+                            string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = '{convertePonto11}',T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
@@ -183,7 +188,8 @@ namespace WinFormsApp1
                         {
                             double result2 = result1 + convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = '{convertePonto}',T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
+                            string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
+                            string sql2 = $"UPDATE tb_dados SET N_PESO = {pesoDigitado}, T_OUTROSDIVERSOS = '{tb_diversos_descricao1}' , N_OUTROSVALOR = '{convertePonto11}',T_TOTAL_DIARIO = '{valor_diario}' WHERE T_DATA LIKE '{dt_data_atual1}'";
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
@@ -215,8 +221,8 @@ namespace WinFormsApp1
 
                                 double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-
-                                string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto}','{valor_diario}')";
+                                string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
+                                string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto11}','{valor_diario}')";
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
@@ -226,7 +232,8 @@ namespace WinFormsApp1
                             {
                                 double result2 = result1 + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                                string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto}','{valor_diario}')";
+                                string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
+                                string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto11}','{valor_diario}')";
                                 //string sql = "SELECT * FROM tb_dados";
 
                                 dt = Banco.consulta(sql2);
@@ -245,7 +252,8 @@ namespace WinFormsApp1
 
                             double result2 = convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto}','{valor_diario}')";
+                            string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
+                            string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto11}','{valor_diario}')";
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
@@ -255,7 +263,8 @@ namespace WinFormsApp1
                         {
                             double result2 = result1 + convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto}','{valor_diario}')";
+                            string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
+                            string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto11}','{valor_diario}')";
                             //string sql = "SELECT * FROM tb_dados";
 
                             dt = Banco.consulta(sql2);
