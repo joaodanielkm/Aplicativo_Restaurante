@@ -20,15 +20,35 @@ namespace WinFormsApp1
 
         private void F_Historico_Load(object sender, EventArgs e)
         {
+            string sql1 = @"select 
+                            distinct
+                            	(case substr(T_DATA, 4 , 2)
+                                when '01' then 'Janeiro'
+                                when '02' then 'Fevereiro'
+                                when '03' then 'Março'
+                                when '04' then 'Abril'
+                                when '05' then 'Maio'
+                                when '06' then 'Junho'
+                                when '07' then 'Julho'
+                            end) as 'mes'
+                            from tb_dados";
+
+
+            cb_meses.Items.Clear();
+            cb_meses.DataSource = Banco.consulta(sql1);
+            cb_meses.DisplayMember = "mes";
+            
+            
+
             string sql = @"select 
                      T_DATA as 'Data',
-                     N_PESO as 'Peso',
+                     iif(N_PESO = 0, '', N_PESO) as 'Peso',
                      T_OUTROSDIVERSOS as 'Descricao outros valores',
-                     iif(N_OUTROSVALOR = 0, '' , 'R$ '|| N_OUTROSVALOR) as 'Outros VLR',
-                     iif(T_TOTAL_DIARIO = 0, '' , 'R$ '|| T_TOTAL_DIARIO ) as 'valor total diario'
+                     iif(CAST(N_OUTROSVALOR AS NUMERIC (17,8)) <= 0  , '' , 'R$ '|| N_OUTROSVALOR) as 'Outros VLR',
+                     iif(CAST(T_TOTAL_DIARIO AS NUMERIC (17,8)) <= 0 , '' , 'R$ '|| T_TOTAL_DIARIO ) as 'valor total diario'
                      from tb_dados";
 
-                        
+
             dgv_historico.DataSource = Banco.consulta(sql);
             dgv_historico.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_historico.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -36,7 +56,7 @@ namespace WinFormsApp1
             dgv_historico.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv_historico.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            
+
             dgv_historico.Columns[0].Width = 80;//DATA
             dgv_historico.Columns[1].Width = 50;//PESO
             dgv_historico.Columns[2].Width = 200;//DESCRIÇÃO OUTROS
@@ -51,6 +71,11 @@ namespace WinFormsApp1
             tb_gasto_do_mes.Text = Convert.ToDouble(dt.Rows[0].ItemArray[0]).ToString("C2");
 
 
+            
+
+
+
+
 
         }
 
@@ -59,6 +84,11 @@ namespace WinFormsApp1
             tl_home home = new tl_home();
             this.Hide();
             home.ShowDialog();
+        }
+
+        private void dgv_historico_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

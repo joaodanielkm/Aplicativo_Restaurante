@@ -45,6 +45,7 @@
             this.tb_gasto_do_mes = new System.Windows.Forms.TextBox();
             this.l_gasto_do_mes = new System.Windows.Forms.Label();
             this.dgv_historico = new System.Windows.Forms.DataGridView();
+            this.cb_meses = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip3.SuspendLayout();
@@ -184,6 +185,15 @@
             this.dgv_historico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_historico.Size = new System.Drawing.Size(498, 353);
             this.dgv_historico.TabIndex = 1;
+            this.dgv_historico.SelectionChanged += new System.EventHandler(this.dgv_historico_SelectionChanged);
+            // 
+            // cb_meses
+            // 
+            this.cb_meses.FormattingEnabled = true;
+            this.cb_meses.Location = new System.Drawing.Point(12, 382);
+            this.cb_meses.Name = "cb_meses";
+            this.cb_meses.Size = new System.Drawing.Size(121, 23);
+            this.cb_meses.TabIndex = 6;
             // 
             // F_Historico
             // 
@@ -191,6 +201,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 411);
             this.ControlBox = false;
+            this.Controls.Add(this.cb_meses);
             this.Controls.Add(this.l_gasto_do_mes);
             this.Controls.Add(this.tb_gasto_do_mes);
             this.Controls.Add(this.dgv_historico);
@@ -230,5 +241,6 @@
         private TextBox tb_gasto_do_mes;
         private Label l_gasto_do_mes;
         private DataGridView dgv_historico;
+        private ComboBox cb_meses;
     }
 }

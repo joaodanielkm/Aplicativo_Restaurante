@@ -48,6 +48,7 @@ namespace WinFormsApp1
         private void históricoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             F_Historico f_Historico = new F_Historico();
+            this.Hide();
             f_Historico.ShowDialog();
         }
 
@@ -86,6 +87,8 @@ namespace WinFormsApp1
 
         private void bt_salvar_Click(object sender, EventArgs e)
         {
+
+            
             String convertePonto = tb_outros_valor.Text;
 
             convertePonto = convertePonto.Replace(".", ",");
