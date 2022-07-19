@@ -8,6 +8,4 @@
 * Limpar codigo;
 
 2. Urgente:
-* Valor negativo;
-* Segundo salvamento configurações;
-* Valor segundo plano.
+* pagina historico.
