@@ -54,7 +54,7 @@ namespace WinFormsApp1
 
         private void tl_home_Load(object sender, EventArgs e)
         {
-            tb_outros_valor.Visible = false;
+            tb_outros_valor.ReadOnly = true;
 
             //Perciste usuario logado
             ll_usuario.Text = Globais.user;
@@ -421,17 +421,15 @@ namespace WinFormsApp1
             string verifica = tb_diversos_descricao.Text;
             if (verifica != "")
             {
-                //l_rs.Visible = true;
-                tb_outros_valor.Visible = true;
+                tb_outros_valor.ReadOnly = false;
                 
-                //tb_outros_valor.Enabled = true;
 
             }
             else
             {
                 //l_rs.Visible = false;
                 tb_outros_valor.Text = "0";
-                tb_outros_valor.Visible = false;
+                tb_outros_valor.ReadOnly = true;
                 //tb_diversos_descricao.Enabled = false;
             }
         }
@@ -635,8 +633,12 @@ namespace WinFormsApp1
 
         private void tb_outros_valor_MouseClick(object sender, MouseEventArgs e)
         {
-            tb_outros_valor.SelectAll();
-            tb_outros_valor.BackColor = Color.LightGreen;
+            if (tb_outros_valor.ReadOnly != true)
+            {
+                tb_outros_valor.SelectAll();
+                tb_outros_valor.BackColor = Color.LightGreen;
+
+            }
         }
 
         private void tb_diversos_descricao_MouseClick(object sender, MouseEventArgs e)
@@ -656,7 +658,6 @@ namespace WinFormsApp1
             }*/
 
             tb_peso1.BackColor = Color.White;
-
         }
 
         private void tb_diversos_descricao_Leave(object sender, EventArgs e)

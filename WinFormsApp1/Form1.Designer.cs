@@ -115,7 +115,7 @@
             // l_peso
             // 
             this.l_peso.AutoSize = true;
-            this.l_peso.Location = new System.Drawing.Point(33, 126);
+            this.l_peso.Location = new System.Drawing.Point(49, 126);
             this.l_peso.Name = "l_peso";
             this.l_peso.Size = new System.Drawing.Size(49, 15);
             this.l_peso.TabIndex = 1;
@@ -134,18 +134,19 @@
             // l_diversos
             // 
             this.l_diversos.AutoSize = true;
-            this.l_diversos.Location = new System.Drawing.Point(33, 167);
+            this.l_diversos.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.l_diversos.Location = new System.Drawing.Point(3, 167);
             this.l_diversos.Name = "l_diversos";
-            this.l_diversos.Size = new System.Drawing.Size(51, 15);
+            this.l_diversos.Size = new System.Drawing.Size(98, 13);
             this.l_diversos.TabIndex = 4;
-            this.l_diversos.Text = "Diversos";
+            this.l_diversos.Text = "Outros consumos";
             // 
             // tb_diversos_descricao
             // 
             this.tb_diversos_descricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_diversos_descricao.Location = new System.Drawing.Point(92, 164);
+            this.tb_diversos_descricao.Location = new System.Drawing.Point(102, 164);
             this.tb_diversos_descricao.Name = "tb_diversos_descricao";
-            this.tb_diversos_descricao.Size = new System.Drawing.Size(176, 23);
+            this.tb_diversos_descricao.Size = new System.Drawing.Size(159, 23);
             this.tb_diversos_descricao.TabIndex = 3;
             this.tb_diversos_descricao.Click += new System.EventHandler(this.tb_diversos_descricao_Click);
             this.tb_diversos_descricao.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_diversos_descricao_MouseClick);
@@ -211,7 +212,7 @@
             // l_rs
             // 
             this.l_rs.AutoSize = true;
-            this.l_rs.Location = new System.Drawing.Point(62, 207);
+            this.l_rs.Location = new System.Drawing.Point(78, 207);
             this.l_rs.Name = "l_rs";
             this.l_rs.Size = new System.Drawing.Size(20, 15);
             this.l_rs.TabIndex = 16;
@@ -275,9 +276,9 @@
             // 
             this.tb_peso1.BackColor = System.Drawing.SystemColors.Window;
             this.tb_peso1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_peso1.Location = new System.Drawing.Point(92, 118);
+            this.tb_peso1.Location = new System.Drawing.Point(103, 123);
             this.tb_peso1.Name = "tb_peso1";
-            this.tb_peso1.Size = new System.Drawing.Size(95, 23);
+            this.tb_peso1.Size = new System.Drawing.Size(78, 23);
             this.tb_peso1.TabIndex = 2;
             this.tb_peso1.Text = "0";
             this.tb_peso1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -291,7 +292,7 @@
             // tb_outros_valor
             // 
             this.tb_outros_valor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_outros_valor.Location = new System.Drawing.Point(92, 203);
+            this.tb_outros_valor.Location = new System.Drawing.Point(101, 203);
             this.tb_outros_valor.Name = "tb_outros_valor";
             this.tb_outros_valor.Size = new System.Drawing.Size(95, 23);
             this.tb_outros_valor.TabIndex = 4;
