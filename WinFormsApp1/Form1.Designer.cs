@@ -140,6 +140,7 @@
             this.l_diversos.Size = new System.Drawing.Size(98, 13);
             this.l_diversos.TabIndex = 4;
             this.l_diversos.Text = "Outros consumos";
+            this.l_diversos.Click += new System.EventHandler(this.l_diversos_Click);
             // 
             // tb_diversos_descricao
             // 
