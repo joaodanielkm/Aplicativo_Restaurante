@@ -38,7 +38,16 @@ namespace WinFormsApp1
             }
 
             string sql = $"SELECT * FROM tb_usuario WHERE T_USERNAME = '{username}' AND T_SENHA = '{senha}'";
-           
+
+            var processoLogin = new Processos.ProcessoLogin();
+
+            if(!processoLogin.EhValidaInformacaoDeLoguin(username, senha))
+            {
+                MessageBox.Show("Favor digite login e senha!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var obtenhaLogins = processoLogin.ObtenhaLogins(username, senha);
 
             dt = Banco.consulta(sql);
             if (dt.Rows.Count == 1)

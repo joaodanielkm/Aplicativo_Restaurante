@@ -80,12 +80,6 @@ namespace WinFormsApp1
             tb_gasto_do_mes.Text = Convert.ToDouble(dt.Rows[0].ItemArray[0]).ToString("C2");
 
 
-            
-
-
-
-
-
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
