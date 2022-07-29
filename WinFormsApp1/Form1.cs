@@ -338,10 +338,6 @@ namespace WinFormsApp1
 
         }
 
-        private void l_vlr_parcial_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -354,63 +350,37 @@ namespace WinFormsApp1
 
         }
 
-        private void ll_versao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            /*ll_versao.Text = "Versão: " + Globais.versao;
-            ll_versao.Refresh();*/
-        }
+        //private void ll_versao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //    /*ll_versao.Text = "Versão: " + Globais.versao;
+        //    ll_versao.Refresh();*/
+        //}
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
+        //private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void l_vlrkg_Click(object sender, EventArgs e)
-        {
-            /*F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            // l_vlrkg.Text = f_Configuracoes.tb_vlrkg.Text;*/
-        }
+        //private void l_vlrkg_Click(object sender, EventArgs e)
+        //{
+        //    /*F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
+        //    // l_vlrkg.Text = f_Configuracoes.tb_vlrkg.Text;*/
+        //}
 
-        private void l_vlrdinamico_Click(object sender, EventArgs e)
-        {
+        //private void l_vlrdinamico_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void tb_peso_ValueChanged(object sender, EventArgs e)
-        {
+        //private void tb_peso_ValueChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void tb_peso22_TextChanged(object sender, EventArgs e)
-        {
+        //private void tb_peso22_TextChanged(object sender, EventArgs e)
+        //{
 
-        }
-
-        private void l_valor_peso_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_outros_valor_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ll_usuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_outros_valor_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void tb_diversos_descricao_Click(object sender, EventArgs e)
-        {
-
-        }
+        //}
 
         private void tb_diversos_descricao_TextChanged(object sender, EventArgs e)
         {
@@ -689,7 +659,7 @@ namespace WinFormsApp1
 
         private void l_diversos_Click(object sender, EventArgs e)
         {
-            ////
+            
         }
     }
 }

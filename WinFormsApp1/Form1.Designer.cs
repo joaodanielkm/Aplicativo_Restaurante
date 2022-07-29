@@ -64,7 +64,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(290, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // toolStripMenuItem1
             // 
@@ -149,7 +148,6 @@
             this.tb_diversos_descricao.Name = "tb_diversos_descricao";
             this.tb_diversos_descricao.Size = new System.Drawing.Size(159, 23);
             this.tb_diversos_descricao.TabIndex = 3;
-            this.tb_diversos_descricao.Click += new System.EventHandler(this.tb_diversos_descricao_Click);
             this.tb_diversos_descricao.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_diversos_descricao_MouseClick);
             this.tb_diversos_descricao.TextChanged += new System.EventHandler(this.tb_diversos_descricao_TextChanged);
             this.tb_diversos_descricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_diversos_descricao_KeyPress);
@@ -184,7 +182,6 @@
             this.l_vlr_parcial.TabIndex = 10;
             this.l_vlr_parcial.Text = "---";
             this.l_vlr_parcial.TextChanged += new System.EventHandler(this.l_vlr_parcial_TextChanged);
-            this.l_vlr_parcial.Click += new System.EventHandler(this.l_vlr_parcial_Click);
             // 
             // ll_sobre
             // 
@@ -208,7 +205,6 @@
             this.ll_versao.TabStop = true;
             this.ll_versao.Text = "--";
             this.ll_versao.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ll_versao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_versao_LinkClicked);
             // 
             // l_rs
             // 
@@ -229,7 +225,6 @@
             this.ll_usuario.Size = new System.Drawing.Size(17, 15);
             this.ll_usuario.TabIndex = 17;
             this.ll_usuario.Text = "--";
-            this.ll_usuario.Click += new System.EventHandler(this.ll_usuario_Click);
             // 
             // l_valor_peso
             // 
@@ -239,7 +234,6 @@
             this.l_valor_peso.Size = new System.Drawing.Size(61, 15);
             this.l_valor_peso.TabIndex = 18;
             this.l_valor_peso.Text = "Valor Peso";
-            this.l_valor_peso.Click += new System.EventHandler(this.l_valor_peso_Click);
             // 
             // l_vlr_peso_atual
             // 
