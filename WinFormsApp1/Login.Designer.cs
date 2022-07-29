@@ -151,6 +151,6 @@
         private TextBox tb_senha;
         private Button bt_entrar;
         private Button button1;
-        private ComboBox cbx_username;
+        public ComboBox cbx_username;
     }
 }

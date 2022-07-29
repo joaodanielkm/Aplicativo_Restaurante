@@ -350,41 +350,8 @@ namespace WinFormsApp1
 
         }
 
-        //private void ll_versao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        //{
-        //    /*ll_versao.Text = "Versão: " + Globais.versao;
-        //    ll_versao.Refresh();*/
-        //}
-
-        //private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        //{
-
-        //}
-
-        //private void l_vlrkg_Click(object sender, EventArgs e)
-        //{
-        //    /*F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-        //    // l_vlrkg.Text = f_Configuracoes.tb_vlrkg.Text;*/
-        //}
-
-        //private void l_vlrdinamico_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void tb_peso_ValueChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void tb_peso22_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
         private void tb_diversos_descricao_TextChanged(object sender, EventArgs e)
         {
-
 
             tb_diversos_descricao.CharacterCasing = CharacterCasing.Upper;
 
@@ -392,15 +359,12 @@ namespace WinFormsApp1
             if (verifica != "")
             {
                 tb_outros_valor.ReadOnly = false;
-                
 
             }
             else
             {
-                //l_rs.Visible = false;
                 tb_outros_valor.Text = "0";
                 tb_outros_valor.ReadOnly = true;
-                //tb_diversos_descricao.Enabled = false;
             }
         }
 
@@ -410,7 +374,6 @@ namespace WinFormsApp1
             {
                 tb_peso1.Text = "0";
                 tb_peso1.SelectAll();
-                
             }
             
             //Calculo parcial
@@ -461,11 +424,6 @@ namespace WinFormsApp1
                 }
 
             }
-            //recalcula valor do kg calculado na configuração
-            //F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            //l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
-
-
             l_vlrparcial.Refresh();
         }
 
@@ -499,12 +457,8 @@ namespace WinFormsApp1
 
             double pesoDigitado = Convert.ToDouble(tb_peso1.Text);
             double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
-            //double tb_outros_valor1 = Convert.ToDouble(this.tb_outros_valor.Text);
-
             double result1 = (pesoDigitado * pesoAtual) / 1000;
-
             result1 = (result1 - pagoEmpresa);
-
 
             if (result1 < 0)
             {
@@ -519,7 +473,6 @@ namespace WinFormsApp1
                 {
                     l_vlrparcial.ForeColor = Color.Black;
                 }
-
             }
             else
             {
@@ -535,16 +488,13 @@ namespace WinFormsApp1
                 }
 
             }
-            //recalcula valor do kg calculado na configuração
-            //F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
-            //l_vlr_peso_atual.Text = "R$ " + f_Configuracoes.tb_vlr_kg.Text;
-
-
             l_vlrparcial.Refresh();
         }
            
         private void tb_peso1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
+            
             if (char.IsLetter(e.KeyChar) || (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar))))
             {
 

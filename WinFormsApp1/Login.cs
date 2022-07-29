@@ -24,31 +24,26 @@ namespace WinFormsApp1
         {
             string username = cbx_username.Text;
             string senha = tb_senha.Text;
-            if (username == "")
-            {
-                MessageBox.Show("Favor digitar o usuario!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                cbx_username.Focus();
-                return;
-            }
-            else if (senha == "")
-            {
-                MessageBox.Show("Favor digite a senha!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                tb_senha.Focus();
-                return;
-            }
+            
 
             string sql = $"SELECT * FROM tb_usuario WHERE T_USERNAME = '{username}' AND T_SENHA = '{senha}'";
 
             var processoLogin = new Processos.ProcessoLogin();
 
-            if(!processoLogin.EhValidaInformacaoDeLoguin(username, senha))
-            {
-                MessageBox.Show("Favor digite login e senha!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+            var processoValidaLogin = new Processos.ProcessoValidaCampoLogin();
+
+            processoValidaLogin.EhDigitadoLogin(username, senha);
+            
+
+
+            //if (!processoValidaLogin.EhValidaInformacaoDeLoguin(username, senha))
+            //{
+            //    MessageBox.Show("Favor digite login e senha!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
 
             var obtenhaLogins = processoLogin.ObtenhaLogins(username, senha);
-
+           
             dt = Banco.consulta(sql);
             if (dt.Rows.Count == 1)
             {

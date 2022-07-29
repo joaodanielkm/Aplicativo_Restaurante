@@ -5,9 +5,7 @@ namespace WinFormsApp1.Processos;
 
 public class ProcessoLogin
 {
-    public bool EhValidaInformacaoDeLoguin(string username, string senha) =>
-        !string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(senha);
-
+    
     public DataTable ObtenhaLogins(string username, string senha) =>
         new MapeadorDeLogin().ObtenhaLogins(username, senha);
 
