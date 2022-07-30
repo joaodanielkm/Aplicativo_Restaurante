@@ -57,12 +57,11 @@
             this.tb_vlr_pg_empresa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_vlr_pg_empresa.Location = new System.Drawing.Point(114, 141);
             this.tb_vlr_pg_empresa.Name = "tb_vlr_pg_empresa";
+            this.tb_vlr_pg_empresa.ReadOnly = true;
             this.tb_vlr_pg_empresa.Size = new System.Drawing.Size(100, 23);
             this.tb_vlr_pg_empresa.TabIndex = 2;
             this.tb_vlr_pg_empresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_vlr_pg_empresa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_vlr_pg_empresa_MouseClick);
             this.tb_vlr_pg_empresa.TextChanged += new System.EventHandler(this.tb_vlr_pg_empresa_TextChanged);
-            this.tb_vlr_pg_empresa.Leave += new System.EventHandler(this.tb_vlr_pg_empresa_Leave);
             // 
             // bt_salvar
             // 

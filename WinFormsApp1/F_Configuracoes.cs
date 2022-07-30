@@ -26,6 +26,8 @@ namespace WinFormsApp1
         private void F_Configuracoes_Load(object sender, EventArgs e)
         {
 
+            tb_vlr_kg.BackColor = Color.LightGreen;
+
             string N_VLR_PG_EMPRESA = "select * from tb_configuracoes";
 
             dt = Banco.consulta(N_VLR_PG_EMPRESA);
@@ -55,23 +57,24 @@ namespace WinFormsApp1
 
         private void bt_salvar_Click(object sender, EventArgs e)
         {
-            int verificaVlrKg = Convert.ToInt32(tb_vlr_kg.Text);
+            double verificaVlrKg = Convert.ToDouble(tb_vlr_kg.Text);
+                        
             if (verificaVlrKg <= 10)
             {
                 var verificaPesoBaixo = MessageBox.Show("Valor R$ " + verificaVlrKg + " muito baixo. Confirma? ", "Aviso", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand);
                 if (verificaPesoBaixo == DialogResult.OK)
                 {
                     //CONVERSAO . POR ,
-                    String convertePonto = tb_vlr_kg.Text;
+                    //String convertePonto = tb_vlr_kg.Text;
 
-                    convertePonto = convertePonto.Replace(".", ",");
+                    //convertePonto = convertePonto.Replace(".", ",");
 
 
                     //FIM DA CONVERSAO
 
 
                     //double tb_vlr_kg1 = Convert.ToDouble(tb_vlr_kg.Text);
-                    double convertePonto1 = Convert.ToDouble(convertePonto);
+                    double convertePonto1 = Convert.ToDouble(tb_vlr_kg.Text);
                     //tb_vlr_kg.Text = Convert.ToString((Convert.ToDouble(tb_vlr_kg.Text) / 2));
 
                     double pg_empresa = (convertePonto1 / 2);
@@ -82,8 +85,7 @@ namespace WinFormsApp1
                     dt = Banco.consulta(sql);
 
                     MessageBox.Show("Alterado!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //this.Hide();
-                    //tl_home home = new tl_home();
+                    this.Hide();
                     home.ShowDialog();
                 }
                 else
@@ -98,16 +100,16 @@ namespace WinFormsApp1
             else
             {
                 //CONVERSAO . POR ,
-                String convertePonto = tb_vlr_kg.Text;
+                //String convertePonto = tb_vlr_kg.Text;
 
-                convertePonto = convertePonto.Replace(".", ",");
+                //convertePonto = convertePonto.Replace(".", ",");
 
 
                 //FIM DA CONVERSAO
 
 
 
-                double convertePonto1 = Convert.ToDouble(convertePonto);
+                double convertePonto1 = Convert.ToDouble(tb_vlr_kg.Text);
 
 
                 double pg_empresa = (convertePonto1 / 2);
@@ -118,7 +120,7 @@ namespace WinFormsApp1
                 dt = Banco.consulta(sql);
 
                 MessageBox.Show("Alterado!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                this.Hide();
                 home.ShowDialog();
 
             }
@@ -143,8 +145,8 @@ namespace WinFormsApp1
 
             if (string.IsNullOrWhiteSpace(tb_vlr_kg.Text))
             {
-
                 tb_vlr_kg.Text = "0";
+                tb_vlr_kg.SelectAll();
                 return;
             }
 
@@ -202,15 +204,15 @@ namespace WinFormsApp1
             tb_vlr_kg.BackColor = Color.White;
         }
 
-        private void tb_vlr_pg_empresa_MouseClick(object sender, MouseEventArgs e)
-        {
-            tb_vlr_pg_empresa.BackColor = Color.LightGreen;
-        }
+        //private void tb_vlr_pg_empresa_MouseClick(object sender, MouseEventArgs e)
+        //{
+        //    tb_vlr_pg_empresa.BackColor = Color.LightGreen;
+        //}
 
-        private void tb_vlr_pg_empresa_Leave(object sender, EventArgs e)
-        {
-            tb_vlr_pg_empresa.BackColor = Color.White;
-        }
+        //private void tb_vlr_pg_empresa_Leave(object sender, EventArgs e)
+        //{
+        //    tb_vlr_pg_empresa.BackColor = Color.White;
+        //}
 
 
     }

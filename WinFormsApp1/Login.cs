@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
+
 
 namespace WinFormsApp1
 {
@@ -24,38 +17,33 @@ namespace WinFormsApp1
         {
             string username = cbx_username.Text;
             string senha = tb_senha.Text;
-            
-
-            string sql = $"SELECT * FROM tb_usuario WHERE T_USERNAME = '{username}' AND T_SENHA = '{senha}'";
 
             var processoLogin = new Processos.ProcessoLogin();
-
             var processoValidaLogin = new Processos.ProcessoValidaCampoLogin();
+            processoValidaLogin.EhValidaInformacaoDeLoguin(username, senha);
+            //var obtenhaLogins = processoLogin.ObtenhaLogins(username, senha);
 
-            processoValidaLogin.EhDigitadoLogin(username, senha);
-            
-
-
-            //if (!processoValidaLogin.EhValidaInformacaoDeLoguin(username, senha))
-            //{
-            //    MessageBox.Show("Favor digite login e senha!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //    return;
-            //}
-
-            var obtenhaLogins = processoLogin.ObtenhaLogins(username, senha);
-           
-            dt = Banco.consulta(sql);
-            if (dt.Rows.Count == 1)
+            if (!processoValidaLogin.EhValidaInformacaoDeLoguin(username, senha))
             {
-                //home.ll_usuario.Text = dt.Rows[0].ItemArray[1].ToString(); outra forma de fazer
-                home.ll_usuario.Text = dt.Rows[0].Field<string>("T_NOMEUSUARIO");
-                Globais.logado = true;
-                Globais.user = home.ll_usuario.Text;
-                this.Hide();
+                cbx_username.Focus();
+                MessageBox.Show("Favor digitar usuário e senha!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else
+
+            var obtenhaLogins = new Mapeadores.MapeadorDeLogin() ;
+            dt = obtenhaLogins.ObtenhaLogins(username, senha);
+            if (processoValidaLogin.EhValidaInformacaoDeLoguin(username, senha))
             {
-                MessageBox.Show("Usuario ou senha invalidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                if (dt.Rows.Count == 1)
+                {
+                    home.ll_usuario.Text = dt.Rows[0].Field<string>("T_NOMEUSUARIO");
+                    Globais.logado = true;
+                    Globais.user = home.ll_usuario.Text;
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario ou senha invalidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
             }
         }
 
@@ -75,14 +63,10 @@ namespace WinFormsApp1
                 tl_home home = new tl_home();
                 home.ShowDialog();
             }
-            else {
+            else
+            {
                 Application.Exit();
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-          
         }
 
         private void bt_fechar(object sender, EventArgs e)
@@ -94,29 +78,16 @@ namespace WinFormsApp1
         {
             if (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar)))
             {
-
                 e.Handled = true;
             };
-            
         }
 
         private void tb_senha_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((char.IsWhiteSpace(e.KeyChar)))
             {
-
                 e.Handled = true;
             };
-        }
-
-        private void tb_senha_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_senha_KeyUp(object sender, KeyEventArgs e)
-        {
-            
         }
 
         private void tb_username_KeyDown(object sender, KeyEventArgs e)
@@ -124,7 +95,6 @@ namespace WinFormsApp1
             if (e.KeyCode == Keys.Enter)
             {
                 tb_senha.Focus();
-
             };
         }
 
@@ -133,13 +103,7 @@ namespace WinFormsApp1
             if (e.KeyCode == Keys.Enter)
             {
                 bt_entrar.Focus();
-
             };
-        }
-
-        private void cbx_username_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void cbx_username_KeyDown(object sender, KeyEventArgs e)
@@ -147,13 +111,15 @@ namespace WinFormsApp1
             if (e.KeyCode == Keys.Enter)
             {
                 tb_senha.Focus();
-
             };
         }
 
-        private void ll_sobre_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void cbx_username_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            if (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar)))
+            {
+                e.Handled = true;
+            };
         }
     }
 }

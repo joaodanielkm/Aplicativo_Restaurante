@@ -61,7 +61,7 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(290, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(291, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -113,7 +113,7 @@
             // l_peso
             // 
             this.l_peso.AutoSize = true;
-            this.l_peso.Location = new System.Drawing.Point(49, 126);
+            this.l_peso.Location = new System.Drawing.Point(105, 117);
             this.l_peso.Name = "l_peso";
             this.l_peso.Size = new System.Drawing.Size(49, 15);
             this.l_peso.TabIndex = 1;
@@ -122,7 +122,7 @@
             // dt_data_atual
             // 
             this.dt_data_atual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_data_atual.Location = new System.Drawing.Point(109, 48);
+            this.dt_data_atual.Location = new System.Drawing.Point(106, 37);
             this.dt_data_atual.Name = "dt_data_atual";
             this.dt_data_atual.Size = new System.Drawing.Size(78, 23);
             this.dt_data_atual.TabIndex = 1;
@@ -131,7 +131,7 @@
             // 
             this.l_diversos.AutoSize = true;
             this.l_diversos.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.l_diversos.Location = new System.Drawing.Point(3, 167);
+            this.l_diversos.Location = new System.Drawing.Point(54, 169);
             this.l_diversos.Name = "l_diversos";
             this.l_diversos.Size = new System.Drawing.Size(98, 13);
             this.l_diversos.TabIndex = 4;
@@ -140,9 +140,9 @@
             // tb_diversos_descricao
             // 
             this.tb_diversos_descricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_diversos_descricao.Location = new System.Drawing.Point(102, 164);
+            this.tb_diversos_descricao.Location = new System.Drawing.Point(54, 185);
             this.tb_diversos_descricao.Name = "tb_diversos_descricao";
-            this.tb_diversos_descricao.Size = new System.Drawing.Size(159, 23);
+            this.tb_diversos_descricao.Size = new System.Drawing.Size(193, 23);
             this.tb_diversos_descricao.TabIndex = 3;
             this.tb_diversos_descricao.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_diversos_descricao_MouseClick);
             this.tb_diversos_descricao.TextChanged += new System.EventHandler(this.tb_diversos_descricao_TextChanged);
@@ -152,7 +152,7 @@
             // bt_salvar
             // 
             this.bt_salvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bt_salvar.Location = new System.Drawing.Point(109, 316);
+            this.bt_salvar.Location = new System.Drawing.Point(109, 331);
             this.bt_salvar.Name = "bt_salvar";
             this.bt_salvar.Size = new System.Drawing.Size(75, 23);
             this.bt_salvar.TabIndex = 5;
@@ -163,7 +163,7 @@
             // l_valor_parcial
             // 
             this.l_valor_parcial.AutoSize = true;
-            this.l_valor_parcial.Location = new System.Drawing.Point(58, 268);
+            this.l_valor_parcial.Location = new System.Drawing.Point(53, 292);
             this.l_valor_parcial.Name = "l_valor_parcial";
             this.l_valor_parcial.Size = new System.Drawing.Size(96, 15);
             this.l_valor_parcial.TabIndex = 9;
@@ -172,7 +172,7 @@
             // l_vlr_parcial
             // 
             this.l_vlr_parcial.AutoSize = true;
-            this.l_vlr_parcial.Location = new System.Drawing.Point(184, 268);
+            this.l_vlr_parcial.Location = new System.Drawing.Point(179, 292);
             this.l_vlr_parcial.Name = "l_vlr_parcial";
             this.l_vlr_parcial.Size = new System.Drawing.Size(22, 15);
             this.l_vlr_parcial.TabIndex = 10;
@@ -181,7 +181,7 @@
             // ll_sobre
             // 
             this.ll_sobre.AutoSize = true;
-            this.ll_sobre.Location = new System.Drawing.Point(127, 360);
+            this.ll_sobre.Location = new System.Drawing.Point(129, 369);
             this.ll_sobre.Name = "ll_sobre";
             this.ll_sobre.Size = new System.Drawing.Size(37, 15);
             this.ll_sobre.TabIndex = 7;
@@ -191,20 +191,18 @@
             // 
             // ll_versao
             // 
-            this.ll_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ll_versao.AutoSize = true;
-            this.ll_versao.Location = new System.Drawing.Point(115, 376);
+            this.ll_versao.Location = new System.Drawing.Point(137, 387);
             this.ll_versao.Name = "ll_versao";
             this.ll_versao.Size = new System.Drawing.Size(17, 15);
             this.ll_versao.TabIndex = 8;
             this.ll_versao.TabStop = true;
             this.ll_versao.Text = "--";
-            this.ll_versao.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // l_rs
             // 
             this.l_rs.AutoSize = true;
-            this.l_rs.Location = new System.Drawing.Point(78, 207);
+            this.l_rs.Location = new System.Drawing.Point(68, 226);
             this.l_rs.Name = "l_rs";
             this.l_rs.Size = new System.Drawing.Size(20, 15);
             this.l_rs.TabIndex = 16;
@@ -213,7 +211,6 @@
             // 
             // ll_usuario
             // 
-            this.ll_usuario.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ll_usuario.AutoSize = true;
             this.ll_usuario.Location = new System.Drawing.Point(12, 24);
             this.ll_usuario.Name = "ll_usuario";
@@ -224,7 +221,7 @@
             // l_valor_peso
             // 
             this.l_valor_peso.AutoSize = true;
-            this.l_valor_peso.Location = new System.Drawing.Point(92, 92);
+            this.l_valor_peso.Location = new System.Drawing.Point(77, 83);
             this.l_valor_peso.Name = "l_valor_peso";
             this.l_valor_peso.Size = new System.Drawing.Size(61, 15);
             this.l_valor_peso.TabIndex = 18;
@@ -233,7 +230,7 @@
             // l_vlr_peso_atual
             // 
             this.l_vlr_peso_atual.AutoSize = true;
-            this.l_vlr_peso_atual.Location = new System.Drawing.Point(175, 92);
+            this.l_vlr_peso_atual.Location = new System.Drawing.Point(170, 83);
             this.l_vlr_peso_atual.Name = "l_vlr_peso_atual";
             this.l_vlr_peso_atual.Size = new System.Drawing.Size(22, 15);
             this.l_vlr_peso_atual.TabIndex = 19;
@@ -241,9 +238,8 @@
             // 
             // l_vlrparcial
             // 
-            this.l_vlrparcial.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.l_vlrparcial.AutoSize = true;
-            this.l_vlrparcial.Location = new System.Drawing.Point(184, 240);
+            this.l_vlrparcial.Location = new System.Drawing.Point(179, 264);
             this.l_vlrparcial.Name = "l_vlrparcial";
             this.l_vlrparcial.Size = new System.Drawing.Size(22, 15);
             this.l_vlrparcial.TabIndex = 20;
@@ -252,7 +248,7 @@
             // l_gastodehoje
             // 
             this.l_gastodehoje.AutoSize = true;
-            this.l_gastodehoje.Location = new System.Drawing.Point(58, 240);
+            this.l_gastodehoje.Location = new System.Drawing.Point(53, 264);
             this.l_gastodehoje.Name = "l_gastodehoje";
             this.l_gastodehoje.Size = new System.Drawing.Size(79, 15);
             this.l_gastodehoje.TabIndex = 22;
@@ -262,7 +258,7 @@
             // 
             this.tb_peso1.BackColor = System.Drawing.SystemColors.Window;
             this.tb_peso1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_peso1.Location = new System.Drawing.Point(103, 123);
+            this.tb_peso1.Location = new System.Drawing.Point(106, 136);
             this.tb_peso1.Name = "tb_peso1";
             this.tb_peso1.Size = new System.Drawing.Size(78, 23);
             this.tb_peso1.TabIndex = 2;
@@ -276,13 +272,14 @@
             // tb_outros_valor
             // 
             this.tb_outros_valor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_outros_valor.Location = new System.Drawing.Point(101, 203);
+            this.tb_outros_valor.Location = new System.Drawing.Point(97, 226);
             this.tb_outros_valor.Name = "tb_outros_valor";
             this.tb_outros_valor.Size = new System.Drawing.Size(95, 23);
             this.tb_outros_valor.TabIndex = 4;
             this.tb_outros_valor.Text = "0";
             this.tb_outros_valor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_outros_valor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_outros_valor_MouseClick);
+            this.tb_outros_valor.ReadOnlyChanged += new System.EventHandler(this.tb_outros_valor_ReadOnlyChanged);
             this.tb_outros_valor.TextChanged += new System.EventHandler(this.tb_outros_valor_TextChanged);
             this.tb_outros_valor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_outros_valor_KeyPress);
             this.tb_outros_valor.Leave += new System.EventHandler(this.tb_outros_valor_Leave);
@@ -291,7 +288,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 411);
+            this.ClientSize = new System.Drawing.Size(291, 411);
             this.Controls.Add(this.tb_outros_valor);
             this.Controls.Add(this.tb_peso1);
             this.Controls.Add(this.l_gastodehoje);

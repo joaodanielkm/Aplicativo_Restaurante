@@ -49,7 +49,6 @@
             this.ll_sobre.TabStop = true;
             this.ll_sobre.Text = "Como logar";
             this.ll_sobre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ll_sobre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_sobre_LinkClicked);
             // 
             // l_username
             // 
@@ -78,10 +77,8 @@
             this.tb_senha.TabIndex = 2;
             this.tb_senha.Text = "123";
             this.tb_senha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_senha.TextChanged += new System.EventHandler(this.tb_senha_TextChanged);
             this.tb_senha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_senha_KeyDown);
             this.tb_senha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_senha_KeyPress);
-            this.tb_senha.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tb_senha_KeyUp);
             // 
             // bt_entrar
             // 
@@ -115,8 +112,8 @@
             this.cbx_username.Size = new System.Drawing.Size(180, 23);
             this.cbx_username.TabIndex = 1;
             this.cbx_username.Text = "JOAO";
-            this.cbx_username.TextChanged += new System.EventHandler(this.cbx_username_TextChanged);
             this.cbx_username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbx_username_KeyDown);
+            this.cbx_username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbx_username_KeyPress);
             // 
             // Login
             // 
@@ -148,9 +145,9 @@
         private LinkLabel ll_sobre;
         private Label l_username;
         private Label l_senha;
-        private TextBox tb_senha;
         private Button bt_entrar;
         private Button button1;
         public ComboBox cbx_username;
+        public TextBox tb_senha;
     }
 }
