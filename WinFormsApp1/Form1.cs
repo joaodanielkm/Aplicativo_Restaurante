@@ -8,16 +8,12 @@ namespace WinFormsApp1
     public partial class tl_home : Form
     {
 
-
-
         F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
 
         public tl_home()
         {
             InitializeComponent();
-
-
 
             if (Globais.logado == false)
             {
@@ -26,23 +22,12 @@ namespace WinFormsApp1
                 login.ShowDialog();
                 this.Hide();
 
-
             }
-
 
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void históricoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,9 +80,6 @@ namespace WinFormsApp1
 
             double convertePonto1 = Convert.ToDouble(convertePonto);
 
-            
-
-
             string sql = "select * from tb_configuracoes";
 
             dt = Banco.consulta(sql);
@@ -105,17 +87,9 @@ namespace WinFormsApp1
             string tb_vlr_kg1 = dt.Rows[0].ItemArray[1].ToString();
             string l_vlr_peso_atual1 = dt.Rows[0].ItemArray[1].ToString();
             double pesoAtual = Convert.ToDouble(l_vlr_peso_atual1);
-
-
-            //double vlrEmpresa = Convert.ToDouble(l_vlr_peso_atual.Text);
-
-
             double pesoDigitado = Convert.ToDouble(tb_peso1.Text);
             double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
-            //double tb_outros_valor1 = Convert.ToDouble(this.tb_outros_valor.Text);
-
             double result1 = (pesoDigitado * pesoAtual) / 1000;
-
 
             result1 = (result1 - pagoEmpresa);
             string tb_diversos_descricao1 = tb_diversos_descricao.Text;
@@ -131,8 +105,6 @@ namespace WinFormsApp1
                 if (mensg == DialogResult.Yes)
                 {
 
-
-                    //home.ll_usuario.Text = dt.Rows[0].ItemArray[1].ToString(); outra forma de fazer
                     if (convertePonto1 > 0)
                     {
                         if (!(tb_diversos_descricao1 is null) && tb_diversos_descricao1 != "")
@@ -289,12 +261,6 @@ namespace WinFormsApp1
 
         }
 
-        private void sQLiteToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            /* F_SQLite f_SQLite = new F_SQLite();
-             f_SQLite.ShowDialog();*/
-        }
-
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -316,28 +282,6 @@ namespace WinFormsApp1
             f_Configuracoes.ShowDialog();
 
         }
-
-        private void l_vlr_peso_atual_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void l_vlrparcial_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dt_data_atual_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -502,21 +446,6 @@ namespace WinFormsApp1
             };
         }
 
-        private void tb_peso1_BackColorChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_peso1_KeyDown(object sender, KeyEventArgs e)
-        {
-
-
-            /*if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete || e.KeyCode == (Keys.LControlKey & Keys.A)  || e.KeyCode == (Keys.RControlKey & Keys.A)  || e.KeyCode == (Keys.ControlKey & Keys.A))
-            {
-                e.Handled = true;
-            }*/
-        }
-
         private void tb_outros_valor_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetter(e.KeyChar) || (char.IsWhiteSpace(e.KeyChar) || (char.IsSymbol(e.KeyChar))))
@@ -533,15 +462,6 @@ namespace WinFormsApp1
 
                 e.Handled = true;
             };
-        }
-
-        private void l_vlr_peso_atual_TextChanged(object sender, EventArgs e)
-        {
-            /*String convertePonto = l_vlr_peso_atual.Text;
-
-            convertePonto = convertePonto.Replace(".", ",");
-
-            double convertePonto1 = Convert.ToDouble(convertePonto);*/
         }
 
         private void tb_peso1_MouseClick(object sender, MouseEventArgs e)
@@ -569,14 +489,6 @@ namespace WinFormsApp1
 
         private void tb_peso1_Leave(object sender, EventArgs e)
         {
-            /*int tb_peso11 = Convert.ToInt32(tb_peso1.Text);
-            if (tb_peso11 > 1)
-            {
-                tb_peso11 = 0;
-                tb_peso1.Text = tb_peso1.ToString();
-
-            }*/
-
             tb_peso1.BackColor = Color.White;
         }
 
@@ -595,21 +507,6 @@ namespace WinFormsApp1
             Sobre sobre = new Sobre();
             this.Hide();
             sobre.ShowDialog();
-        }
-
-        private void l_vlr_parcial_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void l_vlrparcial_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void l_diversos_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

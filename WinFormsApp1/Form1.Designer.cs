@@ -76,7 +76,6 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
             this.toolStripMenuItem1.Text = "Menu";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // históricoToolStripMenuItem
             // 
@@ -119,7 +118,6 @@
             this.l_peso.Size = new System.Drawing.Size(49, 15);
             this.l_peso.TabIndex = 1;
             this.l_peso.Text = "Peso Kg";
-            this.l_peso.Click += new System.EventHandler(this.label1_Click);
             // 
             // dt_data_atual
             // 
@@ -128,7 +126,6 @@
             this.dt_data_atual.Name = "dt_data_atual";
             this.dt_data_atual.Size = new System.Drawing.Size(78, 23);
             this.dt_data_atual.TabIndex = 1;
-            this.dt_data_atual.ValueChanged += new System.EventHandler(this.dt_data_atual_ValueChanged);
             // 
             // l_diversos
             // 
@@ -139,7 +136,6 @@
             this.l_diversos.Size = new System.Drawing.Size(98, 13);
             this.l_diversos.TabIndex = 4;
             this.l_diversos.Text = "Outros consumos";
-            this.l_diversos.Click += new System.EventHandler(this.l_diversos_Click);
             // 
             // tb_diversos_descricao
             // 
@@ -181,7 +177,6 @@
             this.l_vlr_parcial.Size = new System.Drawing.Size(22, 15);
             this.l_vlr_parcial.TabIndex = 10;
             this.l_vlr_parcial.Text = "---";
-            this.l_vlr_parcial.TextChanged += new System.EventHandler(this.l_vlr_parcial_TextChanged);
             // 
             // ll_sobre
             // 
@@ -243,8 +238,6 @@
             this.l_vlr_peso_atual.Size = new System.Drawing.Size(22, 15);
             this.l_vlr_peso_atual.TabIndex = 19;
             this.l_vlr_peso_atual.Text = "---";
-            this.l_vlr_peso_atual.TextChanged += new System.EventHandler(this.l_vlr_peso_atual_TextChanged);
-            this.l_vlr_peso_atual.Click += new System.EventHandler(this.l_vlr_peso_atual_Click);
             // 
             // l_vlrparcial
             // 
@@ -255,8 +248,6 @@
             this.l_vlrparcial.Size = new System.Drawing.Size(22, 15);
             this.l_vlrparcial.TabIndex = 20;
             this.l_vlrparcial.Text = "---";
-            this.l_vlrparcial.TextChanged += new System.EventHandler(this.l_vlrparcial_TextChanged);
-            this.l_vlrparcial.Click += new System.EventHandler(this.l_vlrparcial_Click);
             // 
             // l_gastodehoje
             // 
@@ -278,9 +269,7 @@
             this.tb_peso1.Text = "0";
             this.tb_peso1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_peso1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tb_peso1_MouseClick);
-            this.tb_peso1.BackColorChanged += new System.EventHandler(this.tb_peso1_BackColorChanged);
             this.tb_peso1.TextChanged += new System.EventHandler(this.tb_peso_TextChanged);
-            this.tb_peso1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_peso1_KeyDown);
             this.tb_peso1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_peso1_KeyPress);
             this.tb_peso1.Leave += new System.EventHandler(this.tb_peso1_Leave);
             // 
