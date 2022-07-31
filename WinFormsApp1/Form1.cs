@@ -7,10 +7,9 @@ namespace WinFormsApp1
 {
     public partial class tl_home : Form
     {
-        
         F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
-
+        
         public tl_home()
         {
             InitializeComponent();
@@ -39,49 +38,36 @@ namespace WinFormsApp1
 
         private void tl_home_Load(object sender, EventArgs e)
         {
+            
             tb_outros_valor.ReadOnly = true;
 
             //Perciste usuario logado
             ll_usuario.Text = Globais.user;
-
             //VLR DEFINIDO EM CONFIGURAÇÕES
+            
             string sql = "select * from tb_configuracoes";
-
             dt = Banco.consulta(sql);
             l_vlr_peso_atual.Text = Convert.ToDouble(dt.Rows[0].ItemArray[1]).ToString("C2");
-
             //GASTOS DO MES
             string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
-
             dt = Banco.consulta(total_mes);
-
             //CONVERSAO DO TIPO
             l_vlr_parcial.Text = Convert.ToDouble(dt.Rows[0].ItemArray[0]).ToString("C2");
-
-
             //FIM GASTOS DO MES
-
             //VERSAO
             ll_versao.Text = "Versão: " + Globais.versao;
             ll_versao.Refresh();
-
         }
 
         private void bt_salvar_Click(object sender, EventArgs e)
         {
-
-
             String convertePonto = tb_outros_valor.Text;
-
             convertePonto = convertePonto.Replace(".", ",");
-
             double convertePonto1 = Convert.ToDouble(convertePonto);
+            var obtemTabelaConfiguracao = new Mapeadores.MapeadorConsultaTodaTabela();
+            dt = obtemTabelaConfiguracao.ObtemTodaTabelaConfiguracoes();
 
-            string sql = "select * from tb_configuracoes";
-
-            dt = Banco.consulta(sql);
             string tb_vlr_pg_empresa1 = dt.Rows[0].ItemArray[2].ToString();
-            string tb_vlr_kg1 = dt.Rows[0].ItemArray[1].ToString();
             string l_vlr_peso_atual1 = dt.Rows[0].ItemArray[1].ToString();
             double pesoAtual = Convert.ToDouble(l_vlr_peso_atual1);
             double pesoDigitado = Convert.ToDouble(tb_peso1.Text);
@@ -90,12 +76,12 @@ namespace WinFormsApp1
 
             result1 = (result1 - pagoEmpresa);
             string tb_diversos_descricao1 = tb_diversos_descricao.Text;
-
             string dt_data_atual1 = dt_data_atual.Text;
             string sql1 = $"SELECT * FROM tb_dados WHERE T_DATA like '{dt_data_atual1}'";
             dt = Banco.consulta(sql1);
             var processoValidaUpdate = new Processos.ProcessoValidaDadosComandaUpdate();
             var obtemComanda = new Mapeadores.MapeadorDeUpdate();
+            var insereDadosDaComandaDiario = new Mapeadores.MapeadorDeInsert();
             if (dt.Rows.Count >= 1)
             {
                 var mensg = MessageBox.Show("Ja existe lancamento para essa data! Deseja Alterar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
@@ -111,7 +97,6 @@ namespace WinFormsApp1
                                 double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-
                                 obtemComanda.ObtemComanda(pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario, dt_data_atual1);
                                 MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -121,7 +106,6 @@ namespace WinFormsApp1
                                 double result2 = result1 + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-
                                 obtemComanda.ObtemComanda(pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario, dt_data_atual1);
                                 MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
@@ -139,7 +123,6 @@ namespace WinFormsApp1
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
                             obtemComanda.ObtemComanda(pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario, dt_data_atual1);
-
                             MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
@@ -148,7 +131,6 @@ namespace WinFormsApp1
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
                             obtemComanda.ObtemComanda(pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario, dt_data_atual1);
-
                             MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -172,10 +154,7 @@ namespace WinFormsApp1
                                 double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-                                string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto11}','{valor_diario}')";
-                                //string sql = "SELECT * FROM tb_dados";
-
-                                dt = Banco.consulta(sql2);
+                                insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
                                 MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
@@ -183,10 +162,7 @@ namespace WinFormsApp1
                                 double result2 = result1 + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-                                string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto11}','{valor_diario}')";
-                                //string sql = "SELECT * FROM tb_dados";
-
-                                dt = Banco.consulta(sql2);
+                                insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
                                 MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
@@ -203,10 +179,7 @@ namespace WinFormsApp1
                             double result2 = convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto11}','{valor_diario}')";
-                            //string sql = "SELECT * FROM tb_dados";
-
-                            dt = Banco.consulta(sql2);
+                            insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
                             MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
@@ -214,25 +187,17 @@ namespace WinFormsApp1
                             double result2 = result1 + convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-                            string sql2 = $"INSERT INTO tb_dados (T_DATA,N_PESO,T_OUTROSDIVERSOS,N_OUTROSVALOR,T_TOTAL_DIARIO) VALUES ('{dt_data_atual1}',{pesoDigitado},'{tb_diversos_descricao1}','{convertePonto11}','{valor_diario}')";
-                            //string sql = "SELECT * FROM tb_dados";
-
-                            dt = Banco.consulta(sql2);
+                            insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
                             MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
             }
-
-
-
             //GASTOS DO MES
             var obtemSomaTotalDiarioDados = new Mapeadores.MapeadorSomaTotalDiario();
             dt = obtemSomaTotalDiarioDados.ObtemSomaTotalDiarioDados();
-
             l_vlr_parcial.Text = Convert.ToDouble(dt.Rows[0].ItemArray[0]).ToString("C2");
             //FIM GASTOS DO MES
-
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -255,17 +220,6 @@ namespace WinFormsApp1
             f_Configuracoes.ShowDialog();
 
         }
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-
-        //    var obtemSomaTotalDiarioDados = new Mapeadores.MapeadorSomaTotalDiario();
-        //    dt = obtemSomaTotalDiarioDados.ObtemSomaTotalDiarioDados();
-
-        //    l_vlr_parcial.Text = Convert.ToDouble(dt.Rows[0].ItemArray[0]).ToString("C2");
-
-
-        //}
 
         private void tb_diversos_descricao_TextChanged(object sender, EventArgs e)
         {
@@ -463,13 +417,13 @@ namespace WinFormsApp1
 
         private void tb_outros_valor_ReadOnlyChanged(object sender, EventArgs e)
         {
-            if(tb_outros_valor.ReadOnly == true)
+            if (tb_outros_valor.ReadOnly == true)
             {
                 tb_outros_valor.BackColor = Color.LightGray;
             }
             else
             {
-                tb_outros_valor.BackColor= Color.White;
+                tb_outros_valor.BackColor = Color.White;
             }
         }
 

@@ -51,10 +51,10 @@ namespace WinFormsApp1
         {
             cbx_username.Focus();
         }
-        private void tb_username_TextChanged(object sender, EventArgs e)
-        {
-            //cbx_username.CharacterCasing = CharacterCasing.Upper;
-        }
+        //private void tb_username_TextChanged(object sender, EventArgs e)
+        //{
+        //    //cbx_username.CharacterCasing = CharacterCasing.Upper;
+        //}
 
         private void Login_FormClosed_1(object sender, FormClosedEventArgs e)
         {
