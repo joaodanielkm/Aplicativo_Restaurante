@@ -89,10 +89,5 @@ namespace WinFormsApp1
             this.Hide();
             home.ShowDialog();
         }
-
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            logout.Logout();
-        }
     }
 }

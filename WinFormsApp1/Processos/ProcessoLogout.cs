@@ -3,18 +3,17 @@
     internal class ProcessoLogout
     {
         Processos.ProcessoMsg msg = new Processos.ProcessoMsg();
-        tl_home home = new tl_home();
-        Form login = new Form();
-        
 
         public void Logout() {
-            
-            home.ll_usuario.Text = "---";
-            Globais.logado = false;
-            Globais.user = "";
-            home.Hide();
+            //tl_home home = new tl_home();
+            //F_Historico historico = new F_Historico();
+            //Login login = new Login(home);
+            //home.ll_usuario.Text = "---";
+            //Globais.logado = false;
+            //Globais.user = "";
+            //home.ShowDialog();
             msg.Bye();
-            login.ShowDialog();
+            Application.Exit();
         }
     }
 }

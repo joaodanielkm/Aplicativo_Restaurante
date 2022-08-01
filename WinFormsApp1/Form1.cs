@@ -16,7 +16,7 @@ namespace WinFormsApp1
         Processos.ProcessoCalculoDoKg somaDoKg =new Processos.ProcessoCalculoDoKg();
         Processos.ProcessoConvertToDouble convertToDouble = new Processos.ProcessoConvertToDouble();
         Processos.ProcessoMsg msg = new Processos.ProcessoMsg();
-       
+        Processos.ProcessoLogout logout = new Processos.ProcessoLogout();
         F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
         
@@ -206,8 +206,7 @@ namespace WinFormsApp1
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Processos.ProcessoLogout logout = new Processos.ProcessoLogout();
-            this.Hide();
+            logout.Logout();
         }
 
         private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
