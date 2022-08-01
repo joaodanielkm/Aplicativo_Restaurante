@@ -1,10 +1,13 @@
 ﻿using System.Data;
-
+using WinFormsApp1.Mapeadores;
 
 namespace WinFormsApp1
 {
     public partial class Login : Form
     {
+        Processos.ProcessoLogin processoLogin = new Processos.ProcessoLogin();
+        Processos.ProcessoValidaCampoLogin processoValidaLogin = new Processos.ProcessoValidaCampoLogin();
+        Mapeadores.MapeadorDeLogin obtenhaLogins = new Mapeadores.MapeadorDeLogin();
         tl_home home;
         DataTable dt = new DataTable();
         public Login(tl_home h)
@@ -17,9 +20,6 @@ namespace WinFormsApp1
         {
             string username = cbx_username.Text;
             string senha = tb_senha.Text;
-
-            var processoLogin = new Processos.ProcessoLogin();
-            var processoValidaLogin = new Processos.ProcessoValidaCampoLogin();
             processoValidaLogin.EhValidaInformacaoDeLoguin(username, senha);
             //var obtenhaLogins = processoLogin.ObtenhaLogins(username, senha);
 
@@ -28,8 +28,7 @@ namespace WinFormsApp1
                 cbx_username.Focus();
                 MessageBox.Show("Favor digitar usuário e senha!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-            var obtenhaLogins = new Mapeadores.MapeadorDeLogin() ;
+            
             dt = obtenhaLogins.ObtenhaLogins(username, senha);
             if (processoValidaLogin.EhValidaInformacaoDeLoguin(username, senha))
             {
@@ -51,11 +50,6 @@ namespace WinFormsApp1
         {
             cbx_username.Focus();
         }
-        //private void tb_username_TextChanged(object sender, EventArgs e)
-        //{
-        //    //cbx_username.CharacterCasing = CharacterCasing.Upper;
-        //}
-
         private void Login_FormClosed_1(object sender, FormClosedEventArgs e)
         {
             if (Globais.logado == true)

@@ -7,10 +7,20 @@ namespace WinFormsApp1
 {
     public partial class tl_home : Form
     {
+        Mapeadores.MapeadorConsultaTodaTabela obtemTodaTabelaConfiguracoes = new Mapeadores.MapeadorConsultaTodaTabela();
+        Mapeadores.MapeadorConsultaTodaTabela obtemSomaTotalDiario = new Mapeadores.MapeadorConsultaTodaTabela();
+        Mapeadores.MapeadorSomaTotalDiario obtemSomaTotalDiarioDados = new Mapeadores.MapeadorSomaTotalDiario();
+        Mapeadores.MapeadorDeUpdate processoValidaUpdate = new Mapeadores.MapeadorDeUpdate();
+        Mapeadores.MapeadorDeUpdate obtemComanda = new Mapeadores.MapeadorDeUpdate();
+        Mapeadores.MapeadorDeInsert insereDadosDaComandaDiario = new Mapeadores.MapeadorDeInsert();
+        Processos.ProcessoCalculoDoKg somaDoKg =new Processos.ProcessoCalculoDoKg();
+        Processos.ProcessoConvertToDouble convertToDouble = new Processos.ProcessoConvertToDouble();
+        Processos.ProcessoMsg msg = new Processos.ProcessoMsg();
+       
         F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
         
-        public tl_home()
+        public tl_home( )
         {
             InitializeComponent();
 
@@ -22,7 +32,6 @@ namespace WinFormsApp1
                 this.Hide();
 
             }
-
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -43,18 +52,14 @@ namespace WinFormsApp1
 
             //Perciste usuario logado
             ll_usuario.Text = Globais.user;
-            //VLR DEFINIDO EM CONFIGURAÇÕES
+
             
-            string sql = "select * from tb_configuracoes";
-            dt = Banco.consulta(sql);
+            dt = obtemTodaTabelaConfiguracoes.ObtemTodaTabelaConfiguracoes();
             l_vlr_peso_atual.Text = Convert.ToDouble(dt.Rows[0].ItemArray[1]).ToString("C2");
-            //GASTOS DO MES
-            string total_mes = $"select sum(T_TOTAL_DIARIO) from tb_dados";
-            dt = Banco.consulta(total_mes);
-            //CONVERSAO DO TIPO
+
+            dt = obtemSomaTotalDiarioDados.ObtemSomaTotalDiarioDados();
             l_vlr_parcial.Text = Convert.ToDouble(dt.Rows[0].ItemArray[0]).ToString("C2");
-            //FIM GASTOS DO MES
-            //VERSAO
+
             ll_versao.Text = "Versão: " + Globais.versao;
             ll_versao.Refresh();
         }
@@ -64,27 +69,29 @@ namespace WinFormsApp1
             String convertePonto = tb_outros_valor.Text;
             convertePonto = convertePonto.Replace(".", ",");
             double convertePonto1 = Convert.ToDouble(convertePonto);
-            var obtemTabelaConfiguracao = new Mapeadores.MapeadorConsultaTodaTabela();
-            dt = obtemTabelaConfiguracao.ObtemTodaTabelaConfiguracoes();
+            dt = obtemTodaTabelaConfiguracoes.ObtemTodaTabelaConfiguracoes();
 
-            string tb_vlr_pg_empresa1 = dt.Rows[0].ItemArray[2].ToString();
             string l_vlr_peso_atual1 = dt.Rows[0].ItemArray[1].ToString();
-            double pesoAtual = Convert.ToDouble(l_vlr_peso_atual1);
-            double pesoDigitado = Convert.ToDouble(tb_peso1.Text);
-            double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
-            double result1 = (pesoDigitado * pesoAtual) / 1000;
+            string pagoEmpresa1 = dt.Rows[0].ItemArray[2].ToString();
+            string pesoDigitado1 = tb_peso1.Text.ToString();
+            //TESTE DE CONVERSÃO
+            double[] convertTodos = convertToDouble.ConvertToDouble(l_vlr_peso_atual1, pesoDigitado1, pagoEmpresa1);
+            double pesoAtual = convertTodos[0];
+            double pesoDigitado = convertTodos[1];
+            double pagoEmpresa = convertTodos[2];
+            //FIM DO TESTE :P
+            double somaDoKgReturn = somaDoKg.SomaDoKg(pesoDigitado, pesoAtual, pagoEmpresa);
 
-            result1 = (result1 - pagoEmpresa);
             string tb_diversos_descricao1 = tb_diversos_descricao.Text;
             string dt_data_atual1 = dt_data_atual.Text;
             string sql1 = $"SELECT * FROM tb_dados WHERE T_DATA like '{dt_data_atual1}'";
+
             dt = Banco.consulta(sql1);
-            var processoValidaUpdate = new Processos.ProcessoValidaDadosComandaUpdate();
-            var obtemComanda = new Mapeadores.MapeadorDeUpdate();
-            var insereDadosDaComandaDiario = new Mapeadores.MapeadorDeInsert();
+
             if (dt.Rows.Count >= 1)
             {
-                var mensg = MessageBox.Show("Ja existe lancamento para essa data! Deseja Alterar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                var mensg = msg.DesejaAlterar();
+                
                 if (mensg == DialogResult.Yes)
                 {
 
@@ -92,22 +99,22 @@ namespace WinFormsApp1
                     {
                         if (!(tb_diversos_descricao1 is null) && tb_diversos_descricao1 != "")
                         {
-                            if (result1 < 0)
+                            if (somaDoKgReturn < 0)
                             {
                                 double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
                                 obtemComanda.ObtemComanda(pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario, dt_data_atual1);
-                                MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                msg.Salvo();
 
                             }
                             else
                             {
-                                double result2 = result1 + convertePonto1;
+                                double result2 = somaDoKgReturn + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
                                 obtemComanda.ObtemComanda(pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario, dt_data_atual1);
-                                MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                msg.Salvo();
                             }
                         }
                         else
@@ -117,21 +124,21 @@ namespace WinFormsApp1
                     }
                     else
                     {
-                        if (result1 < 0)
+                        if (somaDoKgReturn < 0)
                         {
                             double result2 = convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
                             obtemComanda.ObtemComanda(pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario, dt_data_atual1);
-                            MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msg.Salvo();
                         }
                         else
                         {
-                            double result2 = result1 + convertePonto1;
+                            double result2 = somaDoKgReturn + convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
                             obtemComanda.ObtemComanda(pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario, dt_data_atual1);
-                            MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msg.Salvo();
                         }
                     }
                 }
@@ -148,22 +155,22 @@ namespace WinFormsApp1
                     {
                         if (!(tb_diversos_descricao1 is null) && tb_diversos_descricao1 != "")
                         {
-                            if (result1 < 0)
+                            if (somaDoKgReturn < 0)
                             {
 
                                 double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
                                 insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
-                                MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                msg.Salvo();
                             }
                             else
                             {
-                                double result2 = result1 + convertePonto1;
+                                double result2 = somaDoKgReturn + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
                                 insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
-                                MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                msg.Salvo();
                             }
                         }
                         else
@@ -173,44 +180,34 @@ namespace WinFormsApp1
                     }
                     else
                     {
-                        if (result1 < 0)
+                        if (somaDoKgReturn < 0)
                         {
 
                             double result2 = convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
                             insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
-                            MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msg.Salvo();
                         }
                         else
                         {
-                            double result2 = result1 + convertePonto1;
+                            double result2 = somaDoKgReturn + convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
                             insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
-                            MessageBox.Show("Salvo!", "Lançamento", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msg.Salvo();
                         }
                     }
                 }
             }
-            //GASTOS DO MES
-            var obtemSomaTotalDiarioDados = new Mapeadores.MapeadorSomaTotalDiario();
             dt = obtemSomaTotalDiarioDados.ObtemSomaTotalDiarioDados();
             l_vlr_parcial.Text = Convert.ToDouble(dt.Rows[0].ItemArray[0]).ToString("C2");
-            //FIM GASTOS DO MES
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            ll_usuario.Text = "---";
-            Globais.logado = false;
-            Globais.user = "";
+            Processos.ProcessoLogout logout = new Processos.ProcessoLogout();
             this.Hide();
-            MessageBox.Show("Até logo!", "Bye", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Login login = new Login(this);
-            login.ShowDialog();
-
         }
 
         private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -247,22 +244,17 @@ namespace WinFormsApp1
                 tb_peso1.SelectAll();
             }
 
-            //Calculo parcial
-
-            var obtemTodaTabelaConfiguracoes = new Mapeadores.MapeadorConsultaTodaTabela();
             dt = obtemTodaTabelaConfiguracoes.ObtemTodaTabelaConfiguracoes();
             string tb_vlr_pg_empresa1 = dt.Rows[0].ItemArray[2].ToString();
             string l_vlr_peso_atual1 = dt.Rows[0].ItemArray[1].ToString();
-
 
             double pesoAtual = Convert.ToDouble(l_vlr_peso_atual1);
             double pesoDigitado = Convert.ToDouble(tb_peso1.Text);
             double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
             double tb_outros_valor1 = Convert.ToDouble(tb_outros_valor.Text);
-            double result1 = (pesoDigitado * pesoAtual) / 1000;
-            result1 = (result1 - pagoEmpresa);
+            double somaDoKgReturn = somaDoKg.SomaDoKg(pesoDigitado, pesoAtual, pagoEmpresa);
 
-            if (result1 < 0)
+            if (somaDoKgReturn < 0)
             {
                 double result2 = tb_outros_valor1;
                 l_vlrparcial.Text = result2.ToString("C2");
@@ -277,7 +269,7 @@ namespace WinFormsApp1
             }
             else
             {
-                double result2 = result1 + tb_outros_valor1;
+                double result2 = somaDoKgReturn + tb_outros_valor1;
                 l_vlrparcial.Text = result2.ToString("C2");
                 if (result2 > 6)
                 {
@@ -301,12 +293,9 @@ namespace WinFormsApp1
 
             }
             String convertePonto = tb_outros_valor.Text;
-
             convertePonto = convertePonto.Replace(".", ",");
-
             double convertePonto1 = Convert.ToDouble(convertePonto);
 
-            var obtemTodaTabelaConfiguracoes = new Mapeadores.MapeadorConsultaTodaTabela();
             dt = obtemTodaTabelaConfiguracoes.ObtemTodaTabelaConfiguracoes();
 
             string tb_vlr_pg_empresa1 = dt.Rows[0].ItemArray[2].ToString();
@@ -315,10 +304,9 @@ namespace WinFormsApp1
             double pesoAtual = Convert.ToDouble(l_vlr_peso_atual1);
             double pesoDigitado = Convert.ToDouble(tb_peso1.Text);
             double pagoEmpresa = Convert.ToDouble(tb_vlr_pg_empresa1);
-            double result1 = (pesoDigitado * pesoAtual) / 1000;
-            result1 = (result1 - pagoEmpresa);
+            double somaDoKgReturn = somaDoKg.SomaDoKg(pesoDigitado, pesoAtual, pagoEmpresa);
 
-            if (result1 < 0)
+            if (somaDoKgReturn < 0)
             {
 
                 double result2 = convertePonto1;
@@ -334,7 +322,7 @@ namespace WinFormsApp1
             }
             else
             {
-                double result2 = result1 + convertePonto1;
+                double result2 = somaDoKgReturn + convertePonto1;
                 l_vlrparcial.Text = Convert.ToDouble(result2).ToString("C2");
                 if (result2 > 6)
                 {

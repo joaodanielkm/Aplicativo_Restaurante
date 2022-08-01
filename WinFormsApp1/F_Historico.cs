@@ -13,6 +13,7 @@ namespace WinFormsApp1
 {
     public partial class F_Historico : Form
     {
+        Processos.ProcessoLogout logout = new Processos.ProcessoLogout();
         DataTable dt = new DataTable();
         public F_Historico()
         {
@@ -89,14 +90,9 @@ namespace WinFormsApp1
             home.ShowDialog();
         }
 
-        private void dgv_historico_SelectionChanged(object sender, EventArgs e)
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dgv_historico_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            logout.Logout();
         }
     }
 }
