@@ -7,43 +7,37 @@ namespace WinFormsApp1
     {
         Processos.ProcessoLogin processoLogin = new Processos.ProcessoLogin();
         Processos.ProcessoValidaCampoLogin processoValidaLogin = new Processos.ProcessoValidaCampoLogin();
-        Mapeadores.MapeadorDeLogin obtenhaLogins = new Mapeadores.MapeadorDeLogin();
-        tl_home home;
-        DataTable dt = new DataTable();
-        public Login(tl_home h)
+
+        public Login()
         {
             InitializeComponent();
-            home = h;
         }
 
         private void bt_entrar_Click(object sender, EventArgs e)
         {
             string username = cbx_username.Text;
             string senha = tb_senha.Text;
-            processoValidaLogin.EhValidaInformacaoDeLoguin(username, senha);
-            //var obtenhaLogins = processoLogin.ObtenhaLogins(username, senha);
 
             if (!processoValidaLogin.EhValidaInformacaoDeLoguin(username, senha))
             {
                 cbx_username.Focus();
                 MessageBox.Show("Favor digitar usuário e senha!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
             
-            dt = obtenhaLogins.ObtenhaLogins(username, senha);
-            if (processoValidaLogin.EhValidaInformacaoDeLoguin(username, senha))
+            string login = processoLogin.ObtenhaLogins(username, senha);
+
+            if (string.IsNullOrEmpty(login))
             {
-                if (dt.Rows.Count == 1)
-                {
-                    home.ll_usuario.Text = dt.Rows[0].Field<string>("T_NOMEUSUARIO");
-                    Globais.logado = true;
-                    Globais.user = home.ll_usuario.Text;
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Usuario ou senha invalidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                }
+                MessageBox.Show("Usuario ou senha invalidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
             }
+
+            
+            Globais.EstaLogado = true;
+            Globais.user = login;
+
+            this.DialogResult = DialogResult.OK;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -52,7 +46,7 @@ namespace WinFormsApp1
         }
         private void Login_FormClosed_1(object sender, FormClosedEventArgs e)
         {
-            if (Globais.logado == true)
+            if (Globais.EstaLogado)
             {
                 tl_home home = new tl_home();
                 home.ShowDialog();

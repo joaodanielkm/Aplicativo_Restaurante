@@ -10,28 +10,30 @@ namespace WinFormsApp1
         Mapeadores.MapeadorConsultaTodaTabela obtemTodaTabelaConfiguracoes = new Mapeadores.MapeadorConsultaTodaTabela();
         Mapeadores.MapeadorConsultaTodaTabela obtemSomaTotalDiario = new Mapeadores.MapeadorConsultaTodaTabela();
         Mapeadores.MapeadorSomaTotalDiario obtemSomaTotalDiarioDados = new Mapeadores.MapeadorSomaTotalDiario();
-        Mapeadores.MapeadorDeUpdate processoValidaUpdate = new Mapeadores.MapeadorDeUpdate();
-        Mapeadores.MapeadorDeUpdate obtemComanda = new Mapeadores.MapeadorDeUpdate();
-        Mapeadores.MapeadorDeInsert insereDadosDaComandaDiario = new Mapeadores.MapeadorDeInsert();
+        Mapeadores.MapeadorDeComanda processoValidaUpdate = new Mapeadores.MapeadorDeComanda();
+        Mapeadores.MapeadorDeComanda obtemComanda = new Mapeadores.MapeadorDeComanda();
         Processos.ProcessoCalculoDoKg somaDoKg =new Processos.ProcessoCalculoDoKg();
         Processos.ProcessoConvertToDouble convertToDouble = new Processos.ProcessoConvertToDouble();
         Processos.ProcessoMsg msg = new Processos.ProcessoMsg();
         Processos.ProcessoLogout logout = new Processos.ProcessoLogout();
-        F_Configuracoes configuracoes;
+        //F_Configuracoes configuracoes;
         DataTable dt = new DataTable();
         
         public tl_home( )
         {
             InitializeComponent();
 
-            if (Globais.logado == false)
+            if (!Globais.EstaLogado)
             {
-                Login login = new Login(this);
+                Login login = new Login();
 
-                login.ShowDialog();
-                this.Hide();
-
+                if(login.ShowDialog() != DialogResult.OK)
+                {
+                    this.Hide();
+                };
             }
+
+            this.ll_usuario.Text = Globais.user;
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -104,7 +106,16 @@ namespace WinFormsApp1
                                 double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-                                obtemComanda.ObtemComanda(pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario, dt_data_atual1);
+                                var comanda = new Negocio.Comanda()
+                                {
+                                    pesoDigitado = pesoDigitado.ToString(),
+                                    tb_diversos_descricao1 = tb_diversos_descricao.Text,
+                                    convertePonto11 = convertePonto11,
+                                    valor_diario = valor_diario,
+                                    dt_data_atual1 = dt_data_atual.Text
+                                };
+
+                                obtemComanda.ObtemComanda(comanda);
                                 msg.Salvo();
 
                             }
@@ -161,7 +172,7 @@ namespace WinFormsApp1
                                 double result2 = convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-                                insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
+                                new Mapeadores.MapeadorDeComanda().InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
                                 msg.Salvo();
                             }
                             else
@@ -169,7 +180,7 @@ namespace WinFormsApp1
                                 double result2 = somaDoKgReturn + convertePonto1;
                                 string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                                 string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-                                insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
+                                new Mapeadores.MapeadorDeComanda().InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
                                 msg.Salvo();
                             }
                         }
@@ -186,7 +197,7 @@ namespace WinFormsApp1
                             double result2 = convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-                            insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
+                            new Mapeadores.MapeadorDeComanda().InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
                             msg.Salvo();
                         }
                         else
@@ -194,7 +205,7 @@ namespace WinFormsApp1
                             double result2 = somaDoKgReturn + convertePonto1;
                             string valor_diario = result2.ToString("F2", CultureInfo.InvariantCulture);
                             string convertePonto11 = convertePonto1.ToString("F2", CultureInfo.InvariantCulture);
-                            insereDadosDaComandaDiario.InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
+                            new Mapeadores.MapeadorDeComanda().InsereDadosDaComanda(dt_data_atual1, pesoDigitado.ToString(), tb_diversos_descricao1, convertePonto11, valor_diario);
                             msg.Salvo();
                         }
                     }
@@ -214,12 +225,10 @@ namespace WinFormsApp1
             F_Configuracoes f_Configuracoes = new F_Configuracoes(this);
             this.Hide();
             f_Configuracoes.ShowDialog();
-
         }
 
         private void tb_diversos_descricao_TextChanged(object sender, EventArgs e)
         {
-
             tb_diversos_descricao.CharacterCasing = CharacterCasing.Upper;
 
             string outrosConsumos = tb_diversos_descricao.Text;
@@ -278,7 +287,6 @@ namespace WinFormsApp1
                 {
                     l_vlrparcial.ForeColor = Color.Black;
                 }
-
             }
             l_vlrparcial.Refresh();
         }
@@ -289,7 +297,6 @@ namespace WinFormsApp1
             {
                 tb_outros_valor.Text = "0";
                 tb_outros_valor.SelectAll();
-
             }
             String convertePonto = tb_outros_valor.Text;
             convertePonto = convertePonto.Replace(".", ",");

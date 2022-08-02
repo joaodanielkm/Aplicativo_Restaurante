@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using WinFormsApp1.Negocio;
 
 namespace WinFormsApp1
 {
@@ -50,14 +51,22 @@ namespace WinFormsApp1
                      iif (CAST(T_TOTAL_DIARIO AS NUMERIC (17,8)) <= 0 , '' , 'R$ '||  replace(T_TOTAL_DIARIO, '.',',') ) as 'valor total diario'
                      from tb_dados";
 
-
-            dgv_historico.DataSource = Banco.consulta(sql);
-
-
+            List<Comanda> comandas = new Processos.ProcessoDeComanda().ObtenhaComandas();
+            dgv_historico.DataSource = comandas;
+            
+            //avaliar estrutura de colunas
+            dgv_historico.Columns[0].HeaderText = "Data";
+            dgv_historico.Columns[0].DataPropertyName = nameof(Comanda.dt_data_atual1);
             dgv_historico.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgv_historico.Columns[1].HeaderText = "Peso";
+            dgv_historico.Columns[1].DataPropertyName = nameof(Comanda.pesoDigitado);
             dgv_historico.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             dgv_historico.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
             dgv_historico.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             dgv_historico.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             
             
@@ -88,6 +97,11 @@ namespace WinFormsApp1
             tl_home home = new tl_home();
             this.Hide();
             home.ShowDialog();
+        }
+
+        private void dgv_historico_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

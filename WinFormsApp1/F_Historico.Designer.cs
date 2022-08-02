@@ -70,7 +70,7 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
@@ -161,6 +161,7 @@
             this.dgv_historico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_historico.Size = new System.Drawing.Size(498, 353);
             this.dgv_historico.TabIndex = 1;
+            this.dgv_historico.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_historico_CellContentClick);
             // 
             // cb_meses
             // 

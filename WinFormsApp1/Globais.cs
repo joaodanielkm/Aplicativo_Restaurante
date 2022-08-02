@@ -9,7 +9,7 @@ namespace WinFormsApp1
     internal class Globais
     {
            public static string versao = "1.0";
-           public static Boolean logado = false;
+           public static Boolean EstaLogado = false;
            public static string user = "";
            public static int nivel = 0;
            public static string sobre = "Sistema para aprendizado da linguagem C#.";
